@@ -4,10 +4,19 @@ import { threads } from 'wasm-feature-detect';
 import { cpus } from 'os';
 
 // We use `navigator.hardwareConcurrency` for Emscripten’s pthread pool size.
-// This is the only workaround I can get working without crying.
-(globalThis as any).navigator = {
-  hardwareConcurrency: cpus().length,
-};
+// At this point exists more for backwards compatibility, modern Node disallows
+// setting this.
+const currentGlobal = (globalThis as any);
+if (typeof currentGlobal?.navigator?.hardwareConcurrency === 'undefined') {
+  try {
+    currentGlobal.navigator = {
+      hardwareConcurrency: cpus().length,
+    };
+  }
+  catch (error) {
+    console.warn('Warning: Failed to set navigator.hardwareConcurrency.');
+  }
+}
 
 interface DecodeModule extends EmscriptenWasm.Module {
   decode: (data: Uint8Array) => ImageData;
@@ -29,21 +38,12 @@ interface ResizeWithAspectParams {
   target_height: number;
 }
 
-export interface ResizeOptions {
+interface ResizeInstantiateOptions {
   width: number;
   height: number;
-  method: 'triangle' | 'catrom' | 'mitchell' | 'lanczos3';
+  method: string;
   premultiply: boolean;
   linearRGB: boolean;
-}
-
-export interface QuantOptions {
-  numColors: number;
-  dither: number;
-}
-
-export interface RotateOptions {
-  numRotations: number;
 }
 
 declare global {
@@ -61,7 +61,6 @@ import mozEnc from '../../codecs/mozjpeg/enc/mozjpeg_node_enc.js';
 import mozEncWasm from 'asset-url:../../codecs/mozjpeg/enc/mozjpeg_node_enc.wasm';
 import mozDec from '../../codecs/mozjpeg/dec/mozjpeg_node_dec.js';
 import mozDecWasm from 'asset-url:../../codecs/mozjpeg/dec/mozjpeg_node_dec.wasm';
-import type { EncodeOptions as MozJPEGEncodeOptions } from '../../codecs/mozjpeg/enc/mozjpeg_enc';
 
 // WebP
 import type { WebPModule as WebPEncodeModule } from '../../codecs/webp/enc/webp_enc';
@@ -69,7 +68,6 @@ import webpEnc from '../../codecs/webp/enc/webp_node_enc.js';
 import webpEncWasm from 'asset-url:../../codecs/webp/enc/webp_node_enc.wasm';
 import webpDec from '../../codecs/webp/dec/webp_node_dec.js';
 import webpDecWasm from 'asset-url:../../codecs/webp/dec/webp_node_dec.wasm';
-import type { EncodeOptions as WebPEncodeOptions } from '../../codecs/webp/enc/webp_enc.js';
 
 // AVIF
 import type { AVIFModule as AVIFEncodeModule } from '../../codecs/avif/enc/avif_enc';
@@ -80,7 +78,6 @@ import avifEncMtWorker from 'chunk-url:../../codecs/avif/enc/avif_node_enc_mt.wo
 import avifEncMtWasm from 'asset-url:../../codecs/avif/enc/avif_node_enc_mt.wasm';
 import avifDec from '../../codecs/avif/dec/avif_node_dec.js';
 import avifDecWasm from 'asset-url:../../codecs/avif/dec/avif_node_dec.wasm';
-import type { EncodeOptions as AvifEncodeOptions } from '../../codecs/avif/enc/avif_enc.js';
 
 // JXL
 import type { JXLModule as JXLEncodeModule } from '../../codecs/jxl/enc/jxl_enc';
@@ -88,7 +85,6 @@ import jxlEnc from '../../codecs/jxl/enc/jxl_node_enc.js';
 import jxlEncWasm from 'asset-url:../../codecs/jxl/enc/jxl_node_enc.wasm';
 import jxlDec from '../../codecs/jxl/dec/jxl_node_dec.js';
 import jxlDecWasm from 'asset-url:../../codecs/jxl/dec/jxl_node_dec.wasm';
-import type { EncodeOptions as JxlEncodeOptions } from '../../codecs/jxl/enc/jxl_enc.js';
 
 // WP2
 import type { WP2Module as WP2EncodeModule } from '../../codecs/wp2/enc/wp2_enc';
@@ -96,7 +92,6 @@ import wp2Enc from '../../codecs/wp2/enc/wp2_node_enc.js';
 import wp2EncWasm from 'asset-url:../../codecs/wp2/enc/wp2_node_enc.wasm';
 import wp2Dec from '../../codecs/wp2/dec/wp2_node_dec.js';
 import wp2DecWasm from 'asset-url:../../codecs/wp2/dec/wp2_node_dec.wasm';
-import type { EncodeOptions as WP2EncodeOptions } from '../../codecs/wp2/enc/wp2_enc.js';
 
 // PNG
 import * as pngEncDec from '../../codecs/png/pkg/squoosh_png.js';
@@ -109,9 +104,6 @@ const pngEncDecPromise = pngEncDec.default(
 import * as oxipng from '../../codecs/oxipng/pkg/squoosh_oxipng.js';
 import oxipngWasm from 'asset-url:../../codecs/oxipng/pkg/squoosh_oxipng_bg.wasm';
 const oxipngPromise = oxipng.default(fsp.readFile(pathify(oxipngWasm)));
-interface OxiPngEncodeOptions {
-  level: number;
-}
 
 // Resize
 import * as resize from '../../codecs/resize/pkg/squoosh_resize.js';
@@ -188,7 +180,13 @@ export const preprocessors = {
         buffer: Uint8Array,
         input_width: number,
         input_height: number,
-        { width, height, method, premultiply, linearRGB }: ResizeOptions,
+        {
+          width,
+          height,
+          method,
+          premultiply,
+          linearRGB,
+        }: ResizeInstantiateOptions,
       ) => {
         ({ width, height } = resizeWithAspect({
           input_width,
@@ -229,16 +227,17 @@ export const preprocessors = {
         buffer: Uint8Array,
         width: number,
         height: number,
-        { numColors, dither }: QuantOptions,
-      ) =>
-        new ImageData(
-          imageQuant.quantize(buffer, width, height, numColors, dither),
+        { maxNumColors, dither }: { maxNumColors: number; dither: number },
+      ) => {
+        return new ImageData(
+          imageQuant.quantize(buffer, width, height, maxNumColors, dither),
           width,
           height,
         );
+      };
     },
     defaultOptions: {
-      numColors: 255,
+      maxNumColors: 255,
       dither: 1.0,
     },
   },
@@ -250,7 +249,7 @@ export const preprocessors = {
         buffer: Uint8Array,
         width: number,
         height: number,
-        { numRotations }: RotateOptions,
+        { numRotations }: { numRotations: number },
       ) => {
         const degrees = (numRotations * 90) % 360;
         const sameDimensions = degrees == 0 || degrees == 180;
@@ -412,14 +411,13 @@ export const codecs = {
         jxlEncWasm,
       ),
     defaultEncoderOptions: {
-      effort: 1,
+      speed: 4,
       quality: 75,
       progressive: false,
       epf: -1,
+      nearLossless: 0,
       lossyPalette: false,
       decodingSpeedTier: 0,
-      photonNoiseIso: 0,
-      lossyModular: false,
     },
     autoOptimize: {
       option: 'quality',
@@ -471,19 +469,21 @@ export const codecs = {
           buffer: Uint8ClampedArray | ArrayBuffer,
           width: number,
           height: number,
-          opts: { level: number },
+          opts: { level: number; interlace: boolean },
         ) => {
-          const simplePng = pngEncDec.encode(
-            new Uint8Array(buffer),
+          return oxipng.optimise(
+            new Uint8ClampedArray(buffer),
             width,
             height,
+            opts.level,
+            opts.interlace,
           );
-          return oxipng.optimise(simplePng, opts.level, false);
         },
       };
     },
     defaultEncoderOptions: {
       level: 2,
+      interlace: false,
     },
     autoOptimize: {
       option: 'level',
@@ -492,12 +492,3 @@ export const codecs = {
     },
   },
 } as const;
-
-export {
-  MozJPEGEncodeOptions,
-  WebPEncodeOptions,
-  AvifEncodeOptions,
-  JxlEncodeOptions,
-  WP2EncodeOptions,
-  OxiPngEncodeOptions,
-};

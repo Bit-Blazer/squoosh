@@ -175,7 +175,7 @@ export default class Options extends Component<Props, State> {
                 <div class={style.titleAndButtons}>
                   Edit
                   <button
-                    class={style.cliButton}
+                    className={style.cliButton}
                     title="Copy npx command"
                     onClick={this.onCopyCliClick}
                   >

@@ -3,8 +3,7 @@
   "compilerOptions": {
     "lib": ["esnext"],
     "types": ["node"],
-    "allowJs": true,
-    "declaration": true
+    "allowJs": true
   },
   "include": ["src/**/*", "../codecs/**/*"]
 }

@@ -4,11 +4,42 @@ import { program } from 'commander/esm.mjs';
 import JSON5 from 'json5';
 import path from 'path';
 import { promises as fsp } from 'fs';
+import fs from 'fs';
 import { cpus } from 'os';
 import ora from 'ora';
 import kleur from 'kleur';
+import EventEmitter from 'events';
+import { fileURLToPath } from 'url';
 
 import { ImagePool, preprocessors, encoders } from '@squoosh/lib';
+// import { ImagePool, preprocessors, encoders } from '../../libsquoosh/build/index.js';
+
+let cliVersion;
+let libVersion;
+try {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const packageJson = JSON.parse(fs.readFileSync(
+    `${__dirname}/../package.json`).toString(),
+  );
+  const libJson = JSON.parse(fs.readFileSync(
+    `${__dirname}/../node_modules/@squoosh/lib/package.json`).toString(),
+  );
+  cliVersion = 'v' + packageJson.version;
+  libVersion = 'v' + libJson.version;
+}
+catch (_) {
+  cliVersion = 'Version: unknown';
+  libVersion = 'Version: unknown';
+}
+
+const coreCount = cpus().length;
+const prettyLogLimit = 16;
+EventEmitter.defaultMaxListeners = 64;
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error(`Unhandled Rejection:`, promise, '\nTrace:', { reason });
+});
 
 function clamp(v, min, max) {
   if (v < min) return min;
@@ -16,14 +47,17 @@ function clamp(v, min, max) {
   return v;
 }
 
-const suffix = ['B', 'KB', 'MB'];
+const suffix = [ 'B', 'KB', 'MB' ];
+
 function prettyPrintSize(size) {
   const base = Math.floor(Math.log2(size) / 10);
   const index = clamp(base, 0, 2);
   return (size / 2 ** (10 * index)).toFixed(2) + suffix[index];
 }
 
-function progressTracker(results) {
+// Shows a fancy output. Used only for small file counts, larger counts glitch
+// and create unreadable outputs.
+function prettyProgressTracker(results) {
   const spinner = ora();
   const tracker = {};
   tracker.spinner = spinner;
@@ -44,17 +78,24 @@ function progressTracker(results) {
     );
     update();
   };
+
   function update() {
     spinner.text = progress + kleur.bold(status) + getResultsText();
   }
+
   tracker.finish = (text) => {
     spinner.succeed(kleur.bold(text) + getResultsText());
   };
+
   function getResultsText() {
     let out = '';
     for (const result of results.values()) {
       out += `\n ${kleur.cyan(result.file)}: ${prettyPrintSize(result.size)}`;
-      for (const { outputFile, size: outputSize, infoText } of result.outputs) {
+      for (const {
+        outputFile,
+        size: outputSize,
+        infoText
+      } of result.outputs) {
         out += `\n  ${kleur.dim('└')} ${kleur.cyan(
           outputFile.padEnd(5),
         )} → ${prettyPrintSize(outputSize)}`;
@@ -67,8 +108,26 @@ function progressTracker(results) {
     }
     return out || '\n';
   }
+
   spinner.start();
   return tracker;
+}
+
+// Generates plain and boring output. Used when processing large amounts of
+// files.
+function plainProgressTracker() {
+  return {
+    setStatus: (status) => console.log(kleur.bold('Status:'), status),
+    setProgress: (current, total, file) => {
+      if (file) {
+        console.log('Progress:', `${current}/${total} (${file})`);
+      }
+      else {
+        console.log('Working...');
+      }
+    },
+    finish: () => console.log('Processing complete.'),
+  };
 }
 
 async function getInputFiles(paths) {
@@ -77,19 +136,21 @@ async function getInputFiles(paths) {
   for (const inputPath of paths) {
     const files = (await fsp.lstat(inputPath)).isDirectory()
       ? (await fsp.readdir(inputPath, { withFileTypes: true }))
-          .filter((dirent) => dirent.isFile())
-          .map((dirent) => path.join(inputPath, dirent.name))
-      : [inputPath];
+        .filter((dirent) => dirent.isFile())
+        .map((dirent) => path.join(inputPath, dirent.name))
+      : [ inputPath ];
     for (const file of files) {
       try {
         await fsp.stat(file);
-      } catch (err) {
+      }
+      catch (err) {
         if (err.code === 'ENOENT') {
           console.warn(
             `Warning: Input file does not exist: ${path.resolve(file)}`,
           );
           continue;
-        } else {
+        }
+        else {
           throw err;
         }
       }
@@ -101,33 +162,62 @@ async function getInputFiles(paths) {
   return validFiles;
 }
 
-async function processFiles(files) {
-  files = await getInputFiles(files);
-
-  const imagePool = new ImagePool(cpus().length);
+async function processAllFiles(allFiles, maxConcurrentFiles) {
+  try {
+    allFiles = await getInputFiles(allFiles);
+  }
+  catch (error) {
+    console.error('->', error);
+    return process.exit(1);
+  }
 
   const results = new Map();
-  const progress = progressTracker(results);
 
-  progress.setStatus('Decoding...');
-  progress.totalOffset = files.length;
-  progress.setProgress(0, files.length);
+  if (allFiles.length < prettyLogLimit && allFiles.length < maxConcurrentFiles) {
+    const progress = prettyProgressTracker(results);
+    return await processBatch(allFiles, progress, maxConcurrentFiles, results);
+  }
+  else {
+    const progress = plainProgressTracker(results);
+    console.log(
+      kleur.bold(`Will process at most ${maxConcurrentFiles} files at a time`),
+    );
 
-  // Create output directory
-  await fsp.mkdir(program.opts().outputDir, { recursive: true });
+    const iterations = Math.ceil(allFiles.length / maxConcurrentFiles);
+    for (let i = 0; i < iterations; i++) {
+      const offsetStart = i * maxConcurrentFiles;
+      const offsetEnd = offsetStart + maxConcurrentFiles;
+      const fileBatch = allFiles.slice(offsetStart, offsetEnd);
+      console.log(
+        `Processing batch ${i + 1} of ${iterations} ` +
+        `(images ${offsetStart + 1} through ${offsetStart + fileBatch.length})`,
+      );
+      await processBatch(fileBatch, progress, maxConcurrentFiles, results);
+      results.clear();
+      console.log();
+    }
+  }
+}
+
+async function processBatch(files, progressTracker, threadCount, results) {
+  const imagePool = new ImagePool(threadCount);
+  progressTracker.setStatus('Decoding');
+
+  progressTracker.totalOffset = files.length;
+  progressTracker.setProgress(0, files.length);
 
   let decoded = 0;
   let decodedFiles = await Promise.all(
     files.map(async (file) => {
       const buffer = await fsp.readFile(file);
       const image = imagePool.ingestImage(buffer);
-      await image.decoded;
+      const decodedImage = await image.decoded;
       results.set(image, {
         file,
-        size: (await image.decoded).size,
+        size: decodedImage.size,
         outputs: [],
       });
-      progress.setProgress(++decoded, files.length);
+      progressTracker.setProgress(++decoded, files.length, file);
       return image;
     }),
   );
@@ -149,11 +239,11 @@ async function processFiles(files) {
 
   await Promise.all(decodedFiles.map((image) => image.decoded));
 
-  progress.progressOffset = decoded;
-  progress.setStatus(
+  progressTracker.progressOffset = decoded;
+  progressTracker.setStatus(
     'Encoding ' + kleur.dim(`(${imagePool.workerPool.numWorkers} threads)`),
   );
-  progress.setProgress(0, files.length);
+  progressTracker.setProgress(0, files.length);
 
   const jobs = [];
   let jobsStarted = 0;
@@ -182,7 +272,7 @@ async function processFiles(files) {
       const outputPath = path.join(
         program.opts().outputDir,
         path.basename(originalFile, path.extname(originalFile)) +
-          program.opts().suffix,
+        program.opts().suffix,
       );
       for (const output of Object.values(image.encodedWith)) {
         const outputFile = `${outputPath}.${(await output).extension}`;
@@ -191,17 +281,17 @@ async function processFiles(files) {
           .get(image)
           .outputs.push(Object.assign(await output, { outputFile }));
       }
-      progress.setProgress(jobsFinished, jobsStarted);
+      progressTracker.setProgress(jobsFinished, jobsStarted, originalFile);
     });
     jobs.push(job);
   }
 
   // update the progress to account for multi-format
-  progress.setProgress(jobsFinished, jobsStarted);
+  progressTracker.setProgress(jobsFinished, jobsStarted);
   // Wait for all jobs to finish
   await Promise.all(jobs);
   await imagePool.close();
-  progress.finish('Squoosh results:');
+  progressTracker.finish('Squoosh results:');
 }
 
 program
@@ -209,6 +299,11 @@ program
   .arguments('<files...>')
   .option('-d, --output-dir <dir>', 'Output directory', '.')
   .option('-s, --suffix <suffix>', 'Append suffix to output files', '')
+  .option(
+    '-c, --max-concurrent-files <count>',
+    'Amount of files to process at once (defaults to CPU cores)',
+    coreCount,
+  )
   .option(
     '--max-optimizer-rounds <rounds>',
     'Maximum number of compressions to use for auto optimizations',
@@ -219,18 +314,33 @@ program
     'Target Butteraugli distance for auto optimizer',
     '1.4',
   )
-  .action(processFiles);
+  .action((files) => {
+    const outputDir = program.opts().outputDir;
+    const maxConcurrentFiles = parseInt(program.opts().maxConcurrentFiles);
+    fs.mkdir(outputDir, { recursive: true }, async (error) => {
+      if (error) {
+        console.error(error);
+        return process.exit(1);
+      }
+      await processAllFiles(files, maxConcurrentFiles);
+    });
+  });
 
 // Create a CLI option for each supported preprocessor
-for (const [key, value] of Object.entries(preprocessors)) {
+for (const [ key, value ] of Object.entries(preprocessors)) {
   program.option(`--${key} [config]`, value.description);
 }
 // Create a CLI option for each supported encoder
-for (const [key, value] of Object.entries(encoders)) {
+for (const [ key, value ] of Object.entries(encoders)) {
   program.option(
     `--${key} [config]`,
     `Use ${value.name} to generate a .${value.extension} file with the given configuration`,
   );
 }
 
+program.version(
+  `CLI version:        ${cliVersion}\n` +
+  `libSquoosh version: ${libVersion}\n` +
+  `Node version:       ${process.version}`,
+);
 program.parse(process.argv);

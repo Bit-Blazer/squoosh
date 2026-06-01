@@ -20,11 +20,12 @@
   },
   "license": "Apache-2.0",
   "engines": {
-    "node": " ^12.5.0 || ^14.0.0 || ^16.0.0 "
+    "node": ">=16.0.0"
   },
   "dependencies": {
     "wasm-feature-detect": "^1.2.11",
-    "web-streams-polyfill": "^3.0.3"
+    "web-streams-polyfill": "^3.0.3",
+    "json5": "2.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
