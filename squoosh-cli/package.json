@@ -1,6 +1,6 @@
 {
   "name": "@bit-blazer/squoosh-cli",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A CLI for Squoosh",
   "public": true,
   "type": "module",
@@ -29,7 +29,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@bit-blazer/squoosh-node": "^1.0.0",
+    "@bit-blazer/squoosh-node": "^1.1.0",
     "commander": "^7.2.0",
     "json5": "^2.2.0",
     "kleur": "^4.1.4",
