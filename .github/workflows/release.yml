@@ -75,6 +75,7 @@ jobs:
       - name: Publish (squoosh-node)
         run: npm publish --provenance --access public
         working-directory: ./squoosh-node
+        continue-on-error: true
 
       - name: Wait for NPM registry propagation
         run: sleep 45
@@ -86,6 +87,7 @@ jobs:
       - name: Publish (CLI)
         run: npm publish --provenance --access public
         working-directory: ./squoosh-cli
+        continue-on-error: true
 
       - name: Wait for NPM registry propagation
         run: sleep 45
@@ -101,3 +103,4 @@ jobs:
       - name: Publish (squoosh browser)
         run: npm publish --provenance --access public
         working-directory: ./squoosh
+        continue-on-error: true
