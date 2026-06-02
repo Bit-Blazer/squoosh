@@ -1,3 +1,4 @@
+/// <reference path="../../emscripten-types.d.ts" />
 /**
  * Browser-side Emscripten module initializer.
  * Uses locateFile() to redirect WASM asset loading to the CDN or a custom base URL.
