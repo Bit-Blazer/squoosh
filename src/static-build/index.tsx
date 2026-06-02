@@ -57,7 +57,7 @@ const toOutput: Output = {
   'manifest.json': JSON.stringify({
     name: 'Squoosh',
     short_name: 'Squoosh',
-    start_url: '/?utm_medium=PWA&utm_source=launcher',
+    start_url: './?utm_medium=PWA&utm_source=launcher',
     display: 'standalone',
     orientation: 'any',
     background_color: '#fff',
@@ -81,7 +81,7 @@ const toOutput: Output = {
     categories: ['photo', 'productivity', 'utilities'],
     screenshots,
     share_target: {
-      action: '/?utm_medium=PWA&utm_source=share-target&share-target',
+      action: './?utm_medium=PWA&utm_source=share-target&share-target',
       method: 'POST',
       enctype: 'multipart/form-data',
       params: {

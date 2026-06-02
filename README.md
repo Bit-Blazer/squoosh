@@ -4,7 +4,7 @@
 
 # API & CLI
 
-Squoosh has [an API](https://github.com/GoogleChromeLabs/squoosh/tree/dev/libsquoosh) and [a CLI](https://github.com/GoogleChromeLabs/squoosh/tree/dev/cli) to compress many images at once.
+Squoosh has [an API](https://github.com/Bit-Blazer/squoosh/tree/dev/libsquoosh) and [a CLI](https://github.com/Bit-Blazer/squoosh/tree/dev/cli) to compress many images at once.
 
 # Privacy
 
@@ -35,8 +35,20 @@ To develop for Squoosh:
    npm run dev
    ```
 
+# Releasing (Maintainers)
+
+To release new versions of the Squoosh packages to npm, run the automated release script:
+
+```sh
+npm run release -- patch  # for bug fixes (0.0.x)
+npm run release -- minor  # for new features (0.x.0)
+npm run release -- major  # for breaking changes (x.0.0)
+```
+
+This will automatically bump package versions, synchronize lockfiles, and tag the release. Afterward, run `git push origin dev --tags` to trigger the GitHub Actions workflow, which securely publishes the packages using npm Trusted Publishing.
+
 # Contributing
 
 Squoosh is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
 
-[squoosh]: https://squoosh.app
+[squoosh]: https://bit-blazer.github.io/squoosh

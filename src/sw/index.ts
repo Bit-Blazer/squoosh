@@ -54,17 +54,19 @@ self.addEventListener('fetch', (event) => {
   // Don't care about other-origin URLs
   if (url.origin !== location.origin) return;
 
-  if (url.pathname === '/editor') {
-    event.respondWith(Response.redirect('/'));
+  const basePath = new URL('./', location.href).pathname;
+
+  if (url.pathname === basePath + 'editor') {
+    event.respondWith(Response.redirect(basePath));
     return;
   }
 
   if (
-    url.pathname === '/' &&
+    url.pathname === basePath &&
     url.searchParams.has('share-target') &&
     event.request.method === 'POST'
   ) {
-    serveShareTarget(event);
+    serveShareTarget(event, basePath);
     return;
   }
 
@@ -73,7 +75,7 @@ self.addEventListener('fetch', (event) => {
 
   if (shouldCacheDynamically(url.pathname)) {
     cacheOrNetworkAndCache(event, dynamicCache);
-    cleanupCache(event, dynamicCache, ASSETS);
+    cleanupCache(event, dynamicCache, ASSETS, basePath);
     return;
   }
 

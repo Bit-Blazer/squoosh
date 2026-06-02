@@ -9,13 +9,13 @@ Squoosh CLI is currently not the fastest image compression tool in town and does
 The Squoosh CLI can be used straight from the command line without installing using `npx`:
 
 ```
-$ npx @squoosh/cli <options...>
+$ npx @bit-blazer/squoosh-cli <options...>
 ```
 
 Of course, you can also install the Squoosh CLI:
 
 ```
-$ npm i -g @squoosh/cli
+$ npm i -g @bit-blazer/squoosh-cli
 $ squoosh-cli <options...>
 ```
 
@@ -51,9 +51,9 @@ Squoosh CLI has an _experimental_ auto optimizer that compresses an image as muc
 You can make use of the auto optimizer by using “auto” as the config object.
 
 ```
-$ npx @squoosh/cli --wp2 auto test.png
+$ npx @bit-blazer/squoosh-cli --wp2 auto test.png
 ```
 
-[squoosh]: https://squoosh.app
-[codecs.ts]: https://github.com/GoogleChromeLabs/squoosh/blob/dev/libsquoosh/src/codecs.ts
+[squoosh]: https://bit-blazer.github.io/squoosh
+[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/libsquoosh/src/codecs.ts
 [butteraugli]: https://github.com/google/butteraugli

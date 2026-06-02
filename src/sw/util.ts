@@ -43,11 +43,11 @@ export function cacheOrNetworkAndCache(
   );
 }
 
-export function serveShareTarget(event: FetchEvent): void {
+export function serveShareTarget(event: FetchEvent, basePath: string): void {
   const dataPromise = event.request.formData();
 
   // Redirect so the user can refresh the page without resending data.
-  event.respondWith(Response.redirect('/?share-target'));
+  event.respondWith(Response.redirect(basePath + '?share-target'));
 
   event.waitUntil(
     (async function () {
@@ -65,6 +65,7 @@ export function cleanupCache(
   event: FetchEvent,
   cacheName: string,
   keepAssets: string[],
+  basePath: string,
 ) {
   event.waitUntil(
     (async function () {
@@ -73,10 +74,12 @@ export function cleanupCache(
       // Clean old entries from the dynamic cache.
       const requests = await cache.keys();
       const promises = requests.map((cachedRequest) => {
-        // Get pathname without leading /
-        const assetPath = new URL(cachedRequest.url).pathname.slice(1);
+        const assetPath = new URL(cachedRequest.url).pathname;
+        if (!assetPath.startsWith(basePath)) return;
+        const relativePath = assetPath.slice(basePath.length);
         // If it isn't one of our keepAssets, we don't need it anymore.
-        if (!keepAssets.includes(assetPath)) return cache.delete(cachedRequest);
+        if (!keepAssets.includes(relativePath))
+          return cache.delete(cachedRequest);
       });
 
       await Promise.all<any>(promises);

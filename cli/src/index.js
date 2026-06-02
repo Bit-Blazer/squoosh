@@ -11,7 +11,7 @@ import kleur from 'kleur';
 import EventEmitter from 'events';
 import { fileURLToPath } from 'url';
 
-import { ImagePool, preprocessors, encoders } from '@squoosh/lib';
+import { ImagePool, preprocessors, encoders } from '@bit-blazer/libsquoosh';
 // import { ImagePool, preprocessors, encoders } from '../../libsquoosh/build/index.js';
 
 let cliVersion;
@@ -19,16 +19,19 @@ let libVersion;
 try {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const packageJson = JSON.parse(fs.readFileSync(
-    `${__dirname}/../package.json`).toString(),
+  const packageJson = JSON.parse(
+    fs.readFileSync(`${__dirname}/../package.json`).toString(),
   );
-  const libJson = JSON.parse(fs.readFileSync(
-    `${__dirname}/../node_modules/@squoosh/lib/package.json`).toString(),
+  const libJson = JSON.parse(
+    fs
+      .readFileSync(
+        `${__dirname}/../node_modules/@bit-blazer/libsquoosh/package.json`,
+      )
+      .toString(),
   );
   cliVersion = 'v' + packageJson.version;
   libVersion = 'v' + libJson.version;
-}
-catch (_) {
+} catch (_) {
   cliVersion = 'Version: unknown';
   libVersion = 'Version: unknown';
 }
@@ -47,7 +50,7 @@ function clamp(v, min, max) {
   return v;
 }
 
-const suffix = [ 'B', 'KB', 'MB' ];
+const suffix = ['B', 'KB', 'MB'];
 
 function prettyPrintSize(size) {
   const base = Math.floor(Math.log2(size) / 10);
@@ -91,11 +94,7 @@ function prettyProgressTracker(results) {
     let out = '';
     for (const result of results.values()) {
       out += `\n ${kleur.cyan(result.file)}: ${prettyPrintSize(result.size)}`;
-      for (const {
-        outputFile,
-        size: outputSize,
-        infoText
-      } of result.outputs) {
+      for (const { outputFile, size: outputSize, infoText } of result.outputs) {
         out += `\n  ${kleur.dim('└')} ${kleur.cyan(
           outputFile.padEnd(5),
         )} → ${prettyPrintSize(outputSize)}`;
@@ -121,8 +120,7 @@ function plainProgressTracker() {
     setProgress: (current, total, file) => {
       if (file) {
         console.log('Progress:', `${current}/${total} (${file})`);
-      }
-      else {
+      } else {
         console.log('Working...');
       }
     },
@@ -136,21 +134,19 @@ async function getInputFiles(paths) {
   for (const inputPath of paths) {
     const files = (await fsp.lstat(inputPath)).isDirectory()
       ? (await fsp.readdir(inputPath, { withFileTypes: true }))
-        .filter((dirent) => dirent.isFile())
-        .map((dirent) => path.join(inputPath, dirent.name))
-      : [ inputPath ];
+          .filter((dirent) => dirent.isFile())
+          .map((dirent) => path.join(inputPath, dirent.name))
+      : [inputPath];
     for (const file of files) {
       try {
         await fsp.stat(file);
-      }
-      catch (err) {
+      } catch (err) {
         if (err.code === 'ENOENT') {
           console.warn(
             `Warning: Input file does not exist: ${path.resolve(file)}`,
           );
           continue;
-        }
-        else {
+        } else {
           throw err;
         }
       }
@@ -165,19 +161,20 @@ async function getInputFiles(paths) {
 async function processAllFiles(allFiles, maxConcurrentFiles) {
   try {
     allFiles = await getInputFiles(allFiles);
-  }
-  catch (error) {
+  } catch (error) {
     console.error('->', error);
     return process.exit(1);
   }
 
   const results = new Map();
 
-  if (allFiles.length < prettyLogLimit && allFiles.length < maxConcurrentFiles) {
+  if (
+    allFiles.length < prettyLogLimit &&
+    allFiles.length < maxConcurrentFiles
+  ) {
     const progress = prettyProgressTracker(results);
     return await processBatch(allFiles, progress, maxConcurrentFiles, results);
-  }
-  else {
+  } else {
     const progress = plainProgressTracker(results);
     console.log(
       kleur.bold(`Will process at most ${maxConcurrentFiles} files at a time`),
@@ -190,7 +187,9 @@ async function processAllFiles(allFiles, maxConcurrentFiles) {
       const fileBatch = allFiles.slice(offsetStart, offsetEnd);
       console.log(
         `Processing batch ${i + 1} of ${iterations} ` +
-        `(images ${offsetStart + 1} through ${offsetStart + fileBatch.length})`,
+          `(images ${offsetStart + 1} through ${
+            offsetStart + fileBatch.length
+          })`,
       );
       await processBatch(fileBatch, progress, maxConcurrentFiles, results);
       results.clear();
@@ -272,7 +271,7 @@ async function processBatch(files, progressTracker, threadCount, results) {
       const outputPath = path.join(
         program.opts().outputDir,
         path.basename(originalFile, path.extname(originalFile)) +
-        program.opts().suffix,
+          program.opts().suffix,
       );
       for (const output of Object.values(image.encodedWith)) {
         const outputFile = `${outputPath}.${(await output).extension}`;
@@ -327,11 +326,11 @@ program
   });
 
 // Create a CLI option for each supported preprocessor
-for (const [ key, value ] of Object.entries(preprocessors)) {
+for (const [key, value] of Object.entries(preprocessors)) {
   program.option(`--${key} [config]`, value.description);
 }
 // Create a CLI option for each supported encoder
-for (const [ key, value ] of Object.entries(encoders)) {
+for (const [key, value] of Object.entries(encoders)) {
   program.option(
     `--${key} [config]`,
     `Use ${value.name} to generate a .${value.extension} file with the given configuration`,
@@ -340,7 +339,7 @@ for (const [ key, value ] of Object.entries(encoders)) {
 
 program.version(
   `CLI version:        ${cliVersion}\n` +
-  `libSquoosh version: ${libVersion}\n` +
-  `Node version:       ${process.version}`,
+    `libSquoosh version: ${libVersion}\n` +
+    `Node version:       ${process.version}`,
 );
 program.parse(process.argv);

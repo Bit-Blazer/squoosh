@@ -9,13 +9,13 @@ libSquoosh is currently not the fastest image compression tool in town and doesn
 libSquoosh can be installed to your local project with the following command:
 
 ```
-$ npm install @squoosh/lib
+$ npm install @bit-blazer/libsquoosh
 ```
 
 You can start using the libSquoosh by adding these lines to the top of your JS program:
 
 ```js
-import { ImagePool } from '@squoosh/lib';
+import { ImagePool } from '@bit-blazer/libsquoosh';
 import { cpus } from 'os';
 const imagePool = new ImagePool(cpus().length);
 ```
@@ -161,7 +161,7 @@ const encodeOptions: {
 }
 ```
 
-[squoosh]: https://squoosh.app
-[codecs.ts]: https://github.com/GoogleChromeLabs/squoosh/blob/dev/libsquoosh/src/codecs.ts
+[squoosh]: https://bit-blazer.github.io/squoosh
+[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/libsquoosh/src/codecs.ts
 [butteraugli]: https://github.com/google/butteraugli
 [arraybuffer]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer

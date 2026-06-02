@@ -36,7 +36,12 @@ import entryDataPlugin, { fileNameToURL } from './lib/entry-data-plugin';
 import dedent from 'dedent';
 
 function resolveFileUrl({ fileName }) {
-  return JSON.stringify(fileNameToURL(fileName));
+  const relativePath = fileNameToURL(fileName);
+  return `typeof self === 'undefined' ? ${JSON.stringify(
+    relativePath,
+  )} : new URL(${JSON.stringify(
+    relativePath,
+  )}, new URL('document' in self ? './' : '../', self.location.href).href).href`;
 }
 
 function resolveImportMetaUrlInStaticBuild(property, { moduleId }) {

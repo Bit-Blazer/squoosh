@@ -1,18 +1,17 @@
 {
-  "name": "@squoosh/cli",
-  "version": "0.7.2",
+  "name": "@bit-blazer/squoosh-cli",
+  "version": "1.0.0",
   "description": "A CLI for Squoosh",
   "public": true,
   "type": "module",
-  "homepage": "https://github.com/GoogleChromeLabs/squoosh",
+  "homepage": "https://github.com/Bit-Blazer/squoosh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GoogleChromeLabs/squoosh.git"
+    "url": "git+https://github.com/Bit-Blazer/squoosh.git",
+    "directory": "cli"
   },
   "bin": {
-    "squoosh-cli": "src/prod.js",
-    "@squoosh/cli": "src/prod.js",
-    "@squoosh/cli-debug": "src/debug.js"
+    "squoosh-cli": "src/prod.js"
   },
   "files": [
     "/src/index.js",
@@ -30,7 +29,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@squoosh/lib": "^0.4.0",
+    "@bit-blazer/libsquoosh": "^1.0.0",
     "commander": "^7.2.0",
     "json5": "^2.2.0",
     "kleur": "^4.1.4",
