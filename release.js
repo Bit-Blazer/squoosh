@@ -34,7 +34,13 @@ try {
     JSON.stringify(squooshCliPkg, null, 2) + '\n',
   );
 
-  // 4. Update root version just for consistency
+  // 4. Bump squoosh browser version
+  child_process.execSync(`npm --no-git-tag-version version ${type}`, {
+    cwd: 'squoosh',
+    stdio: 'inherit',
+  });
+
+  // 5. Update root version just for consistency
   child_process.execSync(`npm --no-git-tag-version version ${type}`, {
     stdio: 'inherit',
   });
@@ -42,7 +48,7 @@ try {
   // 5. Commit and Tag
   console.log('\n📦 Committing and Tagging...\n');
   child_process.execSync(
-    'git add squoosh-node/package*.json squoosh-cli/package*.json package*.json',
+    'git add squoosh-node/package*.json squoosh-cli/package*.json squoosh/package*.json package*.json',
     { stdio: 'inherit' },
   );
 

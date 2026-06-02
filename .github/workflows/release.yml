@@ -86,3 +86,18 @@ jobs:
       - name: Publish (CLI)
         run: npm publish --provenance --access public
         working-directory: ./squoosh-cli
+
+      - name: Wait for NPM registry propagation
+        run: sleep 45
+
+      - name: Install dependencies (squoosh browser)
+        run: npm install
+        working-directory: ./squoosh
+
+      - name: Build (squoosh browser)
+        run: npm run build
+        working-directory: ./squoosh
+
+      - name: Publish (squoosh browser)
+        run: npm publish --provenance --access public
+        working-directory: ./squoosh
