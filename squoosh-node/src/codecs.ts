@@ -6,14 +6,13 @@ import { cpus } from 'os';
 // We use `navigator.hardwareConcurrency` for Emscripten’s pthread pool size.
 // At this point exists more for backwards compatibility, modern Node disallows
 // setting this.
-const currentGlobal = (globalThis as any);
+const currentGlobal = globalThis as any;
 if (typeof currentGlobal?.navigator?.hardwareConcurrency === 'undefined') {
   try {
     currentGlobal.navigator = {
       hardwareConcurrency: cpus().length,
     };
-  }
-  catch (error) {
+  } catch (error) {
     console.warn('Warning: Failed to set navigator.hardwareConcurrency.');
   }
 }

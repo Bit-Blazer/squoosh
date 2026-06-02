@@ -4,7 +4,7 @@
 
 # API & CLI
 
-Squoosh has [an API](https://github.com/Bit-Blazer/squoosh/tree/dev/libsquoosh) and [a CLI](https://github.com/Bit-Blazer/squoosh/tree/dev/cli) to compress many images at once.
+Squoosh has [an API](https://github.com/Bit-Blazer/squoosh/tree/dev/squoosh-node) and [a CLI](https://github.com/Bit-Blazer/squoosh/tree/dev/squoosh-cli) to compress many images at once.
 
 # Privacy
 

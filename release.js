@@ -10,24 +10,29 @@ if (!['patch', 'minor', 'major'].includes(type)) {
 console.log(`\n📦 Bumping ${type} version...\n`);
 
 try {
-  // 1. Bump libsquoosh version
+  // 1. Bump squoosh-node version
   child_process.execSync(`npm --no-git-tag-version version ${type}`, {
-    cwd: 'libsquoosh',
+    cwd: 'squoosh-node',
     stdio: 'inherit',
   });
-  const libsquooshPkg = JSON.parse(fs.readFileSync('libsquoosh/package.json'));
-  const newVersion = libsquooshPkg.version;
+  const squooshNodePkg = JSON.parse(
+    fs.readFileSync('squoosh-node/package.json'),
+  );
+  const newVersion = squooshNodePkg.version;
 
-  // 2. Bump cli version
+  // 2. Bump squoosh-cli version
   child_process.execSync(`npm --no-git-tag-version version ${type}`, {
-    cwd: 'cli',
+    cwd: 'squoosh-cli',
     stdio: 'inherit',
   });
 
-  // 3. Update the cli dependency to match the newly bumped libsquoosh version
-  const cliPkg = JSON.parse(fs.readFileSync('cli/package.json'));
-  cliPkg.dependencies['@bit-blazer/libsquoosh'] = `^${newVersion}`;
-  fs.writeFileSync('cli/package.json', JSON.stringify(cliPkg, null, 2) + '\n');
+  // 3. Update the squoosh-cli dependency to match the newly bumped squoosh-node version
+  const squooshCliPkg = JSON.parse(fs.readFileSync('squoosh-cli/package.json'));
+  squooshCliPkg.dependencies['@bit-blazer/squoosh-node'] = `^${newVersion}`;
+  fs.writeFileSync(
+    'squoosh-cli/package.json',
+    JSON.stringify(squooshCliPkg, null, 2) + '\n',
+  );
 
   // 4. Update root version just for consistency
   child_process.execSync(`npm --no-git-tag-version version ${type}`, {
@@ -35,9 +40,9 @@ try {
   });
 
   // 5. Commit and Tag
-  console.log('\n✅ Committing and Tagging...\n');
+  console.log('\n📦 Committing and Tagging...\n');
   child_process.execSync(
-    'git add libsquoosh/package*.json cli/package*.json package*.json',
+    'git add squoosh-node/package*.json squoosh-cli/package*.json package*.json',
     { stdio: 'inherit' },
   );
 

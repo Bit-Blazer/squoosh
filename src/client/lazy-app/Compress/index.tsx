@@ -585,7 +585,7 @@ export default class Compress extends Component<Props, State> {
       );
 
       if (result === 'usage') {
-        open('https://github.com/Bit-Blazer/squoosh/tree/dev/cli');
+        open('https://github.com/Bit-Blazer/squoosh/tree/dev/squoosh-cli');
       }
     } catch (err) {
       this.props.showSnack(`Error getting CLI command. Error ${err}`);

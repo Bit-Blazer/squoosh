@@ -1,5 +1,5 @@
 {
-  "name": "@bit-blazer/libsquoosh",
+  "name": "@bit-blazer/squoosh-node",
   "version": "1.0.0",
   "description": "A Node library for Squoosh",
   "public": true,
@@ -17,7 +17,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bit-Blazer/squoosh.git",
-    "directory": "libsquoosh"
+    "directory": "squoosh-node"
   },
   "license": "Apache-2.0",
   "engines": {

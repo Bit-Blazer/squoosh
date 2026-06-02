@@ -10,6 +10,6 @@ const __dirname = path.dirname(__filename);
 
 childProcess.spawn(
   'node',
-  [ '--no-experimental-fetch', __dirname + '/index.js', ...args, ],
+  ['--no-experimental-fetch', __dirname + '/index.js', ...args],
   { stdio: 'inherit' },
 );

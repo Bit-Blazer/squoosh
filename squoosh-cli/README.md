@@ -55,5 +55,5 @@ $ npx @bit-blazer/squoosh-cli --wp2 auto test.png
 ```
 
 [squoosh]: https://bit-blazer.github.io/squoosh
-[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/libsquoosh/src/codecs.ts
+[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/squoosh-node/src/codecs.ts
 [butteraugli]: https://github.com/google/butteraugli

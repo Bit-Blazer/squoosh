@@ -2,7 +2,7 @@ const fs = require('fs');
 const del = require('del');
 const path = require('path');
 
-const tsOutputDir = path.resolve('..', '.tmp', 'ts', 'libsquoosh');
+const tsOutputDir = path.resolve('..', '.tmp', 'ts', 'squoosh-node');
 const tsOutputSourceDir = path.join(tsOutputDir, 'src');
 const buildDir = path.resolve('build');
 

@@ -184,9 +184,8 @@ class Image {
         preprocessorOptions = {
           ...preprocessors[preprocessorName].defaultOptions,
           ...JSON5.parse(options),
-        }
-      }
-      else {
+        };
+      } else {
         preprocessorOptions = {
           ...preprocessors[preprocessorName].defaultOptions,
           ...(options as object),

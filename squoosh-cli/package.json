@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Bit-Blazer/squoosh.git",
-    "directory": "cli"
+    "directory": "squoosh-cli"
   },
   "bin": {
     "squoosh-cli": "src/prod.js"
@@ -29,7 +29,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
-    "@bit-blazer/libsquoosh": "^1.0.0",
+    "@bit-blazer/squoosh-node": "^1.0.0",
     "commander": "^7.2.0",
     "json5": "^2.2.0",
     "kleur": "^4.1.4",

@@ -444,7 +444,7 @@ export default class Intro extends Component<Props, State> {
                 </a>
                 <a
                   class={style.footerLink}
-                  href="https://github.com/Bit-Blazer/squoosh/tree/dev/cli"
+                  href="https://github.com/Bit-Blazer/squoosh/tree/dev/squoosh-cli"
                 >
                   Squoosh CLI
                 </a>

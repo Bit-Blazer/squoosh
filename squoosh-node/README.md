@@ -1,21 +1,21 @@
-# libSquoosh
+# squoosh-node
 
-libSquoosh is an _experimental_ way to run all the codecs you know from the [Squoosh] web app directly inside your own JavaScript program. libSquoosh uses a worker pool to parallelize processing images. This way you can apply the same codec to many images at once.
+squoosh-node is an _experimental_ way to run all the codecs you know from the [Squoosh] web app directly inside your own JavaScript program. squoosh-node uses a worker pool to parallelize processing images. This way you can apply the same codec to many images at once.
 
-libSquoosh is currently not the fastest image compression tool in town and doesn’t aim to be. It is, however, fast enough to compress many images sufficiently quick at once.
+squoosh-node is currently not the fastest image compression tool in town and doesn’t aim to be. It is, however, fast enough to compress many images sufficiently quick at once.
 
 ## Installation
 
-libSquoosh can be installed to your local project with the following command:
+squoosh-node can be installed to your local project with the following command:
 
 ```
-$ npm install @bit-blazer/libsquoosh
+$ npm install @bit-blazer/squoosh-node
 ```
 
-You can start using the libSquoosh by adding these lines to the top of your JS program:
+You can start using the squoosh-node by adding these lines to the top of your JS program:
 
 ```js
-import { ImagePool } from '@bit-blazer/libsquoosh';
+import { ImagePool } from '@bit-blazer/squoosh-node';
 import { cpus } from 'os';
 const imagePool = new ImagePool(cpus().length);
 ```
@@ -151,7 +151,7 @@ console.log(image.encodedWith.jxl);
 
 ## Auto optimizer
 
-libSquoosh has an _experimental_ auto optimizer that compresses an image as much as possible, trying to hit a specific [Butteraugli] target value. The higher the Butteraugli target value, the more artifacts can be introduced.
+squoosh-node has an _experimental_ auto optimizer that compresses an image as much as possible, trying to hit a specific [Butteraugli] target value. The higher the Butteraugli target value, the more artifacts can be introduced.
 
 You can make use of the auto optimizer by using “auto” as the config object.
 
@@ -162,6 +162,6 @@ const encodeOptions: {
 ```
 
 [squoosh]: https://bit-blazer.github.io/squoosh
-[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/libsquoosh/src/codecs.ts
+[codecs.ts]: https://github.com/Bit-Blazer/squoosh/blob/dev/squoosh-node/src/codecs.ts
 [butteraugli]: https://github.com/google/butteraugli
 [arraybuffer]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer

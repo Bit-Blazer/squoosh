@@ -11,8 +11,8 @@ import kleur from 'kleur';
 import EventEmitter from 'events';
 import { fileURLToPath } from 'url';
 
-import { ImagePool, preprocessors, encoders } from '@bit-blazer/libsquoosh';
-// import { ImagePool, preprocessors, encoders } from '../../libsquoosh/build/index.js';
+import { ImagePool, preprocessors, encoders } from '@bit-blazer/squoosh-node';
+// import { ImagePool, preprocessors, encoders } from '../../squoosh-node/build/index.js';
 
 let cliVersion;
 let libVersion;
@@ -25,7 +25,7 @@ try {
   const libJson = JSON.parse(
     fs
       .readFileSync(
-        `${__dirname}/../node_modules/@bit-blazer/libsquoosh/package.json`,
+        `${__dirname}/../node_modules/@bit-blazer/squoosh-node/package.json`,
       )
       .toString(),
   );
@@ -339,7 +339,7 @@ for (const [key, value] of Object.entries(encoders)) {
 
 program.version(
   `CLI version:        ${cliVersion}\n` +
-    `libSquoosh version: ${libVersion}\n` +
+    `squoosh-node version: ${libVersion}\n` +
     `Node version:       ${process.version}`,
 );
 program.parse(process.argv);
