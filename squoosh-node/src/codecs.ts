@@ -381,8 +381,8 @@ export const codecs = {
       );
     },
     defaultEncoderOptions: {
-      cqLevel: 33,
-      cqAlphaLevel: -1,
+      quality: 50,
+      qualityAlpha: -1,
       denoiseLevel: 0,
       tileColsLog2: 0,
       tileRowsLog2: 0,
@@ -391,11 +391,12 @@ export const codecs = {
       chromaDeltaQ: false,
       sharpness: 0,
       tune: 0 /* AVIFTune.auto */,
+      enableSharpYUV: false,
     },
     autoOptimize: {
-      option: 'cqLevel',
-      min: 62,
-      max: 0,
+      option: 'quality',
+      min: 0,
+      max: 100,
     },
   },
   jxl: {
@@ -410,13 +411,14 @@ export const codecs = {
         jxlEncWasm,
       ),
     defaultEncoderOptions: {
-      speed: 4,
+      effort: 4,
       quality: 75,
       progressive: false,
       epf: -1,
-      nearLossless: 0,
       lossyPalette: false,
       decodingSpeedTier: 0,
+      photonNoiseIso: 0,
+      lossyModular: false,
     },
     autoOptimize: {
       option: 'quality',

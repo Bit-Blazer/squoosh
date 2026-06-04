@@ -10,7 +10,8 @@
     "watch": "rollup -cw",
     "serve": "serve --listen=$DEV_PORT --config ../../../serve.json .tmp/build/static",
     "prepare": "husky install",
-    "release": "node release.js"
+    "release": "node release.js",
+    "test": "cd squoosh-node && npm test && cd ../squoosh-cli && npm test && cd ../squoosh && npm test"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

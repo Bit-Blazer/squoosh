@@ -108,13 +108,14 @@ export interface AVIFOptions {
 }
 
 export interface JXLOptions {
-  speed?: number;
+  effort?: number;
   quality?: number;
   progressive?: boolean;
   epf?: number;
-  nearLossless?: number;
   lossyPalette?: boolean;
   decodingSpeedTier?: number;
+  photonNoiseIso?: number;
+  lossyModular?: boolean;
 }
 
 export interface OxiPNGOptions {

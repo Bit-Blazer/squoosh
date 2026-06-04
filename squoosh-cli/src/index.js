@@ -98,9 +98,14 @@ function prettyProgressTracker(results) {
         out += `\n  ${kleur.dim('└')} ${kleur.cyan(
           outputFile.padEnd(5),
         )} → ${prettyPrintSize(outputSize)}`;
-        const percent = ((outputSize / result.size) * 100).toPrecision(3);
-        out += ` (${kleur[outputSize > result.size ? 'red' : 'green'](
-          percent + '%',
+        const isBigger = outputSize > result.size;
+        const percentChange = (
+          (Math.abs(result.size - outputSize) / result.size) *
+          100
+        ).toFixed(2);
+        const sign = isBigger ? '↑' : '↓';
+        out += ` (${kleur[isBigger ? 'red' : 'green'](
+          sign + percentChange + '%',
         )})`;
         if (infoText) out += kleur.yellow(infoText);
       }
@@ -290,7 +295,7 @@ async function processBatch(files, progressTracker, threadCount, results) {
   // Wait for all jobs to finish
   await Promise.all(jobs);
   await imagePool.close();
-  progressTracker.finish('Squoosh results:');
+  progressTracker.finish('squoosh-cli results:');
 }
 
 program

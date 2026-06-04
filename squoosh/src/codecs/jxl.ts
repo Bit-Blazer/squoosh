@@ -5,13 +5,14 @@ import type { JXLOptions } from '../types';
 export type { JXLOptions };
 
 export const defaultOptions: Required<JXLOptions> = {
-  speed: 4,
+  effort: 4,
   quality: 75,
   progressive: false,
   epf: -1,
-  nearLossless: 0,
   lossyPalette: false,
   decodingSpeedTier: 0,
+  photonNoiseIso: 0,
+  lossyModular: false,
 };
 
 let encModule: Promise<any>;

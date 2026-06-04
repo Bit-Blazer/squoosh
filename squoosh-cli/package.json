@@ -25,6 +25,9 @@
   ],
   "author": "Google Chrome Developers <chromium-dev@google.com>",
   "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test test/index.test.js"
+  },
   "engines": {
     "node": ">=16.0.0"
   },

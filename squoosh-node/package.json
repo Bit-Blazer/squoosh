@@ -9,7 +9,8 @@
     "/build/*"
   ],
   "scripts": {
-    "build": "rollup -c && node lib/move-d-ts.js"
+    "build": "rollup -c && node lib/move-d-ts.js",
+    "test": "node --test test/index.test.mjs"
   },
   "keywords": [],
   "author": "Google Chrome Developers <chromium-dev@google.com>",

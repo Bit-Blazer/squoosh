@@ -10,6 +10,7 @@
  * Codec WASM files live under: <cdnBase>codecs/<codec>/<subdir>/
  * Processor WASM files live under: <cdnBase>codecs/
  */
+import './worker-patch'; // Must be first — patches globalThis.Worker before any codec captures it
 import { expose } from 'comlink';
 import * as mozjpeg from './codecs/mozjpeg';
 import * as webp from './codecs/webp';

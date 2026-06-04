@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squoosh Browser Tests</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .log {
+      font-family: monospace;
+      white-space: pre-wrap;
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+
+    .pass {
+      color: green;
+      font-weight: bold;
+    }
+
+    .fail {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Squoosh Browser Suite</h1>
+  <p>This automated test runner checks the WASM decoding and encoding pipelines for all codecs in the browser.</p>
+
+  <!-- Provide a sample image for the tests -->
+  <img id="testImage" src="../../test-images/example.png" style="display: none;" crossorigin="anonymous">
+
+  <button id="runTestsBtn">Run All Tests</button>
+
+  <div id="log" class="log">Ready to run tests...</div>
+
+  <script src="../dist/squoosh.esm.js" type="module"></script>
+  <script type="module">
+    import { Squoosh } from '../dist/squoosh.esm.js';
+
+    const logEl = document.getElementById('log');
+    const btn = document.getElementById('runTestsBtn');
+
+    function log(msg, type = 'info') {
+      const p = document.createElement('div');
+      if (type === 'pass') { p.className = 'pass'; msg = '✅ ' + msg; }
+      else if (type === 'fail') { p.className = 'fail'; msg = '❌ ' + msg; }
+      else { msg = 'ℹ️ ' + msg; }
+      p.textContent = msg;
+      logEl.appendChild(p);
+      console.log(msg);
+    }
+
+    // Helper to get image as Blob
+    async function getTestBlob() {
+      const response = await fetch(document.getElementById('testImage').src);
+      return await response.blob();
+    }
+
+    async function runTests() {
+      btn.disabled = true;
+      logEl.innerHTML = '';
+      log('Starting test suite...');
+
+      let squoosh;
+      let imgData;
+      let passed = 0;
+      let failed = 0;
+
+      const codecs = ['mozjpeg', 'webp', 'avif', 'jxl', 'oxipng', 'wp2', 'qoi'];
+
+      try {
+        log('Initializing Squoosh instance...');
+        squoosh = new Squoosh({ cdnBase: '../dist/' });
+        log('Fetching test image blob...');
+        const blob = await getTestBlob();
+        log(`Test blob size: ${(blob.size / 1024).toFixed(2)} KB`);
+
+        log('Testing decode()...');
+        imgData = await squoosh.decode(blob);
+        if (imgData && imgData.width > 0) {
+          log('Decode PASS', 'pass');
+          passed++;
+        } else {
+          throw new Error('Decoded image data is invalid');
+        }
+
+        log('Testing resize() and quantize() preprocessors...');
+        let processed = await squoosh.resize(imgData, { width: 100 });
+        processed = await squoosh.quantize(processed, { maxNumColors: 128 });
+
+        if (processed.width === 100) {
+          log('Preprocessors PASS', 'pass');
+          passed++;
+        } else {
+          throw new Error('Resize failed to produce expected width');
+        }
+
+        // Test every codec
+        for (const codec of codecs) {
+          log(`Testing encode() for ${codec}...`);
+          try {
+            const start = performance.now();
+            const result = await squoosh.encode(imgData, { codec, options: {} });
+            const time = Math.round(performance.now() - start);
+
+            if (result.data instanceof Uint8Array && result.size > 0) {
+              const originalSize = blob.size;
+              const newSize = result.size;
+              const isBigger = newSize > originalSize;
+              const percentChange = (Math.abs(originalSize - newSize) / originalSize * 100).toFixed(2);
+              const sign = isBigger ? '↑' : '↓';
+              log(`Encode ${codec} PASS (took ${time}ms). Size: ${(newSize / 1024).toFixed(2)} KB (${sign}${percentChange}%)`, 'pass');
+              passed++;
+            } else {
+              throw new Error('Invalid encode result');
+            }
+          } catch (err) {
+            log(`Encode ${codec} FAIL: ${err.message}`, 'fail');
+            failed++;
+          }
+        }
+
+      } catch (err) {
+        log(`Test framework error: ${err.message}`, 'fail');
+        failed++;
+      } finally {
+        if (squoosh) squoosh.terminate();
+        log('-----------------------');
+        log(`Finished: ${passed} passed, ${failed} failed.`);
+        btn.disabled = false;
+
+        // Add a hidden element for Playwright to read the result
+        const resultEl = document.createElement('div');
+        resultEl.id = 'testResult';
+        resultEl.textContent = failed === 0 ? 'SUCCESS' : 'FAILURE';
+        resultEl.style.display = 'none';
+        document.body.appendChild(resultEl);
+      }
+    }
+
+    btn.addEventListener('click', runTests);
+  </script>
+</body>
+
+</html>
