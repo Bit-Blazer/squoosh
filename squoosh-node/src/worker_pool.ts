@@ -1,5 +1,5 @@
 import { Worker, parentPort } from 'worker_threads';
-import { TransformStream } from 'web-streams-polyfill';
+import { TransformStream } from 'web-streams-polyfill/ponyfill';
 
 function uuid() {
   return Array.from({ length: 16 }, () =>
