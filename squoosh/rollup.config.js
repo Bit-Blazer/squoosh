@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
 import replace from '@rollup/plugin-replace';
+import ts from 'typescript';
 import { readFileSync } from 'fs';
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf-8'));
@@ -25,7 +26,7 @@ export default [
     },
     plugins: [
       ...commonPlugins,
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: './tsconfig.json', typescript: ts }),
       replace({
         preventAssignment: true,
         values: {
@@ -49,7 +50,7 @@ export default [
     },
     plugins: [
       ...commonPlugins,
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: './tsconfig.json', typescript: ts }),
       replace({
         preventAssignment: true,
         values: {
@@ -74,7 +75,7 @@ export default [
     },
     plugins: [
       ...commonPlugins,
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({ tsconfig: './tsconfig.json', typescript: ts }),
       replace({
         preventAssignment: true,
         values: {
