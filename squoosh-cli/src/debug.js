@@ -8,8 +8,6 @@ const args = process.argv.slice(2);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-childProcess.spawn(
-  'node',
-  ['--no-experimental-fetch', '--inspect', __dirname + '/index.js', ...args],
-  { stdio: 'inherit' },
-);
+childProcess.spawn('node', ['--inspect', __dirname + '/index.js', ...args], {
+  stdio: 'inherit',
+});
