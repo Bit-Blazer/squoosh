@@ -1,0 +1,73 @@
+
+up to date, audited 1 package in 485ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-rust.sh ./build.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 902B done
+#1 DONE 0.0s
+
+#2 [auth] library/rust:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/rust:1.47
+#4 DONE 1.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [wasm-tools 1/3] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#6 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#6 DONE 0.1s
+
+#7 [rust 1/8] FROM docker.io/library/rust:1.47@sha256:48f4b36c3f3492b82a5e14b2fc991d3163c1d2ce18ac1f0561e9657103192713
+#7 resolve docker.io/library/rust:1.47@sha256:48f4b36c3f3492b82a5e14b2fc991d3163c1d2ce18ac1f0561e9657103192713 0.1s done
+#7 DONE 0.1s
+
+#8 [rust 7/8] COPY --from=wasm-tools /opt/wasm-tools/wasm-pack /usr/local/cargo/bin/
+#8 CACHED
+
+#9 [rust 3/8] RUN case rust:1.47 in rustlang/rust@*) rustup component add rust-src; esac
+#9 CACHED
+
+#10 [rust 5/8] COPY --from=wasm-tools /emsdk/upstream/lib/ /usr/local/lib/
+#10 CACHED
+
+#11 [rust 6/8] COPY --from=wasm-tools /emsdk/upstream/emscripten/cache/sysroot/include/ /wasm32/include/
+#11 CACHED
+
+#12 [rust 2/8] RUN rustup target add wasm32-unknown-unknown
+#12 CACHED
+
+#13 [wasm-tools 3/3] RUN wget -qO- https://github.com/rustwasm/wasm-pack/releases/download/v0.12.1/wasm-pack-v0.12.1-x86_64-unknown-linux-musl.tar.gz | tar -xzf - --strip 1
+#13 CACHED
+
+#14 [wasm-tools 2/3] WORKDIR /opt/wasm-tools
+#14 CACHED
+
+#15 [rust 4/8] COPY --from=wasm-tools /emsdk/upstream/bin/wasm-opt /emsdk/upstream/bin/clang /usr/local/bin/
+#15 CACHED
+
+#16 [rust 8/8] WORKDIR /src
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:ce76b4f31dc75f8f645e8571f6401c79df6af902610a9fc058d4223b71aea595 done
+#17 exporting config sha256:8ab01017c1b50f922773a8dddbee2a75adde6d85ae43c037f78bcc99727ed621 done
+#17 exporting attestation manifest sha256:fa15c26fffa6a92831f481eb323ee3f1a7f6a4ef41ea919fb80f4fcc1eb0dfaf 0.0s done
+#17 exporting manifest list sha256:7abbe7ab8683fab0aaf3b611c088cde24c225ae66531358d7a175f60f4d9268a 0.0s done
+#17 naming to docker.io/library/squoosh-rust:latest done
+#17 unpacking to docker.io/library/squoosh-rust:latest 0.0s done
+#17 DONE 0.2s
+[0m[0m[1m[32m   Compiling[0m squoosh-rotate v0.1.0 (/src)
+[0m[0m[1m[32m    Finished[0m release [optimized] target(s) in 0.31s

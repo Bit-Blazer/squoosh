@@ -1,0 +1,242 @@
+
+up to date, audited 1 package in 337ms
+
+found 0 vulnerabilities
+
+> build
+> RUST_IMG=rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309 ../build-rust.sh ./build.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 902B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309
+#3 ...
+
+#4 [auth] rustlang/rust:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309
+#3 DONE 1.8s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [wasm-tools 1/3] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#6 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#6 DONE 0.0s
+
+#7 [wasm-tools 2/3] WORKDIR /opt/wasm-tools
+#7 CACHED
+
+#8 [wasm-tools 3/3] RUN wget -qO- https://github.com/rustwasm/wasm-pack/releases/download/v0.12.1/wasm-pack-v0.12.1-x86_64-unknown-linux-musl.tar.gz | tar -xzf - --strip 1
+#8 CACHED
+
+#9 [rust 1/8] FROM docker.io/rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309
+#9 resolve docker.io/rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309 0.0s done
+#9 sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7 0B / 27.19MB 0.2s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 0B / 308.26MB 0.2s
+#9 sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7 9.63MB / 27.19MB 0.6s
+#9 sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7 27.19MB / 27.19MB 0.8s
+#9 sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7 27.19MB / 27.19MB 1.1s done
+#9 extracting sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7
+#9 extracting sha256:faac0b3889808c27af96e662a1082eef35772c35dcee1c7334f5f5a22b4149d7 1.2s done
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 17.83MB / 308.26MB 3.0s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 34.60MB / 308.26MB 3.9s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 50.33MB / 308.26MB 4.7s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 69.21MB / 308.26MB 5.6s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 84.93MB / 308.26MB 6.5s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 103.81MB / 308.26MB 7.4s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 119.54MB / 308.26MB 8.1s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 135.27MB / 308.26MB 9.0s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 150.99MB / 308.26MB 9.8s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 166.72MB / 308.26MB 10.5s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 184.55MB / 308.26MB 11.4s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 200.28MB / 308.26MB 12.3s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 218.10MB / 308.26MB 13.2s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 236.64MB / 308.26MB 14.1s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 254.80MB / 308.26MB 15.0s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 271.58MB / 308.26MB 15.8s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 288.36MB / 308.26MB 16.7s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 306.18MB / 308.26MB 17.6s
+#9 sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 308.26MB / 308.26MB 21.2s done
+#9 extracting sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee
+#9 extracting sha256:02cb5afdecae043e4f7c750398b74c43ba97d46969f0a7796c12a0eaf05e37ee 35.1s done
+#9 DONE 56.4s
+
+#10 [rust 2/8] RUN rustup target add wasm32-unknown-unknown
+#10 1.010 info: downloading component 'rust-std' for 'wasm32-unknown-unknown'
+#10 7.592 info: installing component 'rust-std' for 'wasm32-unknown-unknown'
+#10 DONE 11.5s
+
+#11 [rust 3/8] RUN case rustlang/rust@sha256:5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309 in rustlang/rust@*) rustup component add rust-src; esac
+#11 0.359 info: downloading component 'rust-src'
+#11 19.18 info: installing component 'rust-src'
+#11 DONE 20.4s
+
+#12 [rust 4/8] COPY --from=wasm-tools /emsdk/upstream/bin/wasm-opt /emsdk/upstream/bin/clang /usr/local/bin/
+#12 DONE 3.4s
+
+#13 [rust 5/8] COPY --from=wasm-tools /emsdk/upstream/lib/ /usr/local/lib/
+#13 DONE 0.9s
+
+#14 [rust 6/8] COPY --from=wasm-tools /emsdk/upstream/emscripten/cache/sysroot/include/ /wasm32/include/
+#14 DONE 1.1s
+
+#15 [rust 7/8] COPY --from=wasm-tools /opt/wasm-tools/wasm-pack /usr/local/cargo/bin/
+#15 DONE 0.5s
+
+#16 [rust 8/8] WORKDIR /src
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 9.6s done
+#17 exporting manifest sha256:19a5b42f896c89c67cee15beb56d5b09d8d24ea327f71b848680c3492f83d2a2
+#17 exporting manifest sha256:19a5b42f896c89c67cee15beb56d5b09d8d24ea327f71b848680c3492f83d2a2 0.0s done
+#17 exporting config sha256:b2811346158cdb5d05cefc64bd21f340d665fa8ec0efe48e1a4d56fea3647530 0.0s done
+#17 exporting attestation manifest sha256:9478cb7f4de06dd6bde68d5d9834762d8ee48617672ef5fe43d698df2a477fd3 0.0s done
+#17 exporting manifest list sha256:197f48d8c2ed2d5c24fcf00108c9cba94e204d64777b0704deade523bb25b708 0.0s done
+#17 naming to docker.io/library/squoosh-rust-5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309:latest done
+#17 unpacking to docker.io/library/squoosh-rust-5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309:latest
+#17 unpacking to docker.io/library/squoosh-rust-5fd16a5576c22c8fdd5d659247755999e426c04de8dcf18a41ea446c5f253309:latest 2.9s done
+#17 DONE 12.6s
+[1m[2m[INFO][0m: Checking for the Wasm target...
+[1m[2m[INFO][0m: Compiling to Wasm...
+[1m[32m   Compiling[0m proc-macro2 v1.0.26
+[1m[32m   Compiling[0m unicode-xid v0.2.1
+[1m[32m   Compiling[0m syn v1.0.72
+[1m[32m   Compiling[0m wasm-bindgen-shared v0.2.74
+[1m[32m   Compiling[0m cc v1.0.66
+[1m[32m   Compiling[0m quote v1.0.8
+[1m[32m   Compiling[0m libdeflate-sys v1.19.0
+[1m[32m   Compiling[0m bumpalo v3.4.0
+[1m[32m   Compiling[0m lazy_static v1.4.0
+[1m[32m   Compiling[0m radium v0.7.0
+[1m[32m   Compiling[0m log v0.4.20
+[1m[32m   Compiling[0m tap v1.0.1
+[1m[32m   Compiling[0m wasm-bindgen-backend v0.2.74
+[1m[32m   Compiling[0m wasm-bindgen-macro-support v0.2.74
+[1m[32m   Compiling[0m wyz v0.5.1
+[1m[32m   Compiling[0m bytemuck v1.14.0
+[1m[32m   Compiling[0m funty v2.0.0
+[1m[32m   Compiling[0m equivalent v1.0.1
+[1m[32m   Compiling[0m wasm-bindgen v0.2.74
+[1m[32m   Compiling[0m hashbrown v0.14.3
+[1m[32m   Compiling[0m indexmap v2.1.0
+[1m[32m   Compiling[0m bitvec v1.0.1
+[1m[32m   Compiling[0m rgb v0.8.37
+[1m[32m   Compiling[0m wasm-bindgen-macro v0.2.74
+[1m[32m   Compiling[0m libdeflater v1.19.0
+[1m[32m   Compiling[0m rustc-hash v1.1.0
+[1m[32m   Compiling[0m cfg-if v1.0.0
+[1m[32m   Compiling[0m oxipng v9.0.0
+[1m[32m   Compiling[0m squoosh-oxipng v0.1.0 (/src)
+[1m[32m    Finished[0m release [optimized] target(s) in 18.26s
+[1m[2m[INFO][0m: Installing wasm-bindgen...
+[1m[2m[INFO][0m: found wasm-opt at "/usr/local/bin/wasm-opt"
+[1m[2m[INFO][0m: Optimizing wasm binaries with `wasm-opt`...
+[1m[2m[INFO][0m: Optional fields missing from Cargo.toml: 'description', 'repository', and 'license'. These are not necessary, but recommended
+[1m[2m[INFO][0m: :-) Done in 20.07s
+[1m[2m[INFO][0m: :-) Your wasm pkg is ready to publish at /src/pkg.
+[1m[2m[WARN][0m: :-) There's a newer version of wasm-pack available, the new version is: 0.15.0, you are using: 0.12.1. To update, navigate to: https://rustwasm.github.io/wasm-pack/installer/
+[1m[2m[INFO][0m: Checking for the Wasm target...
+[1m[2m[INFO][0m: Compiling to Wasm...
+[1m[32m Downloading[0m crates ...
+[1m[32m  Downloaded[0m autocfg v1.0.1
+[1m[32m  Downloaded[0m crossbeam-deque v0.8.4
+[1m[32m  Downloaded[0m spmc v0.3.0
+[1m[32m  Downloaded[0m rayon-core v1.12.0
+[1m[32m  Downloaded[0m rayon v1.8.0
+[1m[32m  Downloaded[0m crossbeam-epoch v0.9.17
+[1m[32m  Downloaded[0m crossbeam-channel v0.5.10
+[1m[32m  Downloaded[0m either v1.6.1
+[1m[32m  Downloaded[0m crossbeam-utils v0.8.18
+[1m[32m  Downloaded[0m wasm-bindgen-rayon v1.0.1
+[1m[32m  Downloaded[0m js-sys v0.3.48
+[1m[32m    Updating[0m crates.io index
+[1m[32m Downloading[0m crates ...
+[1m[32m  Downloaded[0m adler v1.0.2
+[1m[32m  Downloaded[0m addr2line v0.21.0
+[1m[32m  Downloaded[0m rustc-demangle v0.1.23
+[1m[32m  Downloaded[0m memchr v2.5.0
+[1m[32m  Downloaded[0m miniz_oxide v0.7.1
+[1m[32m  Downloaded[0m libc v0.2.150
+[1m[32m  Downloaded[0m getopts v0.2.21
+[1m[32m  Downloaded[0m dlmalloc v0.2.4
+[1m[32m  Downloaded[0m compiler_builtins v0.1.103
+[1m[32m  Downloaded[0m unicode-width v0.1.10
+[1m[32m  Downloaded[0m object v0.32.1
+[1m[32m  Downloaded[0m gimli v0.28.0
+[1m[32m  Downloaded[0m allocator-api2 v0.2.15
+[1m[32m   Compiling[0m compiler_builtins v0.1.103
+[1m[32m   Compiling[0m core v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+[1m[32m   Compiling[0m libc v0.2.150
+[1m[32m   Compiling[0m memchr v2.5.0
+[1m[32m   Compiling[0m dlmalloc v0.2.4
+[1m[32m   Compiling[0m std v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/std)
+[1m[32m   Compiling[0m crossbeam-utils v0.8.18
+[1m[32m   Compiling[0m rayon-core v1.12.0
+[1m[32m   Compiling[0m wasm-bindgen v0.2.74
+[1m[32m   Compiling[0m radium v0.7.0
+[1m[32m   Compiling[0m libdeflate-sys v1.19.0
+[1m[32m   Compiling[0m rustc-std-workspace-core v1.99.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+[1m[32m   Compiling[0m alloc v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+[1m[32m   Compiling[0m cfg-if v1.0.0
+[1m[32m   Compiling[0m unwind v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/unwind)
+[1m[32m   Compiling[0m adler v1.0.2
+[1m[32m   Compiling[0m rustc-demangle v0.1.23
+[1m[32m   Compiling[0m rustc-std-workspace-alloc v1.99.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-alloc)
+[1m[32m   Compiling[0m gimli v0.28.0
+[1m[32m   Compiling[0m object v0.32.1
+[1m[32m   Compiling[0m addr2line v0.21.0
+[1m[32m   Compiling[0m miniz_oxide v0.7.1
+[1m[32m   Compiling[0m std_detect v0.1.5 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/stdarch/crates/std_detect)
+[1m[32m   Compiling[0m hashbrown v0.14.3
+[1m[32m   Compiling[0m panic_unwind v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_unwind)
+[1m[32m   Compiling[0m panic_abort v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/panic_abort)
+[1m[32m   Compiling[0m proc_macro v0.0.0 (/usr/local/rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/proc_macro)
+[1m[32m   Compiling[0m crossbeam-epoch v0.9.17
+[1m[32m   Compiling[0m either v1.6.1
+[1m[32m   Compiling[0m crossbeam-deque v0.8.4
+[1m[32m   Compiling[0m tap v1.0.1
+[1m[32m   Compiling[0m wyz v0.5.1
+[1m[32m   Compiling[0m rayon v1.8.0
+[1m[32m   Compiling[0m equivalent v1.0.1
+[1m[32m   Compiling[0m bytemuck v1.14.0
+[1m[32m   Compiling[0m funty v2.0.0
+[1m[32m   Compiling[0m indexmap v2.1.0
+[1m[32m   Compiling[0m bitvec v1.0.1
+[1m[32m   Compiling[0m rgb v0.8.37
+[1m[32m   Compiling[0m libdeflater v1.19.0
+[1m[32m   Compiling[0m js-sys v0.3.48
+[1m[32m   Compiling[0m crossbeam-channel v0.5.10
+[1m[32m   Compiling[0m rustc-hash v1.1.0
+[1m[32m   Compiling[0m log v0.4.20
+[1m[32m   Compiling[0m spmc v0.3.0
+[1m[32m   Compiling[0m wasm-bindgen-rayon v1.0.1
+[1m[32m   Compiling[0m oxipng v9.0.0
+[1m[32m   Compiling[0m squoosh-oxipng v0.1.0 (/src)
+[0m[1m[33mwarning[0m[0m[1m: unstable feature specified for `-Ctarget-feature`: `atomics`[0m
+[0m  [0m[0m[1m[38;5;12m|[0m
+[0m  [0m[0m[1m[38;5;12m= [0m[0m[1mnote[0m[0m: this feature is not stably supported; its behavior can change in the future[0m
+
+[0m[1m[33mwarning[0m[0m[1m: unstable feature specified for `-Ctarget-feature`: `bulk-memory`[0m
+[0m  [0m[0m[1m[38;5;12m|[0m
+[0m  [0m[0m[1m[38;5;12m= [0m[0m[1mnote[0m[0m: this feature is not stably supported; its behavior can change in the future[0m
+
+[1m[33mwarning[0m[1m:[0m `squoosh-oxipng` (lib) generated 2 warnings
+[1m[32m    Finished[0m release [optimized] target(s) in 48.21s
+[1m[2m[INFO][0m: Installing wasm-bindgen...
+[1m[2m[INFO][0m: found wasm-opt at "/usr/local/bin/wasm-opt"
+[1m[2m[INFO][0m: Optimizing wasm binaries with `wasm-opt`...
+[1m[2m[INFO][0m: Optional fields missing from Cargo.toml: 'description', 'repository', and 'license'. These are not necessary, but recommended
+[1m[2m[INFO][0m: :-) Done in 49.39s
+[1m[2m[INFO][0m: :-) Your wasm pkg is ready to publish at ./pkg-parallel.
+[1m[2m[WARN][0m: :-) There's a newer version of wasm-pack available, the new version is: 0.15.0, you are using: 0.12.1. To update, navigate to: https://rustwasm.github.io/wasm-pack/installer/

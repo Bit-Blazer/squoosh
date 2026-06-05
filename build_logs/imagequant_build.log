@@ -1,0 +1,107 @@
+
+up to date, audited 1 package in 578ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-cpp.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 702B done
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#4 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -qqy autoconf libtool pkg-config
+#5 CACHED
+
+#6 [3/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -xc++ /dev/null -o /dev/null
+#6 CACHED
+
+#7 [4/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -pthread -xc++ /dev/null -o /dev/null
+#7 CACHED
+
+#8 [5/5] WORKDIR /src
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:abb50acd55f1a92fb320e252c47c55f529c23849792a2fad4f4ee9ded8d9b96e done
+#9 exporting config sha256:955ce12492f48b26d35ba174fcf41414d25e8175db719a8fcfafc2c586793d6f done
+#9 exporting attestation manifest sha256:92915b4d710d975c1794b91548f428a8a75df973ed6d17e6df3bc195c39ab0fd 0.0s done
+#9 exporting manifest list sha256:72e61e40b3c7a7e2caed6dfccc285fbb4ea8f9836c6d267e0a72ed2733338d64 0.0s done
+#9 naming to docker.io/library/squoosh-cpp:latest done
+#9 unpacking to docker.io/library/squoosh-cpp:latest 0.0s done
+#9 DONE 0.1s
+
+ [33m3 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+emmake: "make -j2" in "/src"
+mkdir -p node_modules/libimagequant
+curl -sL https://github.com/ImageOptim/libimagequant/archive/2.12.1.tar.gz | tar xz --strip 1 -C node_modules/libimagequant
+cd node_modules/libimagequant && emconfigure ./configure --host=wasm32-unknown-emscripten \
+	--disable-sse
+emconfigure: ./configure --host=wasm32-unknown-emscripten --disable-sse in directory /src/node_modules/libimagequant
+warning: unknown switch '--host' (see ./configure --help for the list)
+
+  Compiler: /emsdk/upstream/emscripten/emcc
+     Debug: no
+       SSE: no
+    OpenMP: no
+
+make -C node_modules/libimagequant libimagequant.a
+make[1]: Entering directory '/src/node_modules/libimagequant'
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o pam.o pam.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o mediancut.o mediancut.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o blur.o blur.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o mempool.o mempool.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o kmeans.o kmeans.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o nearest.o nearest.c
+/emsdk/upstream/emscripten/emcc -O3 -flto -std=c99 -I. -O3 -DNDEBUG -DUSE_SSE=0 -Wno-unknown-pragmas -fexcess-precision=fast   -c -o libimagequant.o libimagequant.c
+/emsdk/upstream/emscripten/emar rv libimagequant.a pam.o mediancut.o blur.o mempool.o kmeans.o nearest.o libimagequant.o
+/emsdk/upstream/bin/llvm-ar: [0;1;35mwarning: [0mcreating libimagequant.a
+make[1]: Leaving directory '/src/node_modules/libimagequant'
+/emsdk/upstream/emscripten/em++ \
+	-I node_modules/libimagequant \
+	-O3 -flto -std=c++17 \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o imagequant.js \
+	node_modules/libimagequant/libimagequant.a \
+	imagequant.cpp
+/emsdk/upstream/emscripten/em++ \
+	-I node_modules/libimagequant \
+	-O3 -flto -std=c++17 \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o imagequant_node.js \
+	node_modules/libimagequant/libimagequant.a \
+	imagequant.cpp
+[1mimagequant.cpp:27:3: [0m[0;1;35mwarning: [0m[1mignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result][0m
+   27 |   liq_image_quantize(image, attr, &res);[0m
+      | [0;1;32m  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[0m[1mimagequant.cpp:27:3: [0m[0;1;35mwarning: [0m[1mignoring return value of function declared with 'warn_unused_result' attribute [-Wunused-result][0m
+   27 |   liq_image_quantize(image, attr, &res);[0m
+      | [0;1;32m  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[0m1 warning generated.
+1 warning generated.

@@ -51,7 +51,7 @@ $(CODEC_MT_SIMD_BUILD_DIR)/Makefile: CMAKE_FLAGS+=-DWP2_ENABLE_SIMD=1
 
 %/Makefile: $(CODEC_DIR)/CMakeLists.txt
 	emcmake cmake \
-		$(CMAKE_FLAGS) \
+		$(CMAKE_FLAGS) -DCMAKE_CXX_FLAGS="-Wno-array-parameter" \
 		-DWP2_BUILD_TESTS=0 \
 		-DWP2_BUILD_EXAMPLES=0 \
 		-DWP2_BUILD_EXTRAS=0 \
@@ -68,3 +68,8 @@ clean:
 	$(MAKE) -C $(CODEC_BASELINE_BUILD_DIR) clean
 	$(MAKE) -C $(CODEC_MT_BUILD_DIR) clean
 	$(MAKE) -C $(CODEC_MT_SIMD_BUILD_DIR) clean
+
+
+# did this shit to get through the compiling of wp2
+# sudo sed -i 's/int16_t context\[\]/int16_t context\[kMaxContextSize\]/g' codecs/wp2/node_modules/wp2/src/common/lossy/block.cc
+# sudo find codecs/wp2/node_modules/wp2 -type f \( -name "CMakeLists.txt" -o -name "*.cmake" \) -exec sed -i 's/-Werror//g' {} +

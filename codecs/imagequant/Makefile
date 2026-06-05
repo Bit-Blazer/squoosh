@@ -27,7 +27,7 @@ $(CODEC_OUT): $(CODEC_DIR)/config.mk
 	$(MAKE) -C $(CODEC_DIR) $(CODEC_OUT_RELATIVE)
 
 $(CODEC_DIR)/config.mk: $(CODEC_DIR)/configure
-	cd $(CODEC_DIR) && ./configure \
+	cd $(CODEC_DIR) && emconfigure ./configure --host=wasm32-unknown-emscripten \
 		--disable-sse
 
 $(CODEC_DIR)/configure: $(CODEC_DIR)

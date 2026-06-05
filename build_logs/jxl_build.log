@@ -1,0 +1,1027 @@
+
+up to date, audited 1 package in 429ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-cpp.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 702B done
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#4 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -qqy autoconf libtool pkg-config
+#5 CACHED
+
+#6 [3/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -xc++ /dev/null -o /dev/null
+#6 CACHED
+
+#7 [4/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -pthread -xc++ /dev/null -o /dev/null
+#7 CACHED
+
+#8 [5/5] WORKDIR /src
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:abb50acd55f1a92fb320e252c47c55f529c23849792a2fad4f4ee9ded8d9b96e done
+#9 exporting config sha256:955ce12492f48b26d35ba174fcf41414d25e8175db719a8fcfafc2c586793d6f done
+#9 exporting attestation manifest sha256:494ebc325474ce3b85fe92f266295232122ee39a14f194c830abc191af9d904b 0.0s done
+#9 exporting manifest list sha256:a47bbc5b9d6408acab0a106e50eef85fc9c755ebc6f2c05991e4b65f1adb953d done
+#9 naming to docker.io/library/squoosh-cpp:latest done
+#9 unpacking to docker.io/library/squoosh-cpp:latest 0.0s done
+#9 DONE 0.1s
+
+ [33m3 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+emmake: "make -j2" in "/src"
+rm -f -r node_modules/jxl
+git init node_modules/jxl
+[33mhint: Using 'master' as the name for the initial branch. This default branch name[m
+[33mhint: is subject to change. To configure the initial branch name to use in all[m
+[33mhint: of your new repositories, which will suppress this warning, call:[m
+[33mhint: [m
+[33mhint: 	git config --global init.defaultBranch <name>[m
+[33mhint: [m
+[33mhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and[m
+[33mhint: 'development'. The just-created branch can be renamed via this command:[m
+[33mhint: [m
+[33mhint: 	git branch -m <name>[m
+Initialized empty Git repository in /src/node_modules/jxl/.git/
+git -C node_modules/jxl fetch https://github.com/libjxl/libjxl.git 9f544641ec83f6abd9da598bdd08178ee8a003e0 --depth 1
+remote: Enumerating objects: 966, done.[K
+remote: Counting objects:   0% (1/966)[Kremote: Counting objects:   1% (10/966)[Kremote: Counting objects:   2% (20/966)[Kremote: Counting objects:   3% (29/966)[Kremote: Counting objects:   4% (39/966)[Kremote: Counting objects:   5% (49/966)[Kremote: Counting objects:   6% (58/966)[Kremote: Counting objects:   7% (68/966)[Kremote: Counting objects:   8% (78/966)[Kremote: Counting objects:   9% (87/966)[Kremote: Counting objects:  10% (97/966)[Kremote: Counting objects:  11% (107/966)[Kremote: Counting objects:  12% (116/966)[Kremote: Counting objects:  13% (126/966)[Kremote: Counting objects:  14% (136/966)[Kremote: Counting objects:  15% (145/966)[Kremote: Counting objects:  16% (155/966)[Kremote: Counting objects:  17% (165/966)[Kremote: Counting objects:  18% (174/966)[Kremote: Counting objects:  19% (184/966)[Kremote: Counting objects:  20% (194/966)[Kremote: Counting objects:  21% (203/966)[Kremote: Counting objects:  22% (213/966)[Kremote: Counting objects:  23% (223/966)[Kremote: Counting objects:  24% (232/966)[Kremote: Counting objects:  25% (242/966)[Kremote: Counting objects:  26% (252/966)[Kremote: Counting objects:  27% (261/966)[Kremote: Counting objects:  28% (271/966)[Kremote: Counting objects:  29% (281/966)[Kremote: Counting objects:  30% (290/966)[Kremote: Counting objects:  31% (300/966)[Kremote: Counting objects:  32% (310/966)[Kremote: Counting objects:  33% (319/966)[Kremote: Counting objects:  34% (329/966)[Kremote: Counting objects:  35% (339/966)[Kremote: Counting objects:  36% (348/966)[Kremote: Counting objects:  37% (358/966)[Kremote: Counting objects:  38% (368/966)[Kremote: Counting objects:  39% (377/966)[Kremote: Counting objects:  40% (387/966)[Kremote: Counting objects:  41% (397/966)[Kremote: Counting objects:  42% (406/966)[Kremote: Counting objects:  43% (416/966)[Kremote: Counting objects:  44% (426/966)[Kremote: Counting objects:  45% (435/966)[Kremote: Counting objects:  46% (445/966)[Kremote: Counting objects:  47% (455/966)[Kremote: Counting objects:  48% (464/966)[Kremote: Counting objects:  49% (474/966)[Kremote: Counting objects:  50% (483/966)[Kremote: Counting objects:  51% (493/966)[Kremote: Counting objects:  52% (503/966)[Kremote: Counting objects:  53% (512/966)[Kremote: Counting objects:  54% (522/966)[Kremote: Counting objects:  55% (532/966)[Kremote: Counting objects:  56% (541/966)[Kremote: Counting objects:  57% (551/966)[Kremote: Counting objects:  58% (561/966)[Kremote: Counting objects:  59% (570/966)[Kremote: Counting objects:  60% (580/966)[Kremote: Counting objects:  61% (590/966)[Kremote: Counting objects:  62% (599/966)[Kremote: Counting objects:  63% (609/966)[Kremote: Counting objects:  64% (619/966)[Kremote: Counting objects:  65% (628/966)[Kremote: Counting objects:  66% (638/966)[Kremote: Counting objects:  67% (648/966)[Kremote: Counting objects:  68% (657/966)[Kremote: Counting objects:  69% (667/966)[Kremote: Counting objects:  70% (677/966)[Kremote: Counting objects:  71% (686/966)[Kremote: Counting objects:  72% (696/966)[Kremote: Counting objects:  73% (706/966)[Kremote: Counting objects:  74% (715/966)[Kremote: Counting objects:  75% (725/966)[Kremote: Counting objects:  76% (735/966)[Kremote: Counting objects:  77% (744/966)[Kremote: Counting objects:  78% (754/966)[Kremote: Counting objects:  79% (764/966)[Kremote: Counting objects:  80% (773/966)[Kremote: Counting objects:  81% (783/966)[Kremote: Counting objects:  82% (793/966)[Kremote: Counting objects:  83% (802/966)[Kremote: Counting objects:  84% (812/966)[Kremote: Counting objects:  85% (822/966)[Kremote: Counting objects:  86% (831/966)[Kremote: Counting objects:  87% (841/966)[Kremote: Counting objects:  88% (851/966)[Kremote: Counting objects:  89% (860/966)[Kremote: Counting objects:  90% (870/966)[Kremote: Counting objects:  91% (880/966)[Kremote: Counting objects:  92% (889/966)[Kremote: Counting objects:  93% (899/966)[Kremote: Counting objects:  94% (909/966)[Kremote: Counting objects:  95% (918/966)[Kremote: Counting objects:  96% (928/966)[Kremote: Counting objects:  97% (938/966)[Kremote: Counting objects:  98% (947/966)[Kremote: Counting objects:  99% (957/966)[Kremote: Counting objects: 100% (966/966)[Kremote: Counting objects: 100% (966/966), done.[K
+remote: Compressing objects:   0% (1/905)[Kremote: Compressing objects:   1% (10/905)[Kremote: Compressing objects:   2% (19/905)[Kremote: Compressing objects:   3% (28/905)[Kremote: Compressing objects:   4% (37/905)[Kremote: Compressing objects:   5% (46/905)[Kremote: Compressing objects:   6% (55/905)[Kremote: Compressing objects:   7% (64/905)[Kremote: Compressing objects:   8% (73/905)[Kremote: Compressing objects:   9% (82/905)[Kremote: Compressing objects:  10% (91/905)[Kremote: Compressing objects:  11% (100/905)[Kremote: Compressing objects:  12% (109/905)[Kremote: Compressing objects:  13% (118/905)[Kremote: Compressing objects:  14% (127/905)[Kremote: Compressing objects:  15% (136/905)[Kremote: Compressing objects:  16% (145/905)[Kremote: Compressing objects:  17% (154/905)[Kremote: Compressing objects:  18% (163/905)[Kremote: Compressing objects:  19% (172/905)[Kremote: Compressing objects:  20% (181/905)[Kremote: Compressing objects:  21% (191/905)[Kremote: Compressing objects:  22% (200/905)[Kremote: Compressing objects:  23% (209/905)[Kremote: Compressing objects:  24% (218/905)[Kremote: Compressing objects:  25% (227/905)[Kremote: Compressing objects:  26% (236/905)[Kremote: Compressing objects:  27% (245/905)[Kremote: Compressing objects:  28% (254/905)[Kremote: Compressing objects:  29% (263/905)[Kremote: Compressing objects:  30% (272/905)[Kremote: Compressing objects:  31% (281/905)[Kremote: Compressing objects:  32% (290/905)[Kremote: Compressing objects:  33% (299/905)[Kremote: Compressing objects:  34% (308/905)[Kremote: Compressing objects:  35% (317/905)[Kremote: Compressing objects:  36% (326/905)[Kremote: Compressing objects:  37% (335/905)[Kremote: Compressing objects:  38% (344/905)[Kremote: Compressing objects:  39% (353/905)[Kremote: Compressing objects:  40% (362/905)[Kremote: Compressing objects:  41% (372/905)[Kremote: Compressing objects:  42% (381/905)[Kremote: Compressing objects:  43% (390/905)[Kremote: Compressing objects:  44% (399/905)[Kremote: Compressing objects:  45% (408/905)[Kremote: Compressing objects:  46% (417/905)[Kremote: Compressing objects:  47% (426/905)[Kremote: Compressing objects:  48% (435/905)[Kremote: Compressing objects:  49% (444/905)[Kremote: Compressing objects:  50% (453/905)[Kremote: Compressing objects:  51% (462/905)[Kremote: Compressing objects:  52% (471/905)[Kremote: Compressing objects:  53% (480/905)[Kremote: Compressing objects:  54% (489/905)[Kremote: Compressing objects:  55% (498/905)[Kremote: Compressing objects:  56% (507/905)[Kremote: Compressing objects:  57% (516/905)[Kremote: Compressing objects:  58% (525/905)[Kremote: Compressing objects:  59% (534/905)[Kremote: Compressing objects:  60% (543/905)[Kremote: Compressing objects:  61% (553/905)[Kremote: Compressing objects:  62% (562/905)[Kremote: Compressing objects:  63% (571/905)[Kremote: Compressing objects:  64% (580/905)[Kremote: Compressing objects:  65% (589/905)[Kremote: Compressing objects:  66% (598/905)[Kremote: Compressing objects:  67% (607/905)[Kremote: Compressing objects:  68% (616/905)[Kremote: Compressing objects:  69% (625/905)[Kremote: Compressing objects:  70% (634/905)[Kremote: Compressing objects:  71% (643/905)[Kremote: Compressing objects:  72% (652/905)[Kremote: Compressing objects:  73% (661/905)[Kremote: Compressing objects:  74% (670/905)[Kremote: Compressing objects:  75% (679/905)[Kremote: Compressing objects:  76% (688/905)[Kremote: Compressing objects:  77% (697/905)[Kremote: Compressing objects:  78% (706/905)[Kremote: Compressing objects:  79% (715/905)[Kremote: Compressing objects:  80% (724/905)[Kremote: Compressing objects:  81% (734/905)[Kremote: Compressing objects:  82% (743/905)[Kremote: Compressing objects:  83% (752/905)[Kremote: Compressing objects:  84% (761/905)[Kremote: Compressing objects:  85% (770/905)[Kremote: Compressing objects:  86% (779/905)[Kremote: Compressing objects:  87% (788/905)[Kremote: Compressing objects:  88% (797/905)[Kremote: Compressing objects:  89% (806/905)[Kremote: Compressing objects:  90% (815/905)[Kremote: Compressing objects:  91% (824/905)[Kremote: Compressing objects:  92% (833/905)[Kremote: Compressing objects:  93% (842/905)[Kremote: Compressing objects:  94% (851/905)[Kremote: Compressing objects:  95% (860/905)[Kremote: Compressing objects:  96% (869/905)[Kremote: Compressing objects:  97% (878/905)[Kremote: Compressing objects:  98% (887/905)[Kremote: Compressing objects:  99% (896/905)[Kremote: Compressing objects: 100% (905/905)[Kremote: Compressing objects: 100% (905/905), done.[K
+Receiving objects:   0% (1/966)Receiving objects:   1% (10/966)Receiving objects:   2% (20/966)Receiving objects:   3% (29/966)Receiving objects:   4% (39/966)Receiving objects:   5% (49/966)Receiving objects:   6% (58/966)Receiving objects:   7% (68/966)Receiving objects:   8% (78/966)Receiving objects:   9% (87/966)Receiving objects:  10% (97/966)Receiving objects:  11% (107/966)Receiving objects:  12% (116/966)Receiving objects:  13% (126/966)Receiving objects:  14% (136/966)Receiving objects:  15% (145/966)Receiving objects:  16% (155/966)Receiving objects:  17% (165/966)Receiving objects:  18% (174/966)Receiving objects:  19% (184/966)Receiving objects:  20% (194/966)Receiving objects:  21% (203/966)Receiving objects:  22% (213/966)Receiving objects:  23% (223/966)Receiving objects:  24% (232/966)Receiving objects:  25% (242/966)Receiving objects:  26% (252/966)Receiving objects:  27% (261/966)Receiving objects:  28% (271/966)Receiving objects:  29% (281/966)Receiving objects:  30% (290/966)Receiving objects:  31% (300/966)Receiving objects:  32% (310/966)Receiving objects:  33% (319/966)Receiving objects:  34% (329/966)Receiving objects:  35% (339/966)Receiving objects:  36% (348/966)Receiving objects:  37% (358/966)Receiving objects:  38% (368/966)Receiving objects:  39% (377/966)Receiving objects:  40% (387/966)Receiving objects:  41% (397/966)Receiving objects:  42% (406/966)Receiving objects:  43% (416/966)Receiving objects:  44% (426/966)Receiving objects:  45% (435/966)Receiving objects:  46% (445/966)Receiving objects:  47% (455/966)Receiving objects:  48% (464/966)Receiving objects:  49% (474/966)Receiving objects:  50% (483/966)Receiving objects:  51% (493/966)Receiving objects:  52% (503/966)Receiving objects:  53% (512/966)Receiving objects:  54% (522/966)Receiving objects:  55% (532/966)Receiving objects:  56% (541/966)Receiving objects:  57% (551/966)Receiving objects:  58% (561/966)Receiving objects:  59% (570/966)Receiving objects:  60% (580/966)Receiving objects:  61% (590/966)Receiving objects:  62% (599/966)Receiving objects:  63% (609/966)Receiving objects:  64% (619/966)Receiving objects:  65% (628/966)Receiving objects:  66% (638/966)Receiving objects:  67% (648/966)Receiving objects:  68% (657/966)Receiving objects:  69% (667/966)Receiving objects:  70% (677/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  71% (686/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  72% (696/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  73% (706/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  74% (715/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  75% (725/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  76% (735/966), 5.30 MiB | 10.60 MiB/sReceiving objects:  76% (737/966), 9.21 MiB | 9.20 MiB/s Receiving objects:  77% (744/966), 9.21 MiB | 9.20 MiB/sReceiving objects:  78% (754/966), 9.21 MiB | 9.20 MiB/sReceiving objects:  79% (764/966), 9.21 MiB | 9.20 MiB/sReceiving objects:  80% (773/966), 9.21 MiB | 9.20 MiB/sReceiving objects:  81% (783/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  82% (793/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  83% (802/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  84% (812/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  85% (822/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  86% (831/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  87% (841/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  88% (851/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  89% (860/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  90% (870/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  91% (880/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  92% (889/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  93% (899/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  94% (909/966), 14.23 MiB | 9.48 MiB/sremote: Total 966 (delta 76), reused 333 (delta 41), pack-reused 0 (from 0)[K
+Receiving objects:  95% (918/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  96% (928/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  97% (938/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  98% (947/966), 14.23 MiB | 9.48 MiB/sReceiving objects:  99% (957/966), 14.23 MiB | 9.48 MiB/sReceiving objects: 100% (966/966), 14.23 MiB | 9.48 MiB/sReceiving objects: 100% (966/966), 16.70 MiB | 9.63 MiB/s, done.
+Resolving deltas:   0% (0/76)Resolving deltas:   1% (1/76)Resolving deltas:   2% (2/76)Resolving deltas:   3% (3/76)Resolving deltas:   5% (4/76)Resolving deltas:   6% (5/76)Resolving deltas:   7% (6/76)Resolving deltas:   9% (7/76)Resolving deltas:  10% (8/76)Resolving deltas:  11% (9/76)Resolving deltas:  13% (10/76)Resolving deltas:  14% (11/76)Resolving deltas:  15% (12/76)Resolving deltas:  17% (13/76)Resolving deltas:  18% (14/76)Resolving deltas:  19% (15/76)Resolving deltas:  21% (16/76)Resolving deltas:  22% (17/76)Resolving deltas:  23% (18/76)Resolving deltas:  25% (19/76)Resolving deltas:  26% (20/76)Resolving deltas:  27% (21/76)Resolving deltas:  28% (22/76)Resolving deltas:  30% (23/76)Resolving deltas:  31% (24/76)Resolving deltas:  32% (25/76)Resolving deltas:  34% (26/76)Resolving deltas:  35% (27/76)Resolving deltas:  36% (28/76)Resolving deltas:  38% (29/76)Resolving deltas:  39% (30/76)Resolving deltas:  40% (31/76)Resolving deltas:  42% (32/76)Resolving deltas:  43% (33/76)Resolving deltas:  44% (34/76)Resolving deltas:  46% (35/76)Resolving deltas:  47% (36/76)Resolving deltas:  48% (37/76)Resolving deltas:  50% (38/76)Resolving deltas:  51% (39/76)Resolving deltas:  52% (40/76)Resolving deltas:  53% (41/76)Resolving deltas:  55% (42/76)Resolving deltas:  56% (43/76)Resolving deltas:  57% (44/76)Resolving deltas:  59% (45/76)Resolving deltas:  60% (46/76)Resolving deltas:  61% (47/76)Resolving deltas:  63% (48/76)Resolving deltas:  64% (49/76)Resolving deltas:  65% (50/76)Resolving deltas:  67% (51/76)Resolving deltas:  68% (52/76)Resolving deltas:  69% (53/76)Resolving deltas:  72% (55/76)Resolving deltas:  73% (56/76)Resolving deltas:  75% (57/76)Resolving deltas:  76% (58/76)Resolving deltas:  78% (60/76)Resolving deltas:  81% (62/76)Resolving deltas:  82% (63/76)Resolving deltas:  84% (64/76)Resolving deltas:  85% (65/76)Resolving deltas:  86% (66/76)Resolving deltas:  89% (68/76)Resolving deltas:  90% (69/76)Resolving deltas:  92% (70/76)Resolving deltas:  93% (71/76)Resolving deltas:  94% (72/76)Resolving deltas:  96% (73/76)Resolving deltas:  97% (74/76)Resolving deltas:  98% (75/76)Resolving deltas: 100% (76/76)Resolving deltas: 100% (76/76), done.
+From https://github.com/libjxl/libjxl
+ * branch            9f544641ec83f6abd9da598bdd08178ee8a003e0 -> FETCH_HEAD
+git -C node_modules/jxl checkout FETCH_HEAD
+Note: switching to 'FETCH_HEAD'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 9f54464 GFLAGS only used by tools
+git -C node_modules/jxl submodule update --init --depth 1 --recursive --jobs `nproc`
+Submodule 'third_party/brotli' (https://github.com/google/brotli) registered for path 'third_party/brotli'
+Submodule 'third_party/gflags' (https://github.com/gflags/gflags) registered for path 'third_party/gflags'
+Submodule 'third_party/googletest' (https://github.com/google/googletest) registered for path 'third_party/googletest'
+Submodule 'third_party/highway' (https://github.com/google/highway) registered for path 'third_party/highway'
+Submodule 'third_party/lcms' (https://github.com/mm2/Little-CMS) registered for path 'third_party/lcms'
+Submodule 'third_party/libpng' (https://github.com/glennrp/libpng.git) registered for path 'third_party/libpng'
+Submodule 'third_party/sjpeg' (https://github.com/webmproject/sjpeg.git) registered for path 'third_party/sjpeg'
+Submodule 'third_party/skcms' (https://skia.googlesource.com/skcms) registered for path 'third_party/skcms'
+Submodule 'third_party/zlib' (https://github.com/madler/zlib.git) registered for path 'third_party/zlib'
+Cloning into '/src/node_modules/jxl/third_party/brotli'...
+Cloning into '/src/node_modules/jxl/third_party/gflags'...
+Cloning into '/src/node_modules/jxl/third_party/googletest'...
+Cloning into '/src/node_modules/jxl/third_party/highway'...
+Cloning into '/src/node_modules/jxl/third_party/lcms'...
+Cloning into '/src/node_modules/jxl/third_party/libpng'...
+Cloning into '/src/node_modules/jxl/third_party/sjpeg'...
+Cloning into '/src/node_modules/jxl/third_party/skcms'...
+Cloning into '/src/node_modules/jxl/third_party/zlib'...
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 414, done.[K
+remote: Counting objects:   0% (1/414)[Kremote: Counting objects:   1% (5/414)[Kremote: Counting objects:   2% (9/414)[Kremote: Counting objects:   3% (13/414)[Kremote: Counting objects:   4% (17/414)[Kremote: Counting objects:   5% (21/414)[Kremote: Counting objects:   6% (25/414)[Kremote: Counting objects:   7% (29/414)[Kremote: Counting objects:   8% (34/414)[Kremote: Counting objects:   9% (38/414)[Kremote: Counting objects:  10% (42/414)[Kremote: Counting objects:  11% (46/414)[Kremote: Counting objects:  12% (50/414)[Kremote: Counting objects:  13% (54/414)[Kremote: Counting objects:  14% (58/414)[Kremote: Counting objects:  15% (63/414)[Kremote: Counting objects:  16% (67/414)[Kremote: Counting objects:  17% (71/414)[Kremote: Counting objects:  18% (75/414)[Kremote: Counting objects:  19% (79/414)[Kremote: Counting objects:  20% (83/414)[Kremote: Counting objects:  21% (87/414)[Kremote: Counting objects:  22% (92/414)[Kremote: Counting objects:  23% (96/414)[Kremote: Counting objects:  24% (100/414)[Kremote: Counting objects:  25% (104/414)[Kremote: Counting objects:  26% (108/414)[Kremote: Counting objects:  27% (112/414)[Kremote: Counting objects:  28% (116/414)[Kremote: Counting objects:  29% (121/414)[Kremote: Counting objects:  30% (125/414)[Kremote: Counting objects:  31% (129/414)[Kremote: Counting objects:  32% (133/414)[Kremote: Counting objects:  33% (137/414)[Kremote: Counting objects:  34% (141/414)[Kremote: Counting objects:  35% (145/414)[Kremote: Counting objects:  36% (150/414)[Kremote: Counting objects:  37% (154/414)[Kremote: Counting objects:  38% (158/414)[Kremote: Counting objects:  39% (162/414)[Kremote: Counting objects:  40% (166/414)[Kremote: Counting objects:  41% (170/414)[Kremote: Counting objects:  42% (174/414)[Kremote: Counting objects:  43% (179/414)[Kremote: Counting objects:  44% (183/414)[Kremote: Counting objects:  45% (187/414)[Kremote: Counting objects:  46% (191/414)[Kremote: Counting objects:  47% (195/414)[Kremote: Counting objects:  48% (199/414)[Kremote: Counting objects:  49% (203/414)[Kremote: Counting objects:  50% (207/414)[Kremote: Counting objects:  51% (212/414)[Kremote: Counting objects:  52% (216/414)[Kremote: Counting objects:  53% (220/414)[Kremote: Counting objects:  54% (224/414)[Kremote: Counting objects:  55% (228/414)[Kremote: Counting objects:  56% (232/414)[Kremote: Counting objects:  57% (236/414)[Kremote: Counting objects:  58% (241/414)[Kremote: Counting objects:  59% (245/414)[Kremote: Counting objects:  60% (249/414)[Kremote: Counting objects:  61% (253/414)[Kremote: Counting objects:  62% (257/414)[Kremote: Counting objects:  63% (261/414)[Kremote: Counting objects:  64% (265/414)[Kremote: Counting objects:  65% (270/414)[Kremote: Counting objects:  66% (274/414)[Kremote: Counting objects:  67% (278/414)[Kremote: Counting objects:  68% (282/414)[Kremote: Counting objects:  69% (286/414)[Kremote: Counting objects:  70% (290/414)[Kremote: Counting objects:  71% (294/414)[Kremote: Counting objects:  72% (299/414)[Kremote: Counting objects:  73% (303/414)[Kremote: Counting objects:  74% (307/414)[Kremote: Counting objects:  75% (311/414)[Kremote: Counting objects:  76% (315/414)[Kremote: Counting objects:  77% (319/414)[Kremote: Counting objects:  78% (323/414)[Kremote: Counting objects:  79% (328/414)[Kremote: Counting objects:  80% (332/414)[Kremote: Counting objects:  81% (336/414)[Kremote: Counting objects:  82% (340/414)[Kremote: Counting objects:  83% (344/414)[Kremote: Counting objects:  84% (348/414)[Kremote: Counting objects:  85% (352/414)[Kremote: Counting objects:  86% (357/414)[Kremote: Counting objects:  87% (361/414)[Kremote: Counting objects:  88% (365/414)[Kremote: Counting objects:  89% (369/414)[Kremote: Counting objects:  90% (373/414)[Kremote: Counting objects:  91% (377/414)[Kremote: Counting objects:  92% (381/414)[Kremote: Counting objects:  93% (386/414)[Kremote: Counting objects:  94% (390/414)[Kremote: Counting objects:  95% (394/414)[Kremote: Counting objects:  96% (398/414)[Kremote: Counting objects:  97% (402/414)[Kremote: Counting objects:  98% (406/414)[Kremote: Counting objects:  99% (410/414)[Kremote: Counting objects: 100% (414/414)[Kremote: Counting objects: 100% (414/414), done.[K
+remote: Compressing objects:   0% (1/222)[Kremote: Compressing objects:   1% (3/222)[Kremote: Compressing objects:   2% (5/222)[Kremote: Compressing objects:   3% (7/222)[Kremote: Compressing objects:   4% (9/222)[Kremote: Compressing objects:   5% (12/222)[Kremote: Compressing objects:   6% (14/222)[Kremote: Compressing objects:   7% (16/222)[Kremote: Compressing objects:   8% (18/222)[Kremote: Compressing objects:   9% (20/222)[Kremote: Compressing objects:  10% (23/222)[Kremote: Compressing objects:  11% (25/222)[Kremote: Compressing objects:  12% (27/222)[Kremote: Compressing objects:  13% (29/222)[Kremote: Compressing objects:  14% (32/222)[Kremote: Compressing objects:  15% (34/222)[Kremote: Compressing objects:  16% (36/222)[Kremote: Compressing objects:  17% (38/222)[Kremote: Compressing objects:  18% (40/222)[Kremote: Compressing objects:  19% (43/222)[Kremote: Compressing objects:  20% (45/222)[Kremote: Compressing objects:  21% (47/222)[Kremote: Compressing objects:  22% (49/222)[Kremote: Compressing objects:  23% (52/222)[Kremote: Compressing objects:  24% (54/222)[Kremote: Compressing objects:  25% (56/222)[Kremote: Compressing objects:  26% (58/222)[Kremote: Compressing objects:  27% (60/222)[Kremote: Compressing objects:  28% (63/222)[Kremote: Compressing objects:  29% (65/222)[Kremote: Compressing objects:  30% (67/222)[Kremote: Compressing objects:  31% (69/222)[Kremote: Compressing objects:  32% (72/222)[Kremote: Compressing objects:  33% (74/222)[Kremote: Compressing objects:  34% (76/222)[Kremote: Compressing objects:  35% (78/222)[Kremote: Compressing objects:  36% (80/222)[Kremote: Compressing objects:  37% (83/222)[Kremote: Compressing objects:  38% (85/222)[Kremote: Compressing objects:  39% (87/222)[Kremote: Compressing objects:  40% (89/222)[Kremote: Compressing objects:  41% (92/222)[Kremote: Compressing objects:  42% (94/222)[Kremote: Compressing objects:  43% (96/222)[Kremote: Compressing objects:  44% (98/222)[Kremote: Compressing objects:  45% (100/222)[Kremote: Compressing objects:  46% (103/222)[Kremote: Compressing objects:  47% (105/222)[Kremote: Compressing objects:  48% (107/222)[Kremote: Compressing objects:  49% (109/222)[Kremote: Compressing objects:  50% (111/222)[Kremote: Compressing objects:  51% (114/222)[Kremote: Compressing objects:  52% (116/222)[Kremote: Compressing objects:  53% (118/222)[Kremote: Compressing objects:  54% (120/222)[Kremote: Compressing objects:  55% (123/222)[Kremote: Compressing objects:  56% (125/222)[Kremote: Compressing objects:  57% (127/222)[Kremote: Compressing objects:  58% (129/222)[Kremote: Compressing objects:  59% (131/222)[Kremote: Compressing objects:  60% (134/222)[Kremote: Compressing objects:  61% (136/222)[Kremote: Compressing objects:  62% (138/222)[Kremote: Compressing objects:  63% (140/222)[Kremote: Compressing objects:  64% (143/222)[Kremote: Compressing objects:  65% (145/222)[Kremote: Compressing objects:  66% (147/222)[Kremote: Compressing objects:  67% (149/222)[Kremote: Compressing objects:  68% (151/222)[Kremote: Compressing objects:  69% (154/222)[Kremote: Compressing objects:  70% (156/222)[Kremote: Compressing objects:  71% (158/222)[Kremote: Compressing objects:  72% (160/222)[Kremote: Compressing objects:  73% (163/222)[Kremote: Compressing objects:  74% (165/222)[Kremote: Compressing objects:  75% (167/222)[Kremote: Compressing objects:  76% (169/222)[Kremote: Compressing objects:  77% (171/222)[Kremote: Compressing objects:  78% (174/222)[Kremote: Compressing objects:  79% (176/222)[Kremote: Compressing objects:  80% (178/222)[Kremote: Compressing objects:  81% (180/222)[Kremote: Compressing objects:  82% (183/222)[Kremote: Compressing objects:  83% (185/222)[Kremote: Compressing objects:  84% (187/222)[Kremote: Compressing objects:  85% (189/222)[Kremote: Compressing objects:  86% (191/222)[Kremote: Compressing objects:  87% (194/222)[Kremote: Compressing objects:  88% (196/222)[Kremote: Compressing objects:  89% (198/222)[Kremote: Compressing objects:  90% (200/222)[Kremote: Compressing objects:  91% (203/222)[Kremote: Compressing objects:  92% (205/222)[Kremote: Compressing objects:  93% (207/222)[Kremote: Compressing objects:  94% (209/222)[Kremote: Compressing objects:  95% (211/222)[Kremote: Compressing objects:  96% (214/222)[Kremote: Compressing objects:  97% (216/222)[Kremote: Compressing objects:  98% (218/222)[Kremote: Compressing objects:  99% (220/222)[Kremote: Compressing objects: 100% (222/222)[Kremote: Compressing objects: 100% (222/222), done.[K
+Receiving objects:   0% (1/230)Receiving objects:   1% (3/230)Receiving objects:   2% (5/230)Receiving objects:   3% (7/230)Receiving objects:   4% (10/230)Receiving objects:   5% (12/230)Receiving objects:   6% (14/230)Receiving objects:   7% (17/230)Receiving objects:   8% (19/230)Receiving objects:   9% (21/230)Receiving objects:  10% (23/230)Receiving objects:  11% (26/230)Receiving objects:  12% (28/230)Receiving objects:  13% (30/230)Receiving objects:  14% (33/230)Receiving objects:  15% (35/230)Receiving objects:  16% (37/230)Receiving objects:  17% (40/230)Receiving objects:  18% (42/230)Receiving objects:  19% (44/230)Receiving objects:  20% (46/230)Receiving objects:  21% (49/230)Receiving objects:  22% (51/230)Receiving objects:  23% (53/230)Receiving objects:  24% (56/230)Receiving objects:  25% (58/230)Receiving objects:  26% (60/230)Receiving objects:  27% (63/230)Receiving objects:  28% (65/230)Receiving objects:  29% (67/230)Receiving objects:  30% (69/230)Receiving objects:  31% (72/230)Receiving objects:  32% (74/230)Receiving objects:  33% (76/230)Receiving objects:  34% (79/230)Receiving objects:  35% (81/230)Receiving objects:  36% (83/230)Receiving objects:  37% (86/230)Receiving objects:  38% (88/230)Receiving objects:  39% (90/230)Receiving objects:  40% (92/230)Receiving objects:  41% (95/230)Receiving objects:  42% (97/230)Receiving objects:  43% (99/230)Receiving objects:  44% (102/230)Receiving objects:  45% (104/230)Receiving objects:  46% (106/230)Receiving objects:  47% (109/230)Receiving objects:  48% (111/230)Receiving objects:  49% (113/230)Receiving objects:  50% (115/230)Receiving objects:  51% (118/230)Receiving objects:  52% (120/230)Receiving objects:  53% (122/230)Receiving objects:  54% (125/230)Receiving objects:  55% (127/230)Receiving objects:  56% (129/230)Receiving objects:  57% (132/230)Receiving objects:  58% (134/230)Receiving objects:  59% (136/230)Receiving objects:  60% (138/230)Receiving objects:  61% (141/230)Receiving objects:  62% (143/230)Receiving objects:  63% (145/230)Receiving objects:  64% (148/230)Receiving objects:  65% (150/230)Receiving objects:  66% (152/230)Receiving objects:  67% (155/230)Receiving objects:  68% (157/230)Receiving objects:  69% (159/230)Receiving objects:  70% (161/230)Receiving objects:  71% (164/230)Receiving objects:  72% (166/230)Receiving objects:  73% (168/230)Receiving objects:  74% (171/230)Receiving objects:  75% (173/230)Receiving objects:  76% (175/230)Receiving objects:  77% (178/230)remote: Total 230 (delta 147), reused 31 (delta 4), pack-reused 0 (from 0)[K
+Receiving objects:  78% (180/230)Receiving objects:  79% (182/230)Receiving objects:  80% (184/230)Receiving objects:  81% (187/230)Receiving objects:  82% (189/230)Receiving objects:  83% (191/230)Receiving objects:  84% (194/230)Receiving objects:  85% (196/230)Receiving objects:  86% (198/230)Receiving objects:  87% (201/230)Receiving objects:  88% (203/230)Receiving objects:  89% (205/230)Receiving objects:  90% (207/230)Receiving objects:  91% (210/230)Receiving objects:  92% (212/230)Receiving objects:  93% (214/230)Receiving objects:  94% (217/230)Receiving objects:  95% (219/230)Receiving objects:  96% (221/230)Receiving objects:  97% (224/230)Receiving objects:  98% (226/230)Receiving objects:  99% (228/230)Receiving objects: 100% (230/230)Receiving objects: 100% (230/230), 1.63 MiB | 9.18 MiB/s, done.
+Resolving deltas:   0% (0/147)Resolving deltas:   1% (2/147)Resolving deltas:   2% (3/147)Resolving deltas:   3% (5/147)Resolving deltas:   4% (6/147)Resolving deltas:   5% (8/147)Resolving deltas:   6% (9/147)Resolving deltas:   7% (11/147)Resolving deltas:   8% (12/147)Resolving deltas:   9% (14/147)Resolving deltas:  10% (15/147)Resolving deltas:  11% (17/147)Resolving deltas:  12% (18/147)Resolving deltas:  13% (20/147)Resolving deltas:  14% (21/147)Resolving deltas:  15% (23/147)Resolving deltas:  16% (24/147)Resolving deltas:  17% (25/147)Resolving deltas:  18% (27/147)Resolving deltas:  19% (28/147)Resolving deltas:  20% (30/147)Resolving deltas:  21% (31/147)Resolving deltas:  22% (33/147)Resolving deltas:  23% (34/147)Resolving deltas:  24% (36/147)Resolving deltas:  25% (37/147)Resolving deltas:  26% (39/147)Resolving deltas:  27% (40/147)Resolving deltas:  28% (42/147)Resolving deltas:  29% (43/147)Resolving deltas:  30% (45/147)Resolving deltas:  31% (46/147)Resolving deltas:  32% (48/147)Resolving deltas:  33% (49/147)Resolving deltas:  34% (50/147)Resolving deltas:  35% (52/147)Resolving deltas:  36% (53/147)Resolving deltas:  37% (55/147)Resolving deltas:  38% (56/147)Resolving deltas:  39% (58/147)Resolving deltas:  40% (59/147)Resolving deltas:  41% (61/147)Resolving deltas:  42% (62/147)Resolving deltas:  43% (64/147)Resolving deltas:  44% (65/147)Resolving deltas:  45% (67/147)Resolving deltas:  46% (68/147)Resolving deltas:  47% (70/147)Resolving deltas:  48% (71/147)Resolving deltas:  49% (73/147)Resolving deltas:  50% (74/147)Resolving deltas:  51% (75/147)Resolving deltas:  52% (77/147)Resolving deltas:  53% (78/147)Resolving deltas:  54% (80/147)Resolving deltas:  55% (81/147)Resolving deltas:  56% (83/147)Resolving deltas:  57% (84/147)Resolving deltas:  58% (86/147)Resolving deltas:  59% (87/147)Resolving deltas:  60% (89/147)Resolving deltas:  61% (90/147)Resolving deltas:  62% (92/147)Resolving deltas:  63% (93/147)Resolving deltas:  64% (95/147)Resolving deltas:  65% (96/147)Resolving deltas:  66% (98/147)Resolving deltas:  67% (99/147)Resolving deltas:  68% (100/147)Resolving deltas:  69% (102/147)Resolving deltas:  70% (103/147)Resolving deltas:  71% (105/147)Resolving deltas:  72% (106/147)Resolving deltas:  73% (108/147)Resolving deltas:  74% (109/147)Resolving deltas:  75% (111/147)Resolving deltas:  76% (112/147)Resolving deltas:  77% (114/147)Resolving deltas:  78% (115/147)Resolving deltas:  79% (117/147)Resolving deltas:  80% (118/147)Resolving deltas:  81% (120/147)Resolving deltas:  82% (121/147)Resolving deltas:  83% (123/147)Resolving deltas:  84% (124/147)Resolving deltas:  85% (125/147)Resolving deltas:  86% (127/147)Resolving deltas:  87% (128/147)Resolving deltas:  88% (130/147)Resolving deltas:  89% (131/147)Resolving deltas:  90% (133/147)Resolving deltas:  91% (134/147)Resolving deltas:  92% (136/147)Resolving deltas:  93% (137/147)Resolving deltas:  94% (139/147)Resolving deltas:  95% (140/147)Resolving deltas:  96% (142/147)Resolving deltas:  97% (143/147)Resolving deltas:  98% (145/147)Resolving deltas:  99% (146/147)Resolving deltas: 100% (147/147)Resolving deltas: 100% (147/147), completed with 138 local objects.
+From https://github.com/google/brotli
+ * branch            35ef5c554d888bef217d449346067de05e269b30 -> FETCH_HEAD
+Submodule path 'third_party/brotli': checked out '35ef5c554d888bef217d449346067de05e269b30'
+Submodule 'research/esaxx' (https://github.com/hillbig/esaxx) registered for path 'third_party/brotli/research/esaxx'
+Submodule 'research/libdivsufsort' (https://github.com/y-256/libdivsufsort.git) registered for path 'third_party/brotli/research/libdivsufsort'
+Cloning into '/src/node_modules/jxl/third_party/brotli/research/esaxx'...
+Cloning into '/src/node_modules/jxl/third_party/brotli/research/libdivsufsort'...
+Submodule path 'third_party/brotli/research/esaxx': checked out 'ca7cb332011ec37a8436487f210f396b84bd8273'
+Submodule path 'third_party/brotli/research/libdivsufsort': checked out '5f60d6f026c30fb4ac296f696b3c8b0eb71bd428'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 52, done.[K
+remote: Counting objects:   1% (1/52)[Kremote: Counting objects:   3% (2/52)[Kremote: Counting objects:   5% (3/52)[Kremote: Counting objects:   7% (4/52)[Kremote: Counting objects:   9% (5/52)[Kremote: Counting objects:  11% (6/52)[Kremote: Counting objects:  13% (7/52)[Kremote: Counting objects:  15% (8/52)[Kremote: Counting objects:  17% (9/52)[Kremote: Counting objects:  19% (10/52)[Kremote: Counting objects:  21% (11/52)[Kremote: Counting objects:  23% (12/52)[Kremote: Counting objects:  25% (13/52)[Kremote: Counting objects:  26% (14/52)[Kremote: Counting objects:  28% (15/52)[Kremote: Counting objects:  30% (16/52)[Kremote: Counting objects:  32% (17/52)[Kremote: Counting objects:  34% (18/52)[Kremote: Counting objects:  36% (19/52)[Kremote: Counting objects:  38% (20/52)[Kremote: Counting objects:  40% (21/52)[Kremote: Counting objects:  42% (22/52)[Kremote: Counting objects:  44% (23/52)[Kremote: Counting objects:  46% (24/52)[Kremote: Counting objects:  48% (25/52)[Kremote: Counting objects:  50% (26/52)[Kremote: Counting objects:  51% (27/52)[Kremote: Counting objects:  53% (28/52)[Kremote: Counting objects:  55% (29/52)[Kremote: Counting objects:  57% (30/52)[Kremote: Counting objects:  59% (31/52)[Kremote: Counting objects:  61% (32/52)[Kremote: Counting objects:  63% (33/52)[Kremote: Counting objects:  65% (34/52)[Kremote: Counting objects:  67% (35/52)[Kremote: Counting objects:  69% (36/52)[Kremote: Counting objects:  71% (37/52)[Kremote: Counting objects:  73% (38/52)[Kremote: Counting objects:  75% (39/52)[Kremote: Counting objects:  76% (40/52)[Kremote: Counting objects:  78% (41/52)[Kremote: Counting objects:  80% (42/52)[Kremote: Counting objects:  82% (43/52)[Kremote: Counting objects:  84% (44/52)[Kremote: Counting objects:  86% (45/52)[Kremote: Counting objects:  88% (46/52)[Kremote: Counting objects:  90% (47/52)[Kremote: Counting objects:  92% (48/52)[Kremote: Counting objects:  94% (49/52)[Kremote: Counting objects:  96% (50/52)[Kremote: Counting objects:  98% (51/52)[Kremote: Counting objects: 100% (52/52)[Kremote: Counting objects: 100% (52/52), done.[K
+remote: Compressing objects:   3% (1/28)[Kremote: Compressing objects:   7% (2/28)[Kremote: Compressing objects:  10% (3/28)[Kremote: Compressing objects:  14% (4/28)[Kremote: Compressing objects:  17% (5/28)[Kremote: Compressing objects:  21% (6/28)[Kremote: Compressing objects:  25% (7/28)[Kremote: Compressing objects:  28% (8/28)[Kremote: Compressing objects:  32% (9/28)[Kremote: Compressing objects:  35% (10/28)[Kremote: Compressing objects:  39% (11/28)[Kremote: Compressing objects:  42% (12/28)[Kremote: Compressing objects:  46% (13/28)[Kremote: Compressing objects:  50% (14/28)[Kremote: Compressing objects:  53% (15/28)[Kremote: Compressing objects:  57% (16/28)[Kremote: Compressing objects:  60% (17/28)[Kremote: Compressing objects:  64% (18/28)[Kremote: Compressing objects:  67% (19/28)[Kremote: Compressing objects:  71% (20/28)[Kremote: Compressing objects:  75% (21/28)[Kremote: Compressing objects:  78% (22/28)[Kremote: Compressing objects:  82% (23/28)[Kremote: Compressing objects:  85% (24/28)[Kremote: Compressing objects:  89% (25/28)[Kremote: Compressing objects:  92% (26/28)[Kremote: Compressing objects:  96% (27/28)[Kremote: Compressing objects: 100% (28/28)[Kremote: Compressing objects: 100% (28/28), done.[K
+remote: Total 28 (delta 19), reused 6 (delta 0), pack-reused 0 (from 0)[K
+Unpacking objects:   3% (1/28)Unpacking objects:   7% (2/28)Unpacking objects:  10% (3/28)Unpacking objects:  14% (4/28)Unpacking objects:  17% (5/28)Unpacking objects:  21% (6/28)Unpacking objects:  25% (7/28)Unpacking objects:  28% (8/28)Unpacking objects:  32% (9/28)Unpacking objects:  35% (10/28)Unpacking objects:  39% (11/28)Unpacking objects:  42% (12/28)Unpacking objects:  46% (13/28)Unpacking objects:  50% (14/28)Unpacking objects:  53% (15/28)Unpacking objects:  57% (16/28)Unpacking objects:  60% (17/28)Unpacking objects:  64% (18/28)Unpacking objects:  67% (19/28)Unpacking objects:  71% (20/28)Unpacking objects:  75% (21/28)Unpacking objects:  78% (22/28)Unpacking objects:  82% (23/28)Unpacking objects:  85% (24/28)Unpacking objects:  89% (25/28)Unpacking objects:  92% (26/28)Unpacking objects:  96% (27/28)Unpacking objects: 100% (28/28)Unpacking objects: 100% (28/28), 7.09 KiB | 363.00 KiB/s, done.
+From https://github.com/gflags/gflags
+ * branch            827c769e5fc98e0f2a34c47cef953cc6328abced -> FETCH_HEAD
+Submodule path 'third_party/gflags': checked out '827c769e5fc98e0f2a34c47cef953cc6328abced'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 557, done.[K
+remote: Counting objects:   0% (1/556)[Kremote: Counting objects:   1% (6/556)[Kremote: Counting objects:   2% (12/556)[Kremote: Counting objects:   3% (17/556)[Kremote: Counting objects:   4% (23/556)[Kremote: Counting objects:   5% (28/556)[Kremote: Counting objects:   6% (34/556)[Kremote: Counting objects:   7% (39/556)[Kremote: Counting objects:   8% (45/556)[Kremote: Counting objects:   9% (51/556)[Kremote: Counting objects:  10% (56/556)[Kremote: Counting objects:  11% (62/556)[Kremote: Counting objects:  12% (67/556)[Kremote: Counting objects:  13% (73/556)[Kremote: Counting objects:  14% (78/556)[Kremote: Counting objects:  15% (84/556)[Kremote: Counting objects:  16% (89/556)[Kremote: Counting objects:  17% (95/556)[Kremote: Counting objects:  18% (101/556)[Kremote: Counting objects:  19% (106/556)[Kremote: Counting objects:  20% (112/556)[Kremote: Counting objects:  21% (117/556)[Kremote: Counting objects:  22% (123/556)[Kremote: Counting objects:  23% (128/556)[Kremote: Counting objects:  24% (134/556)[Kremote: Counting objects:  25% (139/556)[Kremote: Counting objects:  26% (145/556)[Kremote: Counting objects:  27% (151/556)[Kremote: Counting objects:  28% (156/556)[Kremote: Counting objects:  29% (162/556)[Kremote: Counting objects:  30% (167/556)[Kremote: Counting objects:  31% (173/556)[Kremote: Counting objects:  32% (178/556)[Kremote: Counting objects:  33% (184/556)[Kremote: Counting objects:  34% (190/556)[Kremote: Counting objects:  35% (195/556)[Kremote: Counting objects:  36% (201/556)[Kremote: Counting objects:  37% (206/556)[Kremote: Counting objects:  38% (212/556)[Kremote: Counting objects:  39% (217/556)[Kremote: Counting objects:  40% (223/556)[Kremote: Counting objects:  41% (228/556)[Kremote: Counting objects:  42% (234/556)[Kremote: Counting objects:  43% (240/556)[Kremote: Counting objects:  44% (245/556)[Kremote: Counting objects:  45% (251/556)[Kremote: Counting objects:  46% (256/556)[Kremote: Counting objects:  47% (262/556)[Kremote: Counting objects:  48% (267/556)[Kremote: Counting objects:  49% (273/556)[Kremote: Counting objects:  50% (278/556)[Kremote: Counting objects:  51% (284/556)[Kremote: Counting objects:  52% (290/556)[Kremote: Counting objects:  53% (295/556)[Kremote: Counting objects:  54% (301/556)[Kremote: Counting objects:  55% (306/556)[Kremote: Counting objects:  56% (312/556)[Kremote: Counting objects:  57% (317/556)[Kremote: Counting objects:  58% (323/556)[Kremote: Counting objects:  59% (329/556)[Kremote: Counting objects:  60% (334/556)[Kremote: Counting objects:  61% (340/556)[Kremote: Counting objects:  62% (345/556)[Kremote: Counting objects:  63% (351/556)[Kremote: Counting objects:  64% (356/556)[Kremote: Counting objects:  65% (362/556)[Kremote: Counting objects:  66% (367/556)[Kremote: Counting objects:  67% (373/556)[Kremote: Counting objects:  68% (379/556)[Kremote: Counting objects:  69% (384/556)[Kremote: Counting objects:  70% (390/556)[Kremote: Counting objects:  71% (395/556)[Kremote: Counting objects:  72% (401/556)[Kremote: Counting objects:  73% (406/556)[Kremote: Counting objects:  74% (412/556)[Kremote: Counting objects:  75% (417/556)[Kremote: Counting objects:  76% (423/556)[Kremote: Counting objects:  77% (429/556)[Kremote: Counting objects:  78% (434/556)[Kremote: Counting objects:  79% (440/556)[Kremote: Counting objects:  80% (445/556)[Kremote: Counting objects:  81% (451/556)[Kremote: Counting objects:  82% (456/556)[Kremote: Counting objects:  83% (462/556)[Kremote: Counting objects:  84% (468/556)[Kremote: Counting objects:  85% (473/556)[Kremote: Counting objects:  86% (479/556)[Kremote: Counting objects:  87% (484/556)[Kremote: Counting objects:  88% (490/556)[Kremote: Counting objects:  89% (495/556)[Kremote: Counting objects:  90% (501/556)[Kremote: Counting objects:  91% (506/556)[Kremote: Counting objects:  92% (512/556)[Kremote: Counting objects:  93% (518/556)[Kremote: Counting objects:  94% (523/556)[Kremote: Counting objects:  95% (529/556)[Kremote: Counting objects:  96% (534/556)[Kremote: Counting objects:  97% (540/556)[Kremote: Counting objects:  98% (545/556)[Kremote: Counting objects:  99% (551/556)[Kremote: Counting objects: 100% (556/556)[Kremote: Counting objects: 100% (556/556), done.[K
+remote: Compressing objects:   0% (1/324)[Kremote: Compressing objects:   1% (4/324)[Kremote: Compressing objects:   2% (7/324)[Kremote: Compressing objects:   3% (10/324)[Kremote: Compressing objects:   4% (13/324)[Kremote: Compressing objects:   5% (17/324)[Kremote: Compressing objects:   6% (20/324)[Kremote: Compressing objects:   7% (23/324)[Kremote: Compressing objects:   8% (26/324)[Kremote: Compressing objects:   9% (30/324)[Kremote: Compressing objects:  10% (33/324)[Kremote: Compressing objects:  11% (36/324)[Kremote: Compressing objects:  12% (39/324)[Kremote: Compressing objects:  13% (43/324)[Kremote: Compressing objects:  14% (46/324)[Kremote: Compressing objects:  15% (49/324)[Kremote: Compressing objects:  16% (52/324)[Kremote: Compressing objects:  17% (56/324)[Kremote: Compressing objects:  18% (59/324)[Kremote: Compressing objects:  19% (62/324)[Kremote: Compressing objects:  20% (65/324)[Kremote: Compressing objects:  21% (69/324)[Kremote: Compressing objects:  22% (72/324)[Kremote: Compressing objects:  23% (75/324)[Kremote: Compressing objects:  24% (78/324)[Kremote: Compressing objects:  25% (81/324)[Kremote: Compressing objects:  26% (85/324)[Kremote: Compressing objects:  27% (88/324)[Kremote: Compressing objects:  28% (91/324)[Kremote: Compressing objects:  29% (94/324)[Kremote: Compressing objects:  30% (98/324)[Kremote: Compressing objects:  31% (101/324)[Kremote: Compressing objects:  32% (104/324)[Kremote: Compressing objects:  33% (107/324)[Kremote: Compressing objects:  34% (111/324)[Kremote: Compressing objects:  35% (114/324)[Kremote: Compressing objects:  36% (117/324)[Kremote: Compressing objects:  37% (120/324)[Kremote: Compressing objects:  38% (124/324)[Kremote: Compressing objects:  39% (127/324)[Kremote: Compressing objects:  40% (130/324)[Kremote: Compressing objects:  41% (133/324)[Kremote: Compressing objects:  42% (137/324)[Kremote: Compressing objects:  43% (140/324)[Kremote: Compressing objects:  44% (143/324)[Kremote: Compressing objects:  45% (146/324)[Kremote: Compressing objects:  46% (150/324)[Kremote: Compressing objects:  47% (153/324)[Kremote: Compressing objects:  48% (156/324)[Kremote: Compressing objects:  49% (159/324)[Kremote: Compressing objects:  50% (162/324)[Kremote: Compressing objects:  51% (166/324)[Kremote: Compressing objects:  52% (169/324)[Kremote: Compressing objects:  53% (172/324)[Kremote: Compressing objects:  54% (175/324)[Kremote: Compressing objects:  55% (179/324)[Kremote: Compressing objects:  56% (182/324)[Kremote: Compressing objects:  57% (185/324)[Kremote: Compressing objects:  58% (188/324)[Kremote: Compressing objects:  59% (192/324)[Kremote: Compressing objects:  60% (195/324)[Kremote: Compressing objects:  61% (198/324)[Kremote: Compressing objects:  62% (201/324)[Kremote: Compressing objects:  63% (205/324)[Kremote: Compressing objects:  64% (208/324)[Kremote: Compressing objects:  65% (211/324)[Kremote: Compressing objects:  66% (214/324)[Kremote: Compressing objects:  67% (218/324)[Kremote: Compressing objects:  68% (221/324)[Kremote: Compressing objects:  69% (224/324)[Kremote: Compressing objects:  70% (227/324)[Kremote: Compressing objects:  71% (231/324)[Kremote: Compressing objects:  72% (234/324)[Kremote: Compressing objects:  73% (237/324)[Kremote: Compressing objects:  74% (240/324)[Kremote: Compressing objects:  75% (243/324)[Kremote: Compressing objects:  76% (247/324)[Kremote: Compressing objects:  77% (250/324)[Kremote: Compressing objects:  78% (253/324)[Kremote: Compressing objects:  79% (256/324)[Kremote: Compressing objects:  80% (260/324)[Kremote: Compressing objects:  81% (263/324)[Kremote: Compressing objects:  82% (266/324)[Kremote: Compressing objects:  83% (269/324)[Kremote: Compressing objects:  84% (273/324)[Kremote: Compressing objects:  85% (276/324)[Kremote: Compressing objects:  86% (279/324)[Kremote: Compressing objects:  87% (282/324)[Kremote: Compressing objects:  88% (286/324)[Kremote: Compressing objects:  89% (289/324)[Kremote: Compressing objects:  90% (292/324)[Kremote: Compressing objects:  91% (295/324)[Kremote: Compressing objects:  92% (299/324)[Kremote: Compressing objects:  93% (302/324)[Kremote: Compressing objects:  94% (305/324)[Kremote: Compressing objects:  95% (308/324)[Kremote: Compressing objects:  96% (312/324)[Kremote: Compressing objects:  97% (315/324)[Kremote: Compressing objects:  98% (318/324)[Kremote: Compressing objects:  99% (321/324)[Kremote: Compressing objects: 100% (324/324)[Kremote: Compressing objects: 100% (324/324), done.[K
+Receiving objects:   0% (1/365)Receiving objects:   1% (4/365)Receiving objects:   2% (8/365)Receiving objects:   3% (11/365)Receiving objects:   4% (15/365)Receiving objects:   5% (19/365)Receiving objects:   6% (22/365)Receiving objects:   7% (26/365)Receiving objects:   8% (30/365)Receiving objects:   9% (33/365)Receiving objects:  10% (37/365)Receiving objects:  11% (41/365)Receiving objects:  12% (44/365)Receiving objects:  13% (48/365)Receiving objects:  14% (52/365)Receiving objects:  15% (55/365)Receiving objects:  16% (59/365)Receiving objects:  17% (63/365)Receiving objects:  18% (66/365)Receiving objects:  19% (70/365)Receiving objects:  20% (73/365)Receiving objects:  21% (77/365)Receiving objects:  22% (81/365)Receiving objects:  23% (84/365)Receiving objects:  24% (88/365)Receiving objects:  25% (92/365)Receiving objects:  26% (95/365)Receiving objects:  27% (99/365)Receiving objects:  28% (103/365)Receiving objects:  29% (106/365)Receiving objects:  30% (110/365)Receiving objects:  31% (114/365)Receiving objects:  32% (117/365)Receiving objects:  33% (121/365)Receiving objects:  34% (125/365)Receiving objects:  35% (128/365)Receiving objects:  36% (132/365)Receiving objects:  37% (136/365)Receiving objects:  38% (139/365)Receiving objects:  39% (143/365)Receiving objects:  40% (146/365)Receiving objects:  41% (150/365)Receiving objects:  42% (154/365)Receiving objects:  43% (157/365)Receiving objects:  44% (161/365)Receiving objects:  45% (165/365)Receiving objects:  46% (168/365)Receiving objects:  47% (172/365)Receiving objects:  48% (176/365)Receiving objects:  49% (179/365)Receiving objects:  50% (183/365)Receiving objects:  51% (187/365)Receiving objects:  52% (190/365)Receiving objects:  53% (194/365)Receiving objects:  54% (198/365)Receiving objects:  55% (201/365)Receiving objects:  56% (205/365)Receiving objects:  57% (209/365)Receiving objects:  58% (212/365)Receiving objects:  59% (216/365)Receiving objects:  60% (219/365)Receiving objects:  61% (223/365)Receiving objects:  62% (227/365)Receiving objects:  63% (230/365)Receiving objects:  64% (234/365)Receiving objects:  65% (238/365)Receiving objects:  66% (241/365)Receiving objects:  67% (245/365)Receiving objects:  68% (249/365)Receiving objects:  69% (252/365)Receiving objects:  70% (256/365)Receiving objects:  71% (260/365)Receiving objects:  72% (263/365)Receiving objects:  73% (267/365)Receiving objects:  74% (271/365)Receiving objects:  75% (274/365)Receiving objects:  76% (278/365)Receiving objects:  77% (282/365)Receiving objects:  78% (285/365)Receiving objects:  79% (289/365)Receiving objects:  80% (292/365)Receiving objects:  81% (296/365)Receiving objects:  82% (300/365)Receiving objects:  83% (303/365)Receiving objects:  84% (307/365)Receiving objects:  85% (311/365)Receiving objects:  86% (314/365)Receiving objects:  87% (318/365)Receiving objects:  88% (322/365)Receiving objects:  89% (325/365)Receiving objects:  90% (329/365)Receiving objects:  91% (333/365)Receiving objects:  92% (336/365)Receiving objects:  93% (340/365)Receiving objects:  94% (344/365)Receiving objects:  95% (347/365)Receiving objects:  96% (351/365)Receiving objects:  97% (355/365)Receiving objects:  98% (358/365)Receiving objects:  99% (362/365)Receiving objects: 100% (365/365)Receiving objects: 100% (365/365), 579.86 KiB | 8.05 MiB/s, done.
+remote: Total 365 (delta 223), reused 77 (delta 28), pack-reused 0 (from 0)[K
+Resolving deltas:   0% (0/223)Resolving deltas:   1% (3/223)Resolving deltas:   2% (5/223)Resolving deltas:   3% (7/223)Resolving deltas:   4% (9/223)Resolving deltas:   5% (12/223)Resolving deltas:   6% (14/223)Resolving deltas:   7% (16/223)Resolving deltas:   8% (18/223)Resolving deltas:   9% (21/223)Resolving deltas:  10% (23/223)Resolving deltas:  11% (25/223)Resolving deltas:  12% (27/223)Resolving deltas:  13% (29/223)Resolving deltas:  14% (32/223)Resolving deltas:  15% (34/223)Resolving deltas:  16% (36/223)Resolving deltas:  17% (38/223)Resolving deltas:  18% (41/223)Resolving deltas:  19% (43/223)Resolving deltas:  20% (45/223)Resolving deltas:  21% (47/223)Resolving deltas:  22% (50/223)Resolving deltas:  23% (52/223)Resolving deltas:  24% (54/223)Resolving deltas:  25% (56/223)Resolving deltas:  26% (58/223)Resolving deltas:  27% (61/223)Resolving deltas:  28% (63/223)Resolving deltas:  29% (65/223)Resolving deltas:  30% (67/223)Resolving deltas:  31% (70/223)Resolving deltas:  32% (72/223)Resolving deltas:  33% (74/223)Resolving deltas:  34% (76/223)Resolving deltas:  35% (79/223)Resolving deltas:  36% (81/223)Resolving deltas:  37% (83/223)Resolving deltas:  38% (85/223)Resolving deltas:  39% (87/223)Resolving deltas:  40% (90/223)Resolving deltas:  41% (92/223)Resolving deltas:  42% (94/223)Resolving deltas:  43% (96/223)Resolving deltas:  44% (99/223)Resolving deltas:  45% (101/223)Resolving deltas:  46% (103/223)Resolving deltas:  47% (105/223)Resolving deltas:  48% (108/223)Resolving deltas:  49% (110/223)Resolving deltas:  50% (112/223)Resolving deltas:  51% (114/223)Resolving deltas:  52% (116/223)Resolving deltas:  53% (119/223)Resolving deltas:  54% (121/223)Resolving deltas:  55% (123/223)Resolving deltas:  56% (125/223)Resolving deltas:  57% (128/223)Resolving deltas:  58% (130/223)Resolving deltas:  59% (132/223)Resolving deltas:  60% (134/223)Resolving deltas:  61% (137/223)Resolving deltas:  62% (139/223)Resolving deltas:  63% (141/223)Resolving deltas:  64% (143/223)Resolving deltas:  65% (145/223)Resolving deltas:  66% (148/223)Resolving deltas:  67% (150/223)Resolving deltas:  68% (152/223)Resolving deltas:  69% (154/223)Resolving deltas:  70% (157/223)Resolving deltas:  71% (159/223)Resolving deltas:  72% (161/223)Resolving deltas:  73% (163/223)Resolving deltas:  74% (166/223)Resolving deltas:  75% (168/223)Resolving deltas:  76% (170/223)Resolving deltas:  77% (172/223)Resolving deltas:  78% (174/223)Resolving deltas:  79% (177/223)Resolving deltas:  80% (179/223)Resolving deltas:  81% (181/223)Resolving deltas:  82% (183/223)Resolving deltas:  83% (186/223)Resolving deltas:  84% (188/223)Resolving deltas:  85% (190/223)Resolving deltas:  86% (192/223)Resolving deltas:  87% (195/223)Resolving deltas:  88% (197/223)Resolving deltas:  89% (199/223)Resolving deltas:  90% (201/223)Resolving deltas:  91% (203/223)Resolving deltas:  92% (206/223)Resolving deltas:  93% (208/223)Resolving deltas:  94% (210/223)Resolving deltas:  95% (212/223)Resolving deltas:  96% (215/223)Resolving deltas:  97% (217/223)Resolving deltas:  98% (219/223)Resolving deltas:  99% (221/223)Resolving deltas: 100% (223/223)Resolving deltas: 100% (223/223), completed with 160 local objects.
+From https://github.com/google/googletest
+ * branch            0ea2d8f8fa1601abb9ce713b7414e7b86f90bc61 -> FETCH_HEAD
+Submodule path 'third_party/googletest': checked out '0ea2d8f8fa1601abb9ce713b7414e7b86f90bc61'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 181, done.[K
+remote: Counting objects:   0% (1/181)[Kremote: Counting objects:   1% (2/181)[Kremote: Counting objects:   2% (4/181)[Kremote: Counting objects:   3% (6/181)[Kremote: Counting objects:   4% (8/181)[Kremote: Counting objects:   5% (10/181)[Kremote: Counting objects:   6% (11/181)[Kremote: Counting objects:   7% (13/181)[Kremote: Counting objects:   8% (15/181)[Kremote: Counting objects:   9% (17/181)[Kremote: Counting objects:  10% (19/181)[Kremote: Counting objects:  11% (20/181)[Kremote: Counting objects:  12% (22/181)[Kremote: Counting objects:  13% (24/181)[Kremote: Counting objects:  14% (26/181)[Kremote: Counting objects:  15% (28/181)[Kremote: Counting objects:  16% (29/181)[Kremote: Counting objects:  17% (31/181)[Kremote: Counting objects:  18% (33/181)[Kremote: Counting objects:  19% (35/181)[Kremote: Counting objects:  20% (37/181)[Kremote: Counting objects:  21% (39/181)[Kremote: Counting objects:  22% (40/181)[Kremote: Counting objects:  23% (42/181)[Kremote: Counting objects:  24% (44/181)[Kremote: Counting objects:  25% (46/181)[Kremote: Counting objects:  26% (48/181)[Kremote: Counting objects:  27% (49/181)[Kremote: Counting objects:  28% (51/181)[Kremote: Counting objects:  29% (53/181)[Kremote: Counting objects:  30% (55/181)[Kremote: Counting objects:  31% (57/181)[Kremote: Counting objects:  32% (58/181)[Kremote: Counting objects:  33% (60/181)[Kremote: Counting objects:  34% (62/181)[Kremote: Counting objects:  35% (64/181)[Kremote: Counting objects:  36% (66/181)[Kremote: Counting objects:  37% (67/181)[Kremote: Counting objects:  38% (69/181)[Kremote: Counting objects:  39% (71/181)[Kremote: Counting objects:  40% (73/181)[Kremote: Counting objects:  41% (75/181)[Kremote: Counting objects:  42% (77/181)[Kremote: Counting objects:  43% (78/181)[Kremote: Counting objects:  44% (80/181)[Kremote: Counting objects:  45% (82/181)[Kremote: Counting objects:  46% (84/181)[Kremote: Counting objects:  47% (86/181)[Kremote: Counting objects:  48% (87/181)[Kremote: Counting objects:  49% (89/181)[Kremote: Counting objects:  50% (91/181)[Kremote: Counting objects:  51% (93/181)[Kremote: Counting objects:  52% (95/181)[Kremote: Counting objects:  53% (96/181)[Kremote: Counting objects:  54% (98/181)[Kremote: Counting objects:  55% (100/181)[Kremote: Counting objects:  56% (102/181)[Kremote: Counting objects:  57% (104/181)[Kremote: Counting objects:  58% (105/181)[Kremote: Counting objects:  59% (107/181)[Kremote: Counting objects:  60% (109/181)[Kremote: Counting objects:  61% (111/181)[Kremote: Counting objects:  62% (113/181)[Kremote: Counting objects:  63% (115/181)[Kremote: Counting objects:  64% (116/181)[Kremote: Counting objects:  65% (118/181)[Kremote: Counting objects:  66% (120/181)[Kremote: Counting objects:  67% (122/181)[Kremote: Counting objects:  68% (124/181)[Kremote: Counting objects:  69% (125/181)[Kremote: Counting objects:  70% (127/181)[Kremote: Counting objects:  71% (129/181)[Kremote: Counting objects:  72% (131/181)[Kremote: Counting objects:  73% (133/181)[Kremote: Counting objects:  74% (134/181)[Kremote: Counting objects:  75% (136/181)[Kremote: Counting objects:  76% (138/181)[Kremote: Counting objects:  77% (140/181)[Kremote: Counting objects:  78% (142/181)[Kremote: Counting objects:  79% (143/181)[Kremote: Counting objects:  80% (145/181)[Kremote: Counting objects:  81% (147/181)[Kremote: Counting objects:  82% (149/181)[Kremote: Counting objects:  83% (151/181)[Kremote: Counting objects:  84% (153/181)[Kremote: Counting objects:  85% (154/181)[Kremote: Counting objects:  86% (156/181)[Kremote: Counting objects:  87% (158/181)[Kremote: Counting objects:  88% (160/181)[Kremote: Counting objects:  89% (162/181)[Kremote: Counting objects:  90% (163/181)[Kremote: Counting objects:  91% (165/181)[Kremote: Counting objects:  92% (167/181)[Kremote: Counting objects:  93% (169/181)[Kremote: Counting objects:  94% (171/181)[Kremote: Counting objects:  95% (172/181)[Kremote: Counting objects:  96% (174/181)[Kremote: Counting objects:  97% (176/181)[Kremote: Counting objects:  98% (178/181)[Kremote: Counting objects:  99% (180/181)[Kremote: Counting objects: 100% (181/181)[Kremote: Counting objects: 100% (181/181), done.[K
+remote: Compressing objects:   1% (1/86)[Kremote: Compressing objects:   2% (2/86)[Kremote: Compressing objects:   3% (3/86)[Kremote: Compressing objects:   4% (4/86)[Kremote: Compressing objects:   5% (5/86)[Kremote: Compressing objects:   6% (6/86)[Kremote: Compressing objects:   8% (7/86)[Kremote: Compressing objects:   9% (8/86)[Kremote: Compressing objects:  10% (9/86)[Kremote: Compressing objects:  11% (10/86)[Kremote: Compressing objects:  12% (11/86)[Kremote: Compressing objects:  13% (12/86)[Kremote: Compressing objects:  15% (13/86)[Kremote: Compressing objects:  16% (14/86)[Kremote: Compressing objects:  17% (15/86)[Kremote: Compressing objects:  18% (16/86)[Kremote: Compressing objects:  19% (17/86)[Kremote: Compressing objects:  20% (18/86)[Kremote: Compressing objects:  22% (19/86)[Kremote: Compressing objects:  23% (20/86)[Kremote: Compressing objects:  24% (21/86)[Kremote: Compressing objects:  25% (22/86)[Kremote: Compressing objects:  26% (23/86)[Kremote: Compressing objects:  27% (24/86)[Kremote: Compressing objects:  29% (25/86)[Kremote: Compressing objects:  30% (26/86)[Kremote: Compressing objects:  31% (27/86)[Kremote: Compressing objects:  32% (28/86)[Kremote: Compressing objects:  33% (29/86)[Kremote: Compressing objects:  34% (30/86)[Kremote: Compressing objects:  36% (31/86)[Kremote: Compressing objects:  37% (32/86)[Kremote: Compressing objects:  38% (33/86)[Kremote: Compressing objects:  39% (34/86)[Kremote: Compressing objects:  40% (35/86)[Kremote: Compressing objects:  41% (36/86)[Kremote: Compressing objects:  43% (37/86)[Kremote: Compressing objects:  44% (38/86)[Kremote: Compressing objects:  45% (39/86)[Kremote: Compressing objects:  46% (40/86)[Kremote: Compressing objects:  47% (41/86)[Kremote: Compressing objects:  48% (42/86)[Kremote: Compressing objects:  50% (43/86)[Kremote: Compressing objects:  51% (44/86)[Kremote: Compressing objects:  52% (45/86)[Kremote: Compressing objects:  53% (46/86)[Kremote: Compressing objects:  54% (47/86)[Kremote: Compressing objects:  55% (48/86)[Kremote: Compressing objects:  56% (49/86)[Kremote: Compressing objects:  58% (50/86)[Kremote: Compressing objects:  59% (51/86)[Kremote: Compressing objects:  60% (52/86)[Kremote: Compressing objects:  61% (53/86)[Kremote: Compressing objects:  62% (54/86)[Kremote: Compressing objects:  63% (55/86)[Kremote: Compressing objects:  65% (56/86)[Kremote: Compressing objects:  66% (57/86)[Kremote: Compressing objects:  67% (58/86)[Kremote: Compressing objects:  68% (59/86)[Kremote: Compressing objects:  69% (60/86)[Kremote: Compressing objects:  70% (61/86)[Kremote: Compressing objects:  72% (62/86)[Kremote: Compressing objects:  73% (63/86)[Kremote: Compressing objects:  74% (64/86)[Kremote: Compressing objects:  75% (65/86)[Kremote: Compressing objects:  76% (66/86)[Kremote: Compressing objects:  77% (67/86)[Kremote: Compressing objects:  79% (68/86)[Kremote: Compressing objects:  80% (69/86)[Kremote: Compressing objects:  81% (70/86)[Kremote: Compressing objects:  82% (71/86)[Kremote: Compressing objects:  83% (72/86)[Kremote: Compressing objects:  84% (73/86)[Kremote: Compressing objects:  86% (74/86)[Kremote: Compressing objects:  87% (75/86)[Kremote: Compressing objects:  88% (76/86)[Kremote: Compressing objects:  89% (77/86)[Kremote: Compressing objects:  90% (78/86)[Kremote: Compressing objects:  91% (79/86)[Kremote: Compressing objects:  93% (80/86)[Kremote: Compressing objects:  94% (81/86)[Kremote: Compressing objects:  95% (82/86)[Kremote: Compressing objects:  96% (83/86)[Kremote: Compressing objects:  97% (84/86)[Kremote: Compressing objects:  98% (85/86)[Kremote: Compressing objects: 100% (86/86)[Kremote: Compressing objects: 100% (86/86), done.[K
+Unpacking objects:   1% (1/92)Unpacking objects:   2% (2/92)Unpacking objects:   3% (3/92)Unpacking objects:   4% (4/92)Unpacking objects:   5% (5/92)Unpacking objects:   6% (6/92)Unpacking objects:   7% (7/92)Unpacking objects:   8% (8/92)Unpacking objects:   9% (9/92)Unpacking objects:  10% (10/92)Unpacking objects:  11% (11/92)Unpacking objects:  13% (12/92)Unpacking objects:  14% (13/92)Unpacking objects:  15% (14/92)Unpacking objects:  16% (15/92)Unpacking objects:  17% (16/92)Unpacking objects:  18% (17/92)Unpacking objects:  19% (18/92)Unpacking objects:  20% (19/92)Unpacking objects:  21% (20/92)Unpacking objects:  22% (21/92)Unpacking objects:  23% (22/92)Unpacking objects:  25% (23/92)Unpacking objects:  26% (24/92)Unpacking objects:  27% (25/92)Unpacking objects:  28% (26/92)Unpacking objects:  29% (27/92)Unpacking objects:  30% (28/92)Unpacking objects:  31% (29/92)Unpacking objects:  32% (30/92)Unpacking objects:  33% (31/92)Unpacking objects:  34% (32/92)Unpacking objects:  35% (33/92)Unpacking objects:  36% (34/92)Unpacking objects:  38% (35/92)Unpacking objects:  39% (36/92)Unpacking objects:  40% (37/92)Unpacking objects:  41% (38/92)Unpacking objects:  42% (39/92)Unpacking objects:  43% (40/92)Unpacking objects:  44% (41/92)Unpacking objects:  45% (42/92)Unpacking objects:  46% (43/92)Unpacking objects:  47% (44/92)Unpacking objects:  48% (45/92)Unpacking objects:  50% (46/92)Unpacking objects:  51% (47/92)Unpacking objects:  52% (48/92)Unpacking objects:  53% (49/92)Unpacking objects:  54% (50/92)Unpacking objects:  55% (51/92)Unpacking objects:  56% (52/92)Unpacking objects:  57% (53/92)Unpacking objects:  58% (54/92)Unpacking objects:  59% (55/92)Unpacking objects:  60% (56/92)Unpacking objects:  61% (57/92)Unpacking objects:  63% (58/92)Unpacking objects:  64% (59/92)Unpacking objects:  65% (60/92)Unpacking objects:  66% (61/92)Unpacking objects:  67% (62/92)Unpacking objects:  68% (63/92)Unpacking objects:  69% (64/92)Unpacking objects:  70% (65/92)Unpacking objects:  71% (66/92)Unpacking objects:  72% (67/92)remote: Total 92 (delta 70), reused 15 (delta 4), pack-reused 0 (from 0)[K
+Unpacking objects:  73% (68/92)Unpacking objects:  75% (69/92)Unpacking objects:  76% (70/92)Unpacking objects:  77% (71/92)Unpacking objects:  78% (72/92)Unpacking objects:  79% (73/92)Unpacking objects:  80% (74/92)Unpacking objects:  81% (75/92)Unpacking objects:  82% (76/92)Unpacking objects:  83% (77/92)Unpacking objects:  84% (78/92)Unpacking objects:  85% (79/92)Unpacking objects:  86% (80/92)Unpacking objects:  88% (81/92)Unpacking objects:  89% (82/92)Unpacking objects:  90% (83/92)Unpacking objects:  91% (84/92)Unpacking objects:  92% (85/92)Unpacking objects:  93% (86/92)Unpacking objects:  94% (87/92)Unpacking objects:  95% (88/92)Unpacking objects:  96% (89/92)Unpacking objects:  97% (90/92)Unpacking objects:  98% (91/92)Unpacking objects: 100% (92/92)Unpacking objects: 100% (92/92), 464.35 KiB | 2.54 MiB/s, done.
+From https://github.com/google/highway
+ * branch            e69083a12a05caf037cabecdf1b248b7579705a5 -> FETCH_HEAD
+Submodule path 'third_party/highway': checked out 'e69083a12a05caf037cabecdf1b248b7579705a5'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 356, done.[K
+remote: Counting objects:   0% (1/356)[Kremote: Counting objects:   1% (4/356)[Kremote: Counting objects:   2% (8/356)[Kremote: Counting objects:   3% (11/356)[Kremote: Counting objects:   4% (15/356)[Kremote: Counting objects:   5% (18/356)[Kremote: Counting objects:   6% (22/356)[Kremote: Counting objects:   7% (25/356)[Kremote: Counting objects:   8% (29/356)[Kremote: Counting objects:   9% (33/356)[Kremote: Counting objects:  10% (36/356)[Kremote: Counting objects:  11% (40/356)[Kremote: Counting objects:  12% (43/356)[Kremote: Counting objects:  13% (47/356)[Kremote: Counting objects:  14% (50/356)[Kremote: Counting objects:  15% (54/356)[Kremote: Counting objects:  16% (57/356)[Kremote: Counting objects:  17% (61/356)[Kremote: Counting objects:  18% (65/356)[Kremote: Counting objects:  19% (68/356)[Kremote: Counting objects:  20% (72/356)[Kremote: Counting objects:  21% (75/356)[Kremote: Counting objects:  22% (79/356)[Kremote: Counting objects:  23% (82/356)[Kremote: Counting objects:  24% (86/356)[Kremote: Counting objects:  25% (89/356)[Kremote: Counting objects:  26% (93/356)[Kremote: Counting objects:  27% (97/356)[Kremote: Counting objects:  28% (100/356)[Kremote: Counting objects:  29% (104/356)[Kremote: Counting objects:  30% (107/356)[Kremote: Counting objects:  31% (111/356)[Kremote: Counting objects:  32% (114/356)[Kremote: Counting objects:  33% (118/356)[Kremote: Counting objects:  34% (122/356)[Kremote: Counting objects:  35% (125/356)[Kremote: Counting objects:  36% (129/356)[Kremote: Counting objects:  37% (132/356)[Kremote: Counting objects:  38% (136/356)[Kremote: Counting objects:  39% (139/356)[Kremote: Counting objects:  40% (143/356)[Kremote: Counting objects:  41% (146/356)[Kremote: Counting objects:  42% (150/356)[Kremote: Counting objects:  43% (154/356)[Kremote: Counting objects:  44% (157/356)[Kremote: Counting objects:  45% (161/356)[Kremote: Counting objects:  46% (164/356)[Kremote: Counting objects:  47% (168/356)[Kremote: Counting objects:  48% (171/356)[Kremote: Counting objects:  49% (175/356)[Kremote: Counting objects:  50% (178/356)[Kremote: Counting objects:  51% (182/356)[Kremote: Counting objects:  52% (186/356)[Kremote: Counting objects:  53% (189/356)[Kremote: Counting objects:  54% (193/356)[Kremote: Counting objects:  55% (196/356)[Kremote: Counting objects:  56% (200/356)[Kremote: Counting objects:  57% (203/356)[Kremote: Counting objects:  58% (207/356)[Kremote: Counting objects:  59% (211/356)[Kremote: Counting objects:  60% (214/356)[Kremote: Counting objects:  61% (218/356)[Kremote: Counting objects:  62% (221/356)[Kremote: Counting objects:  63% (225/356)[Kremote: Counting objects:  64% (228/356)[Kremote: Counting objects:  65% (232/356)[Kremote: Counting objects:  66% (235/356)[Kremote: Counting objects:  67% (239/356)[Kremote: Counting objects:  68% (243/356)[Kremote: Counting objects:  69% (246/356)[Kremote: Counting objects:  70% (250/356)[Kremote: Counting objects:  71% (253/356)[Kremote: Counting objects:  72% (257/356)[Kremote: Counting objects:  73% (260/356)[Kremote: Counting objects:  74% (264/356)[Kremote: Counting objects:  75% (267/356)[Kremote: Counting objects:  76% (271/356)[Kremote: Counting objects:  77% (275/356)[Kremote: Counting objects:  78% (278/356)[Kremote: Counting objects:  79% (282/356)[Kremote: Counting objects:  80% (285/356)[Kremote: Counting objects:  81% (289/356)[Kremote: Counting objects:  82% (292/356)[Kremote: Counting objects:  83% (296/356)[Kremote: Counting objects:  84% (300/356)[Kremote: Counting objects:  85% (303/356)[Kremote: Counting objects:  86% (307/356)[Kremote: Counting objects:  87% (310/356)[Kremote: Counting objects:  88% (314/356)[Kremote: Counting objects:  89% (317/356)[Kremote: Counting objects:  90% (321/356)[Kremote: Counting objects:  91% (324/356)[Kremote: Counting objects:  92% (328/356)[Kremote: Counting objects:  93% (332/356)[Kremote: Counting objects:  94% (335/356)[Kremote: Counting objects:  95% (339/356)[Kremote: Counting objects:  96% (342/356)[Kremote: Counting objects:  97% (346/356)[Kremote: Counting objects:  98% (349/356)[Kremote: Counting objects:  99% (353/356)[Kremote: Counting objects: 100% (356/356)[Kremote: Counting objects: 100% (356/356), done.[K
+remote: Compressing objects:   0% (1/216)[Kremote: Compressing objects:   1% (3/216)[Kremote: Compressing objects:   2% (5/216)[Kremote: Compressing objects:   3% (7/216)[Kremote: Compressing objects:   4% (9/216)[Kremote: Compressing objects:   5% (11/216)[Kremote: Compressing objects:   6% (13/216)[Kremote: Compressing objects:   7% (16/216)[Kremote: Compressing objects:   8% (18/216)[Kremote: Compressing objects:   9% (20/216)[Kremote: Compressing objects:  10% (22/216)[Kremote: Compressing objects:  11% (24/216)[Kremote: Compressing objects:  12% (26/216)[Kremote: Compressing objects:  13% (29/216)[Kremote: Compressing objects:  14% (31/216)[Kremote: Compressing objects:  15% (33/216)[Kremote: Compressing objects:  16% (35/216)[Kremote: Compressing objects:  17% (37/216)[Kremote: Compressing objects:  18% (39/216)[Kremote: Compressing objects:  19% (42/216)[Kremote: Compressing objects:  20% (44/216)[Kremote: Compressing objects:  21% (46/216)[Kremote: Compressing objects:  22% (48/216)[Kremote: Compressing objects:  23% (50/216)[Kremote: Compressing objects:  24% (52/216)[Kremote: Compressing objects:  25% (54/216)[Kremote: Compressing objects:  26% (57/216)[Kremote: Compressing objects:  27% (59/216)[Kremote: Compressing objects:  28% (61/216)[Kremote: Compressing objects:  29% (63/216)[Kremote: Compressing objects:  30% (65/216)[Kremote: Compressing objects:  31% (67/216)[Kremote: Compressing objects:  32% (70/216)[Kremote: Compressing objects:  33% (72/216)[Kremote: Compressing objects:  34% (74/216)[Kremote: Compressing objects:  35% (76/216)[Kremote: Compressing objects:  36% (78/216)[Kremote: Compressing objects:  37% (80/216)[Kremote: Compressing objects:  38% (83/216)[Kremote: Compressing objects:  39% (85/216)[Kremote: Compressing objects:  40% (87/216)[Kremote: Compressing objects:  41% (89/216)[Kremote: Compressing objects:  42% (91/216)[Kremote: Compressing objects:  43% (93/216)[Kremote: Compressing objects:  44% (96/216)[Kremote: Compressing objects:  45% (98/216)[Kremote: Compressing objects:  46% (100/216)[Kremote: Compressing objects:  47% (102/216)[Kremote: Compressing objects:  48% (104/216)[Kremote: Compressing objects:  49% (106/216)[Kremote: Compressing objects:  50% (108/216)[Kremote: Compressing objects:  51% (111/216)[Kremote: Compressing objects:  52% (113/216)[Kremote: Compressing objects:  53% (115/216)[Kremote: Compressing objects:  54% (117/216)[Kremote: Compressing objects:  55% (119/216)[Kremote: Compressing objects:  56% (121/216)[Kremote: Compressing objects:  57% (124/216)[Kremote: Compressing objects:  58% (126/216)[Kremote: Compressing objects:  59% (128/216)[Kremote: Compressing objects:  60% (130/216)[Kremote: Compressing objects:  61% (132/216)[Kremote: Compressing objects:  62% (134/216)[Kremote: Compressing objects:  63% (137/216)[Kremote: Compressing objects:  64% (139/216)[Kremote: Compressing objects:  65% (141/216)[Kremote: Compressing objects:  66% (143/216)[Kremote: Compressing objects:  67% (145/216)[Kremote: Compressing objects:  68% (147/216)[Kremote: Compressing objects:  69% (150/216)[Kremote: Compressing objects:  70% (152/216)[Kremote: Compressing objects:  71% (154/216)[Kremote: Compressing objects:  72% (156/216)[Kremote: Compressing objects:  73% (158/216)[Kremote: Compressing objects:  74% (160/216)[Kremote: Compressing objects:  75% (162/216)[Kremote: Compressing objects:  76% (165/216)[Kremote: Compressing objects:  77% (167/216)[Kremote: Compressing objects:  78% (169/216)[Kremote: Compressing objects:  79% (171/216)[Kremote: Compressing objects:  80% (173/216)[Kremote: Compressing objects:  81% (175/216)[Kremote: Compressing objects:  82% (178/216)[Kremote: Compressing objects:  83% (180/216)[Kremote: Compressing objects:  84% (182/216)[Kremote: Compressing objects:  85% (184/216)[Kremote: Compressing objects:  86% (186/216)[Kremote: Compressing objects:  87% (188/216)[Kremote: Compressing objects:  88% (191/216)[Kremote: Compressing objects:  89% (193/216)[Kremote: Compressing objects:  90% (195/216)[Kremote: Compressing objects:  91% (197/216)[Kremote: Compressing objects:  92% (199/216)[Kremote: Compressing objects:  93% (201/216)[Kremote: Compressing objects:  94% (204/216)[Kremote: Compressing objects:  95% (206/216)[Kremote: Compressing objects:  96% (208/216)[Kremote: Compressing objects:  97% (210/216)[Kremote: Compressing objects:  98% (212/216)[Kremote: Compressing objects:  99% (214/216)[Kremote: Compressing objects: 100% (216/216)[Kremote: Compressing objects: 100% (216/216), done.[K
+Receiving objects:   0% (1/254)Receiving objects:   1% (3/254)Receiving objects:   2% (6/254)Receiving objects:   3% (8/254)Receiving objects:   4% (11/254)Receiving objects:   5% (13/254)Receiving objects:   6% (16/254)Receiving objects:   7% (18/254)Receiving objects:   8% (21/254)Receiving objects:   9% (23/254)Receiving objects:  10% (26/254)Receiving objects:  11% (28/254)Receiving objects:  12% (31/254)Receiving objects:  13% (34/254)Receiving objects:  14% (36/254)Receiving objects:  15% (39/254)Receiving objects:  16% (41/254)Receiving objects:  17% (44/254)Receiving objects:  18% (46/254)Receiving objects:  19% (49/254)Receiving objects:  20% (51/254)Receiving objects:  21% (54/254)Receiving objects:  22% (56/254)Receiving objects:  23% (59/254)Receiving objects:  24% (61/254)Receiving objects:  25% (64/254)Receiving objects:  26% (67/254)Receiving objects:  27% (69/254)Receiving objects:  28% (72/254)Receiving objects:  29% (74/254)Receiving objects:  30% (77/254)Receiving objects:  31% (79/254)Receiving objects:  32% (82/254)Receiving objects:  33% (84/254)Receiving objects:  34% (87/254)Receiving objects:  35% (89/254)Receiving objects:  36% (92/254)Receiving objects:  37% (94/254)Receiving objects:  38% (97/254)Receiving objects:  39% (100/254)Receiving objects:  40% (102/254)Receiving objects:  41% (105/254)Receiving objects:  42% (107/254)Receiving objects:  43% (110/254)Receiving objects:  44% (112/254)Receiving objects:  45% (115/254)Receiving objects:  46% (117/254)Receiving objects:  47% (120/254)Receiving objects:  48% (122/254)Receiving objects:  49% (125/254)Receiving objects:  50% (127/254)Receiving objects:  51% (130/254)Receiving objects:  52% (133/254)Receiving objects:  53% (135/254)Receiving objects:  54% (138/254)Receiving objects:  55% (140/254)Receiving objects:  56% (143/254)Receiving objects:  57% (145/254)Receiving objects:  58% (148/254)Receiving objects:  59% (150/254)Receiving objects:  60% (153/254)Receiving objects:  61% (155/254)Receiving objects:  62% (158/254)Receiving objects:  63% (161/254)Receiving objects:  64% (163/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  65% (166/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  66% (168/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  67% (171/254), 3.42 MiB | 5.95 MiB/sremote: Total 254 (delta 148), reused 96 (delta 33), pack-reused 0 (from 0)[K
+Receiving objects:  68% (173/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  69% (176/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  70% (178/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  71% (181/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  72% (183/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  73% (186/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  74% (188/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  75% (191/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  76% (194/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  77% (196/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  78% (199/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  79% (201/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  80% (204/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  81% (206/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  82% (209/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  83% (211/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  84% (214/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  85% (216/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  86% (219/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  87% (221/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  88% (224/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  89% (227/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  90% (229/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  91% (232/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  92% (234/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  93% (237/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  94% (239/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  95% (242/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  96% (244/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  97% (247/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  98% (249/254), 3.42 MiB | 5.95 MiB/sReceiving objects:  99% (252/254), 3.42 MiB | 5.95 MiB/sReceiving objects: 100% (254/254), 3.42 MiB | 5.95 MiB/sReceiving objects: 100% (254/254), 8.89 MiB | 9.73 MiB/s, done.
+Resolving deltas:   0% (0/148)Resolving deltas:   1% (2/148)Resolving deltas:   2% (3/148)Resolving deltas:   3% (5/148)Resolving deltas:   4% (6/148)Resolving deltas:   5% (8/148)Resolving deltas:   6% (9/148)Resolving deltas:   7% (11/148)Resolving deltas:   8% (12/148)Resolving deltas:   9% (14/148)Resolving deltas:  10% (15/148)Resolving deltas:  11% (17/148)Resolving deltas:  12% (18/148)Resolving deltas:  13% (20/148)Resolving deltas:  14% (21/148)Resolving deltas:  15% (23/148)Resolving deltas:  16% (24/148)Resolving deltas:  17% (26/148)Resolving deltas:  18% (27/148)Resolving deltas:  19% (29/148)Resolving deltas:  20% (30/148)Resolving deltas:  21% (32/148)Resolving deltas:  22% (33/148)Resolving deltas:  23% (35/148)Resolving deltas:  24% (36/148)Resolving deltas:  25% (37/148)Resolving deltas:  26% (39/148)Resolving deltas:  27% (40/148)Resolving deltas:  28% (42/148)Resolving deltas:  29% (43/148)Resolving deltas:  30% (45/148)Resolving deltas:  31% (46/148)Resolving deltas:  32% (48/148)Resolving deltas:  33% (49/148)Resolving deltas:  34% (51/148)Resolving deltas:  35% (52/148)Resolving deltas:  36% (54/148)Resolving deltas:  37% (55/148)Resolving deltas:  38% (57/148)Resolving deltas:  39% (58/148)Resolving deltas:  40% (60/148)Resolving deltas:  41% (61/148)Resolving deltas:  42% (63/148)Resolving deltas:  43% (64/148)Resolving deltas:  44% (66/148)Resolving deltas:  45% (67/148)Resolving deltas:  46% (69/148)Resolving deltas:  47% (70/148)Resolving deltas:  48% (72/148)Resolving deltas:  49% (73/148)Resolving deltas:  50% (74/148)Resolving deltas:  51% (76/148)Resolving deltas:  52% (77/148)Resolving deltas:  53% (79/148)Resolving deltas:  54% (80/148)Resolving deltas:  55% (82/148)Resolving deltas:  56% (83/148)Resolving deltas:  57% (85/148)Resolving deltas:  58% (86/148)Resolving deltas:  59% (88/148)Resolving deltas:  60% (89/148)Resolving deltas:  61% (91/148)Resolving deltas:  62% (92/148)Resolving deltas:  63% (94/148)Resolving deltas:  64% (95/148)Resolving deltas:  65% (97/148)Resolving deltas:  66% (98/148)Resolving deltas:  67% (100/148)Resolving deltas:  68% (101/148)Resolving deltas:  69% (103/148)Resolving deltas:  70% (104/148)Resolving deltas:  71% (106/148)Resolving deltas:  72% (107/148)Resolving deltas:  73% (109/148)Resolving deltas:  74% (110/148)Resolving deltas:  75% (111/148)Resolving deltas:  76% (113/148)Resolving deltas:  77% (114/148)Resolving deltas:  78% (116/148)Resolving deltas:  79% (117/148)Resolving deltas:  80% (119/148)Resolving deltas:  81% (120/148)Resolving deltas:  82% (122/148)Resolving deltas:  83% (123/148)Resolving deltas:  84% (125/148)Resolving deltas:  85% (126/148)Resolving deltas:  86% (128/148)Resolving deltas:  87% (129/148)Resolving deltas:  88% (131/148)Resolving deltas:  89% (132/148)Resolving deltas:  90% (134/148)Resolving deltas:  91% (135/148)Resolving deltas:  92% (137/148)Resolving deltas:  93% (138/148)Resolving deltas:  94% (140/148)Resolving deltas:  95% (141/148)Resolving deltas:  96% (143/148)Resolving deltas:  97% (144/148)Resolving deltas:  98% (146/148)Resolving deltas:  99% (147/148)Resolving deltas: 100% (148/148)Resolving deltas: 100% (148/148), completed with 81 local objects.
+From https://github.com/mm2/Little-CMS
+ * branch            65c63bf549d78253c14b30b3d62cb668bbbe612c -> FETCH_HEAD
+Submodule path 'third_party/lcms': checked out '65c63bf549d78253c14b30b3d62cb668bbbe612c'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 465, done.[K
+remote: Counting objects:   0% (1/465)[Kremote: Counting objects:   1% (5/465)[Kremote: Counting objects:   2% (10/465)[Kremote: Counting objects:   3% (14/465)[Kremote: Counting objects:   4% (19/465)[Kremote: Counting objects:   5% (24/465)[Kremote: Counting objects:   6% (28/465)[Kremote: Counting objects:   7% (33/465)[Kremote: Counting objects:   8% (38/465)[Kremote: Counting objects:   9% (42/465)[Kremote: Counting objects:  10% (47/465)[Kremote: Counting objects:  11% (52/465)[Kremote: Counting objects:  12% (56/465)[Kremote: Counting objects:  13% (61/465)[Kremote: Counting objects:  14% (66/465)[Kremote: Counting objects:  15% (70/465)[Kremote: Counting objects:  16% (75/465)[Kremote: Counting objects:  17% (80/465)[Kremote: Counting objects:  18% (84/465)[Kremote: Counting objects:  19% (89/465)[Kremote: Counting objects:  20% (93/465)[Kremote: Counting objects:  21% (98/465)[Kremote: Counting objects:  22% (103/465)[Kremote: Counting objects:  23% (107/465)[Kremote: Counting objects:  24% (112/465)[Kremote: Counting objects:  25% (117/465)[Kremote: Counting objects:  26% (121/465)[Kremote: Counting objects:  27% (126/465)[Kremote: Counting objects:  28% (131/465)[Kremote: Counting objects:  29% (135/465)[Kremote: Counting objects:  30% (140/465)[Kremote: Counting objects:  31% (145/465)[Kremote: Counting objects:  32% (149/465)[Kremote: Counting objects:  33% (154/465)[Kremote: Counting objects:  34% (159/465)[Kremote: Counting objects:  35% (163/465)[Kremote: Counting objects:  36% (168/465)[Kremote: Counting objects:  37% (173/465)[Kremote: Counting objects:  38% (177/465)[Kremote: Counting objects:  39% (182/465)[Kremote: Counting objects:  40% (186/465)[Kremote: Counting objects:  41% (191/465)[Kremote: Counting objects:  42% (196/465)[Kremote: Counting objects:  43% (200/465)[Kremote: Counting objects:  44% (205/465)[Kremote: Counting objects:  45% (210/465)[Kremote: Counting objects:  46% (214/465)[Kremote: Counting objects:  47% (219/465)[Kremote: Counting objects:  48% (224/465)[Kremote: Counting objects:  49% (228/465)[Kremote: Counting objects:  50% (233/465)[Kremote: Counting objects:  51% (238/465)[Kremote: Counting objects:  52% (242/465)[Kremote: Counting objects:  53% (247/465)[Kremote: Counting objects:  54% (252/465)[Kremote: Counting objects:  55% (256/465)[Kremote: Counting objects:  56% (261/465)[Kremote: Counting objects:  57% (266/465)[Kremote: Counting objects:  58% (270/465)[Kremote: Counting objects:  59% (275/465)[Kremote: Counting objects:  60% (279/465)[Kremote: Counting objects:  61% (284/465)[Kremote: Counting objects:  62% (289/465)[Kremote: Counting objects:  63% (293/465)[Kremote: Counting objects:  64% (298/465)[Kremote: Counting objects:  65% (303/465)[Kremote: Counting objects:  66% (307/465)[Kremote: Counting objects:  67% (312/465)[Kremote: Counting objects:  68% (317/465)[Kremote: Counting objects:  69% (321/465)[Kremote: Counting objects:  70% (326/465)[Kremote: Counting objects:  71% (331/465)[Kremote: Counting objects:  72% (335/465)[Kremote: Counting objects:  73% (340/465)[Kremote: Counting objects:  74% (345/465)[Kremote: Counting objects:  75% (349/465)[Kremote: Counting objects:  76% (354/465)[Kremote: Counting objects:  77% (359/465)[Kremote: Counting objects:  78% (363/465)[Kremote: Counting objects:  79% (368/465)[Kremote: Counting objects:  80% (372/465)[Kremote: Counting objects:  81% (377/465)[Kremote: Counting objects:  82% (382/465)[Kremote: Counting objects:  83% (386/465)[Kremote: Counting objects:  84% (391/465)[Kremote: Counting objects:  85% (396/465)[Kremote: Counting objects:  86% (400/465)[Kremote: Counting objects:  87% (405/465)[Kremote: Counting objects:  88% (410/465)[Kremote: Counting objects:  89% (414/465)[Kremote: Counting objects:  90% (419/465)[Kremote: Counting objects:  91% (424/465)[Kremote: Counting objects:  92% (428/465)[Kremote: Counting objects:  93% (433/465)[Kremote: Counting objects:  94% (438/465)[Kremote: Counting objects:  95% (442/465)[Kremote: Counting objects:  96% (447/465)[Kremote: Counting objects:  97% (452/465)[Kremote: Counting objects:  98% (456/465)[Kremote: Counting objects:  99% (461/465)[Kremote: Counting objects: 100% (465/465)[Kremote: Counting objects: 100% (465/465), done.[K
+remote: Compressing objects:   0% (1/249)[Kremote: Compressing objects:   1% (3/249)[Kremote: Compressing objects:   2% (5/249)[Kremote: Compressing objects:   3% (8/249)[Kremote: Compressing objects:   4% (10/249)[Kremote: Compressing objects:   5% (13/249)[Kremote: Compressing objects:   6% (15/249)[Kremote: Compressing objects:   7% (18/249)[Kremote: Compressing objects:   8% (20/249)[Kremote: Compressing objects:   9% (23/249)[Kremote: Compressing objects:  10% (25/249)[Kremote: Compressing objects:  11% (28/249)[Kremote: Compressing objects:  12% (30/249)[Kremote: Compressing objects:  13% (33/249)[Kremote: Compressing objects:  14% (35/249)[Kremote: Compressing objects:  15% (38/249)[Kremote: Compressing objects:  16% (40/249)[Kremote: Compressing objects:  17% (43/249)[Kremote: Compressing objects:  18% (45/249)[Kremote: Compressing objects:  19% (48/249)[Kremote: Compressing objects:  20% (50/249)[Kremote: Compressing objects:  21% (53/249)[Kremote: Compressing objects:  22% (55/249)[Kremote: Compressing objects:  23% (58/249)[Kremote: Compressing objects:  24% (60/249)[Kremote: Compressing objects:  25% (63/249)[Kremote: Compressing objects:  26% (65/249)[Kremote: Compressing objects:  27% (68/249)[Kremote: Compressing objects:  28% (70/249)[Kremote: Compressing objects:  29% (73/249)[Kremote: Compressing objects:  30% (75/249)[Kremote: Compressing objects:  31% (78/249)[Kremote: Compressing objects:  32% (80/249)[Kremote: Compressing objects:  33% (83/249)[Kremote: Compressing objects:  34% (85/249)[Kremote: Compressing objects:  35% (88/249)[Kremote: Compressing objects:  36% (90/249)[Kremote: Compressing objects:  37% (93/249)[Kremote: Compressing objects:  38% (95/249)[Kremote: Compressing objects:  39% (98/249)[Kremote: Compressing objects:  40% (100/249)[Kremote: Compressing objects:  41% (103/249)[Kremote: Compressing objects:  42% (105/249)[Kremote: Compressing objects:  43% (108/249)[Kremote: Compressing objects:  44% (110/249)[Kremote: Compressing objects:  45% (113/249)[Kremote: Compressing objects:  46% (115/249)[Kremote: Compressing objects:  47% (118/249)[Kremote: Compressing objects:  48% (120/249)[Kremote: Compressing objects:  49% (123/249)[Kremote: Compressing objects:  50% (125/249)[Kremote: Compressing objects:  51% (127/249)[Kremote: Compressing objects:  52% (130/249)[Kremote: Compressing objects:  53% (132/249)[Kremote: Compressing objects:  54% (135/249)[Kremote: Compressing objects:  55% (137/249)[Kremote: Compressing objects:  56% (140/249)[Kremote: Compressing objects:  57% (142/249)[Kremote: Compressing objects:  58% (145/249)[Kremote: Compressing objects:  59% (147/249)[Kremote: Compressing objects:  60% (150/249)[Kremote: Compressing objects:  61% (152/249)[Kremote: Compressing objects:  62% (155/249)[Kremote: Compressing objects:  63% (157/249)[Kremote: Compressing objects:  64% (160/249)[Kremote: Compressing objects:  65% (162/249)[Kremote: Compressing objects:  66% (165/249)[Kremote: Compressing objects:  67% (167/249)[Kremote: Compressing objects:  68% (170/249)[Kremote: Compressing objects:  69% (172/249)[Kremote: Compressing objects:  70% (175/249)[Kremote: Compressing objects:  71% (177/249)[Kremote: Compressing objects:  72% (180/249)[Kremote: Compressing objects:  73% (182/249)[Kremote: Compressing objects:  74% (185/249)[Kremote: Compressing objects:  75% (187/249)[Kremote: Compressing objects:  76% (190/249)[Kremote: Compressing objects:  77% (192/249)[Kremote: Compressing objects:  78% (195/249)[Kremote: Compressing objects:  79% (197/249)[Kremote: Compressing objects:  80% (200/249)[Kremote: Compressing objects:  81% (202/249)[Kremote: Compressing objects:  82% (205/249)[Kremote: Compressing objects:  83% (207/249)[Kremote: Compressing objects:  84% (210/249)[Kremote: Compressing objects:  85% (212/249)[Kremote: Compressing objects:  86% (215/249)[Kremote: Compressing objects:  87% (217/249)[Kremote: Compressing objects:  88% (220/249)[Kremote: Compressing objects:  89% (222/249)[Kremote: Compressing objects:  90% (225/249)[Kremote: Compressing objects:  91% (227/249)[Kremote: Compressing objects:  92% (230/249)[Kremote: Compressing objects:  93% (232/249)[Kremote: Compressing objects:  94% (235/249)[Kremote: Compressing objects:  95% (237/249)[Kremote: Compressing objects:  96% (240/249)[Kremote: Compressing objects:  97% (242/249)[Kremote: Compressing objects:  98% (245/249)[Kremote: Compressing objects:  99% (247/249)[Kremote: Compressing objects: 100% (249/249)[Kremote: Compressing objects: 100% (249/249), done.[K
+Receiving objects:   0% (1/279)Receiving objects:   1% (3/279)Receiving objects:   2% (6/279)Receiving objects:   3% (9/279)Receiving objects:   4% (12/279)Receiving objects:   5% (14/279)Receiving objects:   6% (17/279)Receiving objects:   7% (20/279)Receiving objects:   8% (23/279)Receiving objects:   9% (26/279)Receiving objects:  10% (28/279)Receiving objects:  11% (31/279)Receiving objects:  12% (34/279)Receiving objects:  13% (37/279)Receiving objects:  14% (40/279)Receiving objects:  15% (42/279)Receiving objects:  16% (45/279)Receiving objects:  17% (48/279)Receiving objects:  18% (51/279)Receiving objects:  19% (54/279)Receiving objects:  20% (56/279)Receiving objects:  21% (59/279)Receiving objects:  22% (62/279)Receiving objects:  23% (65/279)Receiving objects:  24% (67/279)Receiving objects:  25% (70/279)Receiving objects:  26% (73/279)Receiving objects:  27% (76/279)Receiving objects:  28% (79/279)Receiving objects:  29% (81/279)Receiving objects:  30% (84/279)Receiving objects:  31% (87/279)Receiving objects:  32% (90/279)Receiving objects:  33% (93/279)Receiving objects:  34% (95/279)Receiving objects:  35% (98/279)Receiving objects:  36% (101/279)Receiving objects:  37% (104/279)Receiving objects:  38% (107/279)Receiving objects:  39% (109/279)Receiving objects:  40% (112/279)Receiving objects:  41% (115/279)Receiving objects:  42% (118/279)Receiving objects:  43% (120/279)Receiving objects:  44% (123/279)Receiving objects:  45% (126/279)Receiving objects:  46% (129/279)Receiving objects:  47% (132/279)Receiving objects:  48% (134/279)Receiving objects:  49% (137/279)Receiving objects:  50% (140/279)Receiving objects:  51% (143/279)Receiving objects:  52% (146/279)Receiving objects:  53% (148/279)Receiving objects:  54% (151/279)Receiving objects:  55% (154/279)Receiving objects:  56% (157/279)Receiving objects:  57% (160/279)Receiving objects:  58% (162/279)Receiving objects:  59% (165/279)Receiving objects:  60% (168/279)Receiving objects:  61% (171/279)Receiving objects:  62% (173/279)Receiving objects:  63% (176/279)Receiving objects:  64% (179/279)Receiving objects:  65% (182/279)Receiving objects:  66% (185/279)Receiving objects:  67% (187/279)Receiving objects:  68% (190/279)Receiving objects:  69% (193/279)Receiving objects:  70% (196/279)Receiving objects:  71% (199/279)Receiving objects:  72% (201/279)Receiving objects:  73% (204/279)Receiving objects:  74% (207/279)Receiving objects:  75% (210/279)Receiving objects:  76% (213/279)Receiving objects:  77% (215/279)Receiving objects:  78% (218/279)Receiving objects:  79% (221/279)Receiving objects:  80% (224/279)Receiving objects:  81% (226/279)Receiving objects:  82% (229/279)Receiving objects:  83% (232/279)Receiving objects:  84% (235/279)remote: Total 279 (delta 141), reused 87 (delta 19), pack-reused 0 (from 0)[K
+Receiving objects:  85% (238/279)Receiving objects:  86% (240/279)Receiving objects:  87% (243/279)Receiving objects:  88% (246/279)Receiving objects:  89% (249/279)Receiving objects:  90% (252/279)Receiving objects:  91% (254/279)Receiving objects:  92% (257/279)Receiving objects:  93% (260/279)Receiving objects:  94% (263/279)Receiving objects:  95% (266/279)Receiving objects:  96% (268/279)Receiving objects:  97% (271/279)Receiving objects:  98% (274/279)Receiving objects:  99% (277/279)Receiving objects: 100% (279/279)Receiving objects: 100% (279/279), 724.84 KiB | 6.84 MiB/s, done.
+Resolving deltas:   0% (0/141)Resolving deltas:   1% (2/141)Resolving deltas:   2% (3/141)Resolving deltas:   3% (5/141)Resolving deltas:   4% (6/141)Resolving deltas:   5% (8/141)Resolving deltas:   6% (9/141)Resolving deltas:   7% (10/141)Resolving deltas:   8% (12/141)Resolving deltas:   9% (13/141)Resolving deltas:  10% (15/141)Resolving deltas:  11% (16/141)Resolving deltas:  12% (17/141)Resolving deltas:  13% (19/141)Resolving deltas:  14% (20/141)Resolving deltas:  15% (22/141)Resolving deltas:  16% (23/141)Resolving deltas:  17% (24/141)Resolving deltas:  18% (26/141)Resolving deltas:  19% (27/141)Resolving deltas:  20% (29/141)Resolving deltas:  21% (30/141)Resolving deltas:  22% (32/141)Resolving deltas:  23% (33/141)Resolving deltas:  24% (34/141)Resolving deltas:  25% (36/141)Resolving deltas:  26% (37/141)Resolving deltas:  27% (39/141)Resolving deltas:  28% (40/141)Resolving deltas:  29% (41/141)Resolving deltas:  30% (43/141)Resolving deltas:  31% (44/141)Resolving deltas:  32% (46/141)Resolving deltas:  33% (47/141)Resolving deltas:  34% (48/141)Resolving deltas:  35% (50/141)Resolving deltas:  36% (51/141)Resolving deltas:  37% (53/141)Resolving deltas:  38% (54/141)Resolving deltas:  39% (55/141)Resolving deltas:  40% (57/141)Resolving deltas:  41% (58/141)Resolving deltas:  42% (60/141)Resolving deltas:  43% (61/141)Resolving deltas:  44% (63/141)Resolving deltas:  45% (64/141)Resolving deltas:  46% (65/141)Resolving deltas:  47% (67/141)Resolving deltas:  48% (68/141)Resolving deltas:  49% (70/141)Resolving deltas:  50% (71/141)Resolving deltas:  51% (72/141)Resolving deltas:  52% (74/141)Resolving deltas:  53% (75/141)Resolving deltas:  54% (77/141)Resolving deltas:  55% (78/141)Resolving deltas:  56% (79/141)Resolving deltas:  57% (81/141)Resolving deltas:  58% (82/141)Resolving deltas:  59% (84/141)Resolving deltas:  60% (85/141)Resolving deltas:  61% (87/141)Resolving deltas:  62% (88/141)Resolving deltas:  63% (89/141)Resolving deltas:  64% (91/141)Resolving deltas:  65% (92/141)Resolving deltas:  66% (94/141)Resolving deltas:  67% (95/141)Resolving deltas:  68% (96/141)Resolving deltas:  69% (98/141)Resolving deltas:  70% (99/141)Resolving deltas:  71% (101/141)Resolving deltas:  72% (102/141)Resolving deltas:  73% (103/141)Resolving deltas:  74% (105/141)Resolving deltas:  75% (106/141)Resolving deltas:  76% (108/141)Resolving deltas:  77% (109/141)Resolving deltas:  78% (110/141)Resolving deltas:  79% (112/141)Resolving deltas:  80% (113/141)Resolving deltas:  81% (115/141)Resolving deltas:  82% (116/141)Resolving deltas:  83% (118/141)Resolving deltas:  84% (119/141)Resolving deltas:  85% (120/141)Resolving deltas:  86% (122/141)Resolving deltas:  87% (123/141)Resolving deltas:  88% (125/141)Resolving deltas:  89% (126/141)Resolving deltas:  90% (127/141)Resolving deltas:  91% (129/141)Resolving deltas:  92% (130/141)Resolving deltas:  93% (132/141)Resolving deltas:  94% (133/141)Resolving deltas:  95% (134/141)Resolving deltas:  96% (136/141)Resolving deltas:  97% (137/141)Resolving deltas:  98% (139/141)Resolving deltas:  99% (140/141)Resolving deltas: 100% (141/141)Resolving deltas: 100% (141/141), completed with 107 local objects.
+From https://github.com/glennrp/libpng
+ * branch            a40189cf881e9f0db80511c382292a5604c3c3d1 -> FETCH_HEAD
+Submodule path 'third_party/libpng': checked out 'a40189cf881e9f0db80511c382292a5604c3c3d1'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 63, done.[K
+remote: Counting objects:   1% (1/63)[Kremote: Counting objects:   3% (2/63)[Kremote: Counting objects:   4% (3/63)[Kremote: Counting objects:   6% (4/63)[Kremote: Counting objects:   7% (5/63)[Kremote: Counting objects:   9% (6/63)[Kremote: Counting objects:  11% (7/63)[Kremote: Counting objects:  12% (8/63)[Kremote: Counting objects:  14% (9/63)[Kremote: Counting objects:  15% (10/63)[Kremote: Counting objects:  17% (11/63)[Kremote: Counting objects:  19% (12/63)[Kremote: Counting objects:  20% (13/63)[Kremote: Counting objects:  22% (14/63)[Kremote: Counting objects:  23% (15/63)[Kremote: Counting objects:  25% (16/63)[Kremote: Counting objects:  26% (17/63)[Kremote: Counting objects:  28% (18/63)[Kremote: Counting objects:  30% (19/63)[Kremote: Counting objects:  31% (20/63)[Kremote: Counting objects:  33% (21/63)[Kremote: Counting objects:  34% (22/63)[Kremote: Counting objects:  36% (23/63)[Kremote: Counting objects:  38% (24/63)[Kremote: Counting objects:  39% (25/63)[Kremote: Counting objects:  41% (26/63)[Kremote: Counting objects:  42% (27/63)[Kremote: Counting objects:  44% (28/63)[Kremote: Counting objects:  46% (29/63)[Kremote: Counting objects:  47% (30/63)[Kremote: Counting objects:  49% (31/63)[Kremote: Counting objects:  50% (32/63)[Kremote: Counting objects:  52% (33/63)[Kremote: Counting objects:  53% (34/63)[Kremote: Counting objects:  55% (35/63)[Kremote: Counting objects:  57% (36/63)[Kremote: Counting objects:  58% (37/63)[Kremote: Counting objects:  60% (38/63)[Kremote: Counting objects:  61% (39/63)[Kremote: Counting objects:  63% (40/63)[Kremote: Counting objects:  65% (41/63)[Kremote: Counting objects:  66% (42/63)[Kremote: Counting objects:  68% (43/63)[Kremote: Counting objects:  69% (44/63)[Kremote: Counting objects:  71% (45/63)[Kremote: Counting objects:  73% (46/63)[Kremote: Counting objects:  74% (47/63)[Kremote: Counting objects:  76% (48/63)[Kremote: Counting objects:  77% (49/63)[Kremote: Counting objects:  79% (50/63)[Kremote: Counting objects:  80% (51/63)[Kremote: Counting objects:  82% (52/63)[Kremote: Counting objects:  84% (53/63)[Kremote: Counting objects:  85% (54/63)[Kremote: Counting objects:  87% (55/63)[Kremote: Counting objects:  88% (56/63)[Kremote: Counting objects:  90% (57/63)[Kremote: Counting objects:  92% (58/63)[Kremote: Counting objects:  93% (59/63)[Kremote: Counting objects:  95% (60/63)[Kremote: Counting objects:  96% (61/63)[Kremote: Counting objects:  98% (62/63)[Kremote: Counting objects: 100% (63/63)[Kremote: Counting objects: 100% (63/63), done.[K
+remote: Compressing objects:   3% (1/32)[Kremote: Compressing objects:   6% (2/32)[Kremote: Compressing objects:   9% (3/32)[Kremote: Compressing objects:  12% (4/32)[Kremote: Compressing objects:  15% (5/32)[Kremote: Compressing objects:  18% (6/32)[Kremote: Compressing objects:  21% (7/32)[Kremote: Compressing objects:  25% (8/32)[Kremote: Compressing objects:  28% (9/32)[Kremote: Compressing objects:  31% (10/32)[Kremote: Compressing objects:  34% (11/32)[Kremote: Compressing objects:  37% (12/32)[Kremote: Compressing objects:  40% (13/32)[Kremote: Compressing objects:  43% (14/32)[Kremote: Compressing objects:  46% (15/32)[Kremote: Compressing objects:  50% (16/32)[Kremote: Compressing objects:  53% (17/32)[Kremote: Compressing objects:  56% (18/32)[Kremote: Compressing objects:  59% (19/32)[Kremote: Compressing objects:  62% (20/32)[Kremote: Compressing objects:  65% (21/32)[Kremote: Compressing objects:  68% (22/32)[Kremote: Compressing objects:  71% (23/32)[Kremote: Compressing objects:  75% (24/32)[Kremote: Compressing objects:  78% (25/32)[Kremote: Compressing objects:  81% (26/32)[Kremote: Compressing objects:  84% (27/32)[Kremote: Compressing objects:  87% (28/32)[Kremote: Compressing objects:  90% (29/32)[Kremote: Compressing objects:  93% (30/32)[Kremote: Compressing objects:  96% (31/32)[Kremote: Compressing objects: 100% (32/32)[Kremote: Compressing objects: 100% (32/32), done.[K
+Unpacking objects:   3% (1/32)Unpacking objects:   6% (2/32)Unpacking objects:   9% (3/32)Unpacking objects:  12% (4/32)Unpacking objects:  15% (5/32)remote: Total 32 (delta 25), reused 4 (delta 0), pack-reused 0 (from 0)[K
+Unpacking objects:  18% (6/32)Unpacking objects:  21% (7/32)Unpacking objects:  25% (8/32)Unpacking objects:  28% (9/32)Unpacking objects:  31% (10/32)Unpacking objects:  34% (11/32)Unpacking objects:  37% (12/32)Unpacking objects:  40% (13/32)Unpacking objects:  43% (14/32)Unpacking objects:  46% (15/32)Unpacking objects:  50% (16/32)Unpacking objects:  53% (17/32)Unpacking objects:  56% (18/32)Unpacking objects:  59% (19/32)Unpacking objects:  62% (20/32)Unpacking objects:  65% (21/32)Unpacking objects:  68% (22/32)Unpacking objects:  71% (23/32)Unpacking objects:  75% (24/32)Unpacking objects:  78% (25/32)Unpacking objects:  81% (26/32)Unpacking objects:  84% (27/32)Unpacking objects:  87% (28/32)Unpacking objects:  90% (29/32)Unpacking objects:  93% (30/32)Unpacking objects:  96% (31/32)Unpacking objects: 100% (32/32)Unpacking objects: 100% (32/32), 8.14 KiB | 362.00 KiB/s, done.
+From https://github.com/webmproject/sjpeg
+ * branch            868ab558fad70fcbe8863ba4e85179eeb81cc840 -> FETCH_HEAD
+Submodule path 'third_party/sjpeg': checked out '868ab558fad70fcbe8863ba4e85179eeb81cc840'
+remote: Total 0 (delta 0), reused 0 (delta 0)[K
+remote: Counting objects: 1   [Kremote: Finding sources:   1% (1/145)   [Kremote: Finding sources:   2% (3/145)   [Kremote: Finding sources:   3% (4/145)   [Kremote: Finding sources:   4% (6/145)   [Kremote: Finding sources:   5% (7/145)   [Kremote: Finding sources:   6% (8/145)   [Kremote: Finding sources:   7% (10/145)   [Kremote: Finding sources:   8% (11/145)   [Kremote: Finding sources:   9% (13/145)   [Kremote: Finding sources:  10% (14/145)   [Kremote: Finding sources:  11% (16/145)   [Kremote: Finding sources:  12% (17/145)   [Kremote: Finding sources:  13% (19/145)   [Kremote: Finding sources:  14% (20/145)   [Kremote: Finding sources:  15% (22/145)   [Kremote: Finding sources:  16% (23/145)   [Kremote: Finding sources:  17% (24/145)   [Kremote: Finding sources:  18% (26/145)   [Kremote: Finding sources:  19% (27/145)   [Kremote: Finding sources:  20% (29/145)   [Kremote: Finding sources:  21% (30/145)   [Kremote: Finding sources:  22% (32/145)   [Kremote: Finding sources:  23% (33/145)   [Kremote: Finding sources:  24% (35/145)   [Kremote: Finding sources:  25% (36/145)   [Kremote: Finding sources:  26% (37/145)   [Kremote: Finding sources:  27% (39/145)   [Kremote: Finding sources:  28% (40/145)   [Kremote: Finding sources:  29% (42/145)   [Kremote: Finding sources:  30% (43/145)   [Kremote: Finding sources:  31% (45/145)   [Kremote: Finding sources:  32% (46/145)   [Kremote: Finding sources:  33% (48/145)   [Kremote: Finding sources:  34% (49/145)   [Kremote: Finding sources:  35% (51/145)   [Kremote: Finding sources:  36% (52/145)   [Kremote: Finding sources:  37% (53/145)   [Kremote: Finding sources:  38% (55/145)   [Kremote: Finding sources:  39% (56/145)   [Kremote: Finding sources:  40% (58/145)   [Kremote: Finding sources:  41% (59/145)   [Kremote: Finding sources:  42% (61/145)   [Kremote: Finding sources:  43% (62/145)   [Kremote: Finding sources:  44% (64/145)   [Kremote: Finding sources:  45% (65/145)   [Kremote: Finding sources:  46% (66/145)   [Kremote: Finding sources:  47% (68/145)   [Kremote: Finding sources:  48% (69/145)   [Kremote: Finding sources:  49% (71/145)   [Kremote: Finding sources:  50% (72/145)   [Kremote: Finding sources:  51% (74/145)   [Kremote: Finding sources:  52% (75/145)   [Kremote: Finding sources:  53% (77/145)   [Kremote: Finding sources:  54% (78/145)   [Kremote: Finding sources:  55% (80/145)   [Kremote: Finding sources:  56% (81/145)   [Kremote: Finding sources:  57% (82/145)   [Kremote: Finding sources:  58% (84/145)   [Kremote: Finding sources:  59% (85/145)   [Kremote: Finding sources:  60% (87/145)   [Kremote: Finding sources:  61% (88/145)   [Kremote: Finding sources:  62% (90/145)   [Kremote: Finding sources:  63% (91/145)   [Kremote: Finding sources:  64% (93/145)   [Kremote: Finding sources:  65% (94/145)   [Kremote: Finding sources:  66% (95/145)   [Kremote: Finding sources:  67% (97/145)   [Kremote: Finding sources:  68% (98/145)   [Kremote: Finding sources:  69% (100/145)   [Kremote: Finding sources:  70% (101/145)   [Kremote: Finding sources:  71% (103/145)   [Kremote: Finding sources:  72% (104/145)   [Kremote: Finding sources:  73% (106/145)   [Kremote: Finding sources:  74% (107/145)   [Kremote: Finding sources:  75% (109/145)   [Kremote: Finding sources:  76% (110/145)   [Kremote: Finding sources:  77% (111/145)   [Kremote: Finding sources:  78% (113/145)   [Kremote: Finding sources:  79% (114/145)   [Kremote: Finding sources:  80% (116/145)   [Kremote: Finding sources:  81% (117/145)   [Kremote: Finding sources:  82% (119/145)   [Kremote: Finding sources:  83% (120/145)   [Kremote: Finding sources:  84% (122/145)   [Kremote: Finding sources:  85% (123/145)   [Kremote: Finding sources:  86% (124/145)   [Kremote: Finding sources:  87% (126/145)   [Kremote: Finding sources:  88% (127/145)   [Kremote: Finding sources:  89% (129/145)   [Kremote: Finding sources:  90% (130/145)   [Kremote: Finding sources:  91% (132/145)   [Kremote: Finding sources:  92% (133/145)   [Kremote: Finding sources:  93% (135/145)   [Kremote: Finding sources:  94% (136/145)   [Kremote: Finding sources:  95% (138/145)   [Kremote: Finding sources:  96% (139/145)   [Kremote: Finding sources:  97% (140/145)   [Kremote: Finding sources:  98% (142/145)   [Kremote: Finding sources:  99% (143/145)   [Kremote: Finding sources: 100% (145/145)   [Kremote: Finding sources: 100% (145/145)[K
+Receiving objects:   0% (1/145)Receiving objects:   1% (2/145)Receiving objects:   2% (3/145)Receiving objects:   3% (5/145)Receiving objects:   4% (6/145)Receiving objects:   5% (8/145)Receiving objects:   6% (9/145)Receiving objects:   7% (11/145)Receiving objects:   8% (12/145)Receiving objects:   9% (14/145)Receiving objects:  10% (15/145)Receiving objects:  11% (16/145)Receiving objects:  12% (18/145)Receiving objects:  13% (19/145)Receiving objects:  14% (21/145)Receiving objects:  15% (22/145)Receiving objects:  16% (24/145)Receiving objects:  17% (25/145)Receiving objects:  18% (27/145)Receiving objects:  19% (28/145)Receiving objects:  20% (29/145)Receiving objects:  21% (31/145)Receiving objects:  22% (32/145)Receiving objects:  23% (34/145)Receiving objects:  24% (35/145)Receiving objects:  25% (37/145)Receiving objects:  26% (38/145)Receiving objects:  27% (40/145)Receiving objects:  28% (41/145)Receiving objects:  29% (43/145)Receiving objects:  30% (44/145)Receiving objects:  31% (45/145)Receiving objects:  32% (47/145)Receiving objects:  33% (48/145)Receiving objects:  34% (50/145)Receiving objects:  35% (51/145)Receiving objects:  36% (53/145)Receiving objects:  37% (54/145)Receiving objects:  38% (56/145)Receiving objects:  39% (57/145)Receiving objects:  40% (58/145)Receiving objects:  41% (60/145)Receiving objects:  42% (61/145)Receiving objects:  43% (63/145)Receiving objects:  44% (64/145)Receiving objects:  45% (66/145)Receiving objects:  46% (67/145)Receiving objects:  47% (69/145)Receiving objects:  48% (70/145)Receiving objects:  49% (72/145)Receiving objects:  50% (73/145)Receiving objects:  51% (74/145)Receiving objects:  52% (76/145)Receiving objects:  53% (77/145)Receiving objects:  54% (79/145)Receiving objects:  55% (80/145)Receiving objects:  56% (82/145)Receiving objects:  57% (83/145)Receiving objects:  58% (85/145)Receiving objects:  59% (86/145)Receiving objects:  60% (87/145)Receiving objects:  61% (89/145)Receiving objects:  62% (90/145)Receiving objects:  63% (92/145)Receiving objects:  64% (93/145)Receiving objects:  65% (95/145)Receiving objects:  66% (96/145)Receiving objects:  67% (98/145)Receiving objects:  68% (99/145)Receiving objects:  69% (101/145)Receiving objects:  70% (102/145)Receiving objects:  71% (103/145)Receiving objects:  72% (105/145)Receiving objects:  73% (106/145)Receiving objects:  74% (108/145)Receiving objects:  75% (109/145)Receiving objects:  76% (111/145)Receiving objects:  77% (112/145)Receiving objects:  78% (114/145)Receiving objects:  79% (115/145)Receiving objects:  80% (116/145)Receiving objects:  81% (118/145)Receiving objects:  82% (119/145)Receiving objects:  83% (121/145)Receiving objects:  84% (122/145)Receiving objects:  85% (124/145)Receiving objects:  86% (125/145)Receiving objects:  87% (127/145)Receiving objects:  88% (128/145)Receiving objects:  89% (130/145)Receiving objects:  90% (131/145)Receiving objects:  91% (132/145)Receiving objects:  92% (134/145)Receiving objects:  93% (135/145)Receiving objects:  94% (137/145)remote: Total 145 (delta 20), reused 96 (delta 20)[K
+Receiving objects:  95% (138/145)Receiving objects:  96% (140/145)Receiving objects:  97% (141/145)Receiving objects:  98% (143/145)Receiving objects:  99% (144/145)Receiving objects: 100% (145/145)Receiving objects: 100% (145/145), 144.09 KiB | 4.50 MiB/s, done.
+Resolving deltas:   0% (0/20)Resolving deltas:   5% (1/20)Resolving deltas:  10% (2/20)Resolving deltas:  15% (3/20)Resolving deltas:  20% (4/20)Resolving deltas:  25% (5/20)Resolving deltas:  35% (7/20)Resolving deltas:  40% (8/20)Resolving deltas:  50% (10/20)Resolving deltas:  55% (11/20)Resolving deltas:  60% (12/20)Resolving deltas:  65% (13/20)Resolving deltas:  70% (14/20)Resolving deltas:  75% (15/20)Resolving deltas:  80% (16/20)Resolving deltas:  85% (17/20)Resolving deltas:  90% (18/20)Resolving deltas:  95% (19/20)Resolving deltas: 100% (20/20)Resolving deltas: 100% (20/20), done.
+From https://skia.googlesource.com/skcms
+ * branch            64374756e03700d649f897dbd98c95e78c30c7da -> FETCH_HEAD
+Submodule path 'third_party/skcms': checked out '64374756e03700d649f897dbd98c95e78c30c7da'
+remote: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)[K
+remote: Enumerating objects: 374, done.[K
+remote: Counting objects:   0% (1/374)[Kremote: Counting objects:   1% (4/374)[Kremote: Counting objects:   2% (8/374)[Kremote: Counting objects:   3% (12/374)[Kremote: Counting objects:   4% (15/374)[Kremote: Counting objects:   5% (19/374)[Kremote: Counting objects:   6% (23/374)[Kremote: Counting objects:   7% (27/374)[Kremote: Counting objects:   8% (30/374)[Kremote: Counting objects:   9% (34/374)[Kremote: Counting objects:  10% (38/374)[Kremote: Counting objects:  11% (42/374)[Kremote: Counting objects:  12% (45/374)[Kremote: Counting objects:  13% (49/374)[Kremote: Counting objects:  14% (53/374)[Kremote: Counting objects:  15% (57/374)[Kremote: Counting objects:  16% (60/374)[Kremote: Counting objects:  17% (64/374)[Kremote: Counting objects:  18% (68/374)[Kremote: Counting objects:  19% (72/374)[Kremote: Counting objects:  20% (75/374)[Kremote: Counting objects:  21% (79/374)[Kremote: Counting objects:  22% (83/374)[Kremote: Counting objects:  23% (87/374)[Kremote: Counting objects:  24% (90/374)[Kremote: Counting objects:  25% (94/374)[Kremote: Counting objects:  26% (98/374)[Kremote: Counting objects:  27% (101/374)[Kremote: Counting objects:  28% (105/374)[Kremote: Counting objects:  29% (109/374)[Kremote: Counting objects:  30% (113/374)[Kremote: Counting objects:  31% (116/374)[Kremote: Counting objects:  32% (120/374)[Kremote: Counting objects:  33% (124/374)[Kremote: Counting objects:  34% (128/374)[Kremote: Counting objects:  35% (131/374)[Kremote: Counting objects:  36% (135/374)[Kremote: Counting objects:  37% (139/374)[Kremote: Counting objects:  38% (143/374)[Kremote: Counting objects:  39% (146/374)[Kremote: Counting objects:  40% (150/374)[Kremote: Counting objects:  41% (154/374)[Kremote: Counting objects:  42% (158/374)[Kremote: Counting objects:  43% (161/374)[Kremote: Counting objects:  44% (165/374)[Kremote: Counting objects:  45% (169/374)[Kremote: Counting objects:  46% (173/374)[Kremote: Counting objects:  47% (176/374)[Kremote: Counting objects:  48% (180/374)[Kremote: Counting objects:  49% (184/374)[Kremote: Counting objects:  50% (187/374)[Kremote: Counting objects:  51% (191/374)[Kremote: Counting objects:  52% (195/374)[Kremote: Counting objects:  53% (199/374)[Kremote: Counting objects:  54% (202/374)[Kremote: Counting objects:  55% (206/374)[Kremote: Counting objects:  56% (210/374)[Kremote: Counting objects:  57% (214/374)[Kremote: Counting objects:  58% (217/374)[Kremote: Counting objects:  59% (221/374)[Kremote: Counting objects:  60% (225/374)[Kremote: Counting objects:  61% (229/374)[Kremote: Counting objects:  62% (232/374)[Kremote: Counting objects:  63% (236/374)[Kremote: Counting objects:  64% (240/374)[Kremote: Counting objects:  65% (244/374)[Kremote: Counting objects:  66% (247/374)[Kremote: Counting objects:  67% (251/374)[Kremote: Counting objects:  68% (255/374)[Kremote: Counting objects:  69% (259/374)[Kremote: Counting objects:  70% (262/374)[Kremote: Counting objects:  71% (266/374)[Kremote: Counting objects:  72% (270/374)[Kremote: Counting objects:  73% (274/374)[Kremote: Counting objects:  74% (277/374)[Kremote: Counting objects:  75% (281/374)[Kremote: Counting objects:  76% (285/374)[Kremote: Counting objects:  77% (288/374)[Kremote: Counting objects:  78% (292/374)[Kremote: Counting objects:  79% (296/374)[Kremote: Counting objects:  80% (300/374)[Kremote: Counting objects:  81% (303/374)[Kremote: Counting objects:  82% (307/374)[Kremote: Counting objects:  83% (311/374)[Kremote: Counting objects:  84% (315/374)[Kremote: Counting objects:  85% (318/374)[Kremote: Counting objects:  86% (322/374)[Kremote: Counting objects:  87% (326/374)[Kremote: Counting objects:  88% (330/374)[Kremote: Counting objects:  89% (333/374)[Kremote: Counting objects:  90% (337/374)[Kremote: Counting objects:  91% (341/374)[Kremote: Counting objects:  92% (345/374)[Kremote: Counting objects:  93% (348/374)[Kremote: Counting objects:  94% (352/374)[Kremote: Counting objects:  95% (356/374)[Kremote: Counting objects:  96% (360/374)[Kremote: Counting objects:  97% (363/374)[Kremote: Counting objects:  98% (367/374)[Kremote: Counting objects:  99% (371/374)[Kremote: Counting objects: 100% (374/374)[Kremote: Counting objects: 100% (374/374), done.[K
+remote: Compressing objects:   0% (1/194)[Kremote: Compressing objects:   1% (2/194)[Kremote: Compressing objects:   2% (4/194)[Kremote: Compressing objects:   3% (6/194)[Kremote: Compressing objects:   4% (8/194)[Kremote: Compressing objects:   5% (10/194)[Kremote: Compressing objects:   6% (12/194)[Kremote: Compressing objects:   7% (14/194)[Kremote: Compressing objects:   8% (16/194)[Kremote: Compressing objects:   9% (18/194)[Kremote: Compressing objects:  10% (20/194)[Kremote: Compressing objects:  11% (22/194)[Kremote: Compressing objects:  12% (24/194)[Kremote: Compressing objects:  13% (26/194)[Kremote: Compressing objects:  14% (28/194)[Kremote: Compressing objects:  15% (30/194)[Kremote: Compressing objects:  16% (32/194)[Kremote: Compressing objects:  17% (33/194)[Kremote: Compressing objects:  18% (35/194)[Kremote: Compressing objects:  19% (37/194)[Kremote: Compressing objects:  20% (39/194)[Kremote: Compressing objects:  21% (41/194)[Kremote: Compressing objects:  22% (43/194)[Kremote: Compressing objects:  23% (45/194)[Kremote: Compressing objects:  24% (47/194)[Kremote: Compressing objects:  25% (49/194)[Kremote: Compressing objects:  26% (51/194)[Kremote: Compressing objects:  27% (53/194)[Kremote: Compressing objects:  28% (55/194)[Kremote: Compressing objects:  29% (57/194)[Kremote: Compressing objects:  30% (59/194)[Kremote: Compressing objects:  31% (61/194)[Kremote: Compressing objects:  32% (63/194)[Kremote: Compressing objects:  33% (65/194)[Kremote: Compressing objects:  34% (66/194)[Kremote: Compressing objects:  35% (68/194)[Kremote: Compressing objects:  36% (70/194)[Kremote: Compressing objects:  37% (72/194)[Kremote: Compressing objects:  38% (74/194)[Kremote: Compressing objects:  39% (76/194)[Kremote: Compressing objects:  40% (78/194)[Kremote: Compressing objects:  41% (80/194)[Kremote: Compressing objects:  42% (82/194)[Kremote: Compressing objects:  43% (84/194)[Kremote: Compressing objects:  44% (86/194)[Kremote: Compressing objects:  45% (88/194)[Kremote: Compressing objects:  46% (90/194)[Kremote: Compressing objects:  47% (92/194)[Kremote: Compressing objects:  48% (94/194)[Kremote: Compressing objects:  49% (96/194)[Kremote: Compressing objects:  50% (97/194)[Kremote: Compressing objects:  51% (99/194)[Kremote: Compressing objects:  52% (101/194)[Kremote: Compressing objects:  53% (103/194)[Kremote: Compressing objects:  54% (105/194)[Kremote: Compressing objects:  55% (107/194)[Kremote: Compressing objects:  56% (109/194)[Kremote: Compressing objects:  57% (111/194)[Kremote: Compressing objects:  58% (113/194)[Kremote: Compressing objects:  59% (115/194)[Kremote: Compressing objects:  60% (117/194)[Kremote: Compressing objects:  61% (119/194)[Kremote: Compressing objects:  62% (121/194)[Kremote: Compressing objects:  63% (123/194)[Kremote: Compressing objects:  64% (125/194)[Kremote: Compressing objects:  65% (127/194)[Kremote: Compressing objects:  66% (129/194)[Kremote: Compressing objects:  67% (130/194)[Kremote: Compressing objects:  68% (132/194)[Kremote: Compressing objects:  69% (134/194)[Kremote: Compressing objects:  70% (136/194)[Kremote: Compressing objects:  71% (138/194)[Kremote: Compressing objects:  72% (140/194)[Kremote: Compressing objects:  73% (142/194)[Kremote: Compressing objects:  74% (144/194)[Kremote: Compressing objects:  75% (146/194)[Kremote: Compressing objects:  76% (148/194)[Kremote: Compressing objects:  77% (150/194)[Kremote: Compressing objects:  78% (152/194)[Kremote: Compressing objects:  79% (154/194)[Kremote: Compressing objects:  80% (156/194)[Kremote: Compressing objects:  81% (158/194)[Kremote: Compressing objects:  82% (160/194)[Kremote: Compressing objects:  83% (162/194)[Kremote: Compressing objects:  84% (163/194)[Kremote: Compressing objects:  85% (165/194)[Kremote: Compressing objects:  86% (167/194)[Kremote: Compressing objects:  87% (169/194)[Kremote: Compressing objects:  88% (171/194)[Kremote: Compressing objects:  89% (173/194)[Kremote: Compressing objects:  90% (175/194)[Kremote: Compressing objects:  91% (177/194)[Kremote: Compressing objects:  92% (179/194)[Kremote: Compressing objects:  93% (181/194)[Kremote: Compressing objects:  94% (183/194)[Kremote: Compressing objects:  95% (185/194)[Kremote: Compressing objects:  96% (187/194)[Kremote: Compressing objects:  97% (189/194)[Kremote: Compressing objects:  98% (191/194)[Kremote: Compressing objects:  99% (193/194)[Kremote: Compressing objects: 100% (194/194)[Kremote: Compressing objects: 100% (194/194), done.[K
+Receiving objects:   0% (1/231)Receiving objects:   1% (3/231)Receiving objects:   2% (5/231)Receiving objects:   3% (7/231)Receiving objects:   4% (10/231)Receiving objects:   5% (12/231)Receiving objects:   6% (14/231)Receiving objects:   7% (17/231)Receiving objects:   8% (19/231)Receiving objects:   9% (21/231)Receiving objects:  10% (24/231)Receiving objects:  11% (26/231)Receiving objects:  12% (28/231)Receiving objects:  13% (31/231)Receiving objects:  14% (33/231)Receiving objects:  15% (35/231)Receiving objects:  16% (37/231)Receiving objects:  17% (40/231)Receiving objects:  18% (42/231)Receiving objects:  19% (44/231)Receiving objects:  20% (47/231)Receiving objects:  21% (49/231)Receiving objects:  22% (51/231)Receiving objects:  23% (54/231)Receiving objects:  24% (56/231)Receiving objects:  25% (58/231)Receiving objects:  26% (61/231)Receiving objects:  27% (63/231)Receiving objects:  28% (65/231)Receiving objects:  29% (67/231)Receiving objects:  30% (70/231)Receiving objects:  31% (72/231)Receiving objects:  32% (74/231)Receiving objects:  33% (77/231)Receiving objects:  34% (79/231)Receiving objects:  35% (81/231)Receiving objects:  36% (84/231)Receiving objects:  37% (86/231)Receiving objects:  38% (88/231)Receiving objects:  39% (91/231)Receiving objects:  40% (93/231)Receiving objects:  41% (95/231)Receiving objects:  42% (98/231)Receiving objects:  43% (100/231)Receiving objects:  44% (102/231)Receiving objects:  45% (104/231)Receiving objects:  46% (107/231)Receiving objects:  47% (109/231)Receiving objects:  48% (111/231)Receiving objects:  49% (114/231)Receiving objects:  50% (116/231)Receiving objects:  51% (118/231)Receiving objects:  52% (121/231)Receiving objects:  53% (123/231)Receiving objects:  54% (125/231)Receiving objects:  55% (128/231)Receiving objects:  56% (130/231)Receiving objects:  57% (132/231)Receiving objects:  58% (134/231)Receiving objects:  59% (137/231)Receiving objects:  60% (139/231)Receiving objects:  61% (141/231)Receiving objects:  62% (144/231)Receiving objects:  63% (146/231)Receiving objects:  64% (148/231)Receiving objects:  65% (151/231)Receiving objects:  66% (153/231)Receiving objects:  67% (155/231)Receiving objects:  68% (158/231)Receiving objects:  69% (160/231)Receiving objects:  70% (162/231)Receiving objects:  71% (165/231)Receiving objects:  72% (167/231)Receiving objects:  73% (169/231)remote: Total 231 (delta 153), reused 77 (delta 34), pack-reused 0 (from 0)[K
+Receiving objects:  74% (171/231)Receiving objects:  75% (174/231)Receiving objects:  76% (176/231)Receiving objects:  77% (178/231)Receiving objects:  78% (181/231)Receiving objects:  79% (183/231)Receiving objects:  80% (185/231)Receiving objects:  81% (188/231)Receiving objects:  82% (190/231)Receiving objects:  83% (192/231)Receiving objects:  84% (195/231)Receiving objects:  85% (197/231)Receiving objects:  86% (199/231)Receiving objects:  87% (201/231)Receiving objects:  88% (204/231)Receiving objects:  89% (206/231)Receiving objects:  90% (208/231)Receiving objects:  91% (211/231)Receiving objects:  92% (213/231)Receiving objects:  93% (215/231)Receiving objects:  94% (218/231)Receiving objects:  95% (220/231)Receiving objects:  96% (222/231)Receiving objects:  97% (225/231)Receiving objects:  98% (227/231)Receiving objects:  99% (229/231)Receiving objects: 100% (231/231)Receiving objects: 100% (231/231), 201.68 KiB | 16.81 MiB/s, done.
+Resolving deltas:   0% (0/153)Resolving deltas:   1% (2/153)Resolving deltas:   2% (4/153)Resolving deltas:   3% (5/153)Resolving deltas:   4% (7/153)Resolving deltas:   5% (8/153)Resolving deltas:   7% (11/153)Resolving deltas:   8% (13/153)Resolving deltas:   9% (14/153)Resolving deltas:  10% (16/153)Resolving deltas:  11% (17/153)Resolving deltas:  12% (19/153)Resolving deltas:  13% (20/153)Resolving deltas:  14% (22/153)Resolving deltas:  15% (23/153)Resolving deltas:  16% (25/153)Resolving deltas:  17% (27/153)Resolving deltas:  18% (28/153)Resolving deltas:  19% (30/153)Resolving deltas:  20% (31/153)Resolving deltas:  21% (33/153)Resolving deltas:  22% (34/153)Resolving deltas:  23% (36/153)Resolving deltas:  24% (37/153)Resolving deltas:  25% (39/153)Resolving deltas:  26% (40/153)Resolving deltas:  27% (42/153)Resolving deltas:  28% (43/153)Resolving deltas:  29% (45/153)Resolving deltas:  30% (46/153)Resolving deltas:  31% (48/153)Resolving deltas:  32% (49/153)Resolving deltas:  33% (51/153)Resolving deltas:  34% (53/153)Resolving deltas:  35% (54/153)Resolving deltas:  36% (56/153)Resolving deltas:  37% (57/153)Resolving deltas:  38% (59/153)Resolving deltas:  39% (60/153)Resolving deltas:  40% (62/153)Resolving deltas:  41% (63/153)Resolving deltas:  42% (65/153)Resolving deltas:  43% (66/153)Resolving deltas:  44% (68/153)Resolving deltas:  45% (69/153)Resolving deltas:  46% (71/153)Resolving deltas:  47% (72/153)Resolving deltas:  48% (74/153)Resolving deltas:  49% (75/153)Resolving deltas:  50% (77/153)Resolving deltas:  51% (79/153)Resolving deltas:  52% (80/153)Resolving deltas:  53% (82/153)Resolving deltas:  54% (83/153)Resolving deltas:  55% (85/153)Resolving deltas:  56% (86/153)Resolving deltas:  57% (88/153)Resolving deltas:  58% (89/153)Resolving deltas:  59% (91/153)Resolving deltas:  60% (92/153)Resolving deltas:  61% (94/153)Resolving deltas:  62% (95/153)Resolving deltas:  63% (97/153)Resolving deltas:  64% (98/153)Resolving deltas:  65% (100/153)Resolving deltas:  66% (101/153)Resolving deltas:  67% (103/153)Resolving deltas:  68% (105/153)Resolving deltas:  69% (106/153)Resolving deltas:  70% (108/153)Resolving deltas:  71% (109/153)Resolving deltas:  72% (111/153)Resolving deltas:  73% (112/153)Resolving deltas:  74% (114/153)Resolving deltas:  75% (115/153)Resolving deltas:  76% (117/153)Resolving deltas:  77% (118/153)Resolving deltas:  78% (120/153)Resolving deltas:  79% (121/153)Resolving deltas:  80% (123/153)Resolving deltas:  81% (124/153)Resolving deltas:  82% (126/153)Resolving deltas:  83% (127/153)Resolving deltas:  84% (129/153)Resolving deltas:  85% (131/153)Resolving deltas:  86% (132/153)Resolving deltas:  87% (134/153)Resolving deltas:  88% (135/153)Resolving deltas:  89% (137/153)Resolving deltas:  90% (138/153)Resolving deltas:  91% (140/153)Resolving deltas:  92% (141/153)Resolving deltas:  93% (143/153)Resolving deltas:  94% (144/153)Resolving deltas:  95% (146/153)Resolving deltas:  96% (147/153)Resolving deltas:  97% (149/153)Resolving deltas:  98% (150/153)Resolving deltas:  99% (152/153)Resolving deltas: 100% (153/153)Resolving deltas: 100% (153/153), completed with 114 local objects.
+From https://github.com/madler/zlib
+ * branch            cacf7f1d4e3d44d871b605da3b647f07d718623f -> FETCH_HEAD
+Submodule path 'third_party/zlib': checked out 'cacf7f1d4e3d44d871b605da3b647f07d718623f'
+emcmake cmake \
+ \
+-DBUILD_SHARED_LIBS=0 \
+-DJPEGXL_ENABLE_BENCHMARK=0 \
+-DJPEGXL_ENABLE_EXAMPLES=0 \
+-DBUILD_TESTING=0 \
+-DCMAKE_CROSSCOMPILING_EMULATOR=node \
+-B node_modules/jxl/build/mt \
+node_modules/jxl
+emcmake cmake \
+ \
+-DBUILD_SHARED_LIBS=0 \
+-DJPEGXL_ENABLE_BENCHMARK=0 \
+-DJPEGXL_ENABLE_EXAMPLES=0 \
+-DBUILD_TESTING=0 \
+-DCMAKE_CROSSCOMPILING_EMULATOR=node \
+-B node_modules/jxl/build/mt-simd \
+node_modules/jxl
+emcmake: cmake -DBUILD_SHARED_LIBS=0 -DJPEGXL_ENABLE_BENCHMARK=0 -DJPEGXL_ENABLE_EXAMPLES=0 -DBUILD_TESTING=0 -DCMAKE_CROSSCOMPILING_EMULATOR=node -B node_modules/jxl/build/mt node_modules/jxl -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake in directory /src
+emcmake: cmake -DBUILD_SHARED_LIBS=0 -DJPEGXL_ENABLE_BENCHMARK=0 -DJPEGXL_ENABLE_EXAMPLES=0 -DBUILD_TESTING=0 -DCMAKE_CROSSCOMPILING_EMULATOR=node -B node_modules/jxl/build/mt-simd node_modules/jxl -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake in directory /src
+-- Performing Test JPEGXL_EMSCRIPTEN
+-- Performing Test JPEGXL_EMSCRIPTEN
+-- Performing Test JPEGXL_EMSCRIPTEN - Success
+-- CMAKE_SYSTEM_PROCESSOR is x86
+-- Performing Test CXX_FUZZERS_SUPPORTED
+-- Performing Test CXX_FUZZERS_SUPPORTED - Failed
+-- Performing Test CXX_CONSTRUCTOR_ALIASES_SUPPORTED
+-- Performing Test JPEGXL_EMSCRIPTEN - Success
+-- CMAKE_SYSTEM_PROCESSOR is x86
+-- Performing Test CXX_FUZZERS_SUPPORTED
+-- Performing Test CXX_FUZZERS_SUPPORTED - Failed
+-- Performing Test CXX_CONSTRUCTOR_ALIASES_SUPPORTED
+-- Performing Test CXX_CONSTRUCTOR_ALIASES_SUPPORTED - Success
+-- Performing Test CXX_MACRO_PREFIX_MAP
+-- Performing Test CXX_CONSTRUCTOR_ALIASES_SUPPORTED - Success
+-- Performing Test CXX_MACRO_PREFIX_MAP
+-- Performing Test CXX_MACRO_PREFIX_MAP - Success
+-- Performing Test CXX_NO_RTTI_SUPPORTED
+-- Performing Test CXX_MACRO_PREFIX_MAP - Success
+-- Performing Test CXX_NO_RTTI_SUPPORTED
+-- Performing Test CXX_NO_RTTI_SUPPORTED - Success
+-- Performing Test CXX_NO_RTTI_SUPPORTED - Success
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- Compiled IDs C:Clang, C++:Clang
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HWY_EMSCRIPTEN
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- Compiled IDs C:Clang, C++:Clang
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test HWY_EMSCRIPTEN - Success
+[0mCMake Deprecation Warning at third_party/brotli/CMakeLists.txt:5 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+-- Performing Test BROTLI_EMSCRIPTEN
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Performing Test HWY_EMSCRIPTEN
+-- Performing Test BROTLI_EMSCRIPTEN - Success
+[0m-- Compiler is EMSCRIPTEN[0m
+-- Looking for log2
+-- Looking for log2 - found
+-- Performing Test CXX_WPSABI_SUPPORTED
+-- Performing Test HWY_EMSCRIPTEN - Success
+[0mCMake Deprecation Warning at third_party/brotli/CMakeLists.txt:5 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+-- Performing Test BROTLI_EMSCRIPTEN
+-- Performing Test CXX_WPSABI_SUPPORTED - Success
+[0mCMake Deprecation Warning at third_party/gflags/CMakeLists.txt:73 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+-- Looking for C++ include unistd.h
+-- Performing Test BROTLI_EMSCRIPTEN - Success
+[0m-- Compiler is EMSCRIPTEN[0m
+-- Looking for log2
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for log2 - found
+-- Performing Test CXX_WPSABI_SUPPORTED
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include inttypes.h
+-- Performing Test CXX_WPSABI_SUPPORTED - Success
+[0mCMake Deprecation Warning at third_party/gflags/CMakeLists.txt:73 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+-- Looking for C++ include unistd.h
+-- Looking for C++ include inttypes.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include unistd.h - found
+-- Looking for C++ include stdint.h
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include sys/stat.h
+-- Looking for C++ include sys/stat.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for C++ include stdint.h - found
+-- Looking for C++ include inttypes.h
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Looking for C++ include inttypes.h - found
+-- Looking for C++ include sys/types.h
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Looking for C++ include sys/types.h - found
+-- Looking for C++ include sys/stat.h
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Looking for C++ include sys/stat.h - found
+-- Looking for C++ include fnmatch.h
+-- Looking for strtoll - found
+[0mCMake Deprecation Warning at third_party/sjpeg/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+[33mCMake Warning (dev) at third_party/sjpeg/CMakeLists.txt:12 (set):
+  implicitly converting 'Build type: Release, Debug or RelWithDebInfo' to
+  'STRING' type.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__ - Failed
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__ - Failed
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__ - Failed
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__
+-- Looking for C++ include fnmatch.h - found
+-- Looking for C++ include stddef.h
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__ - Failed
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY) (found version "1.2.11")
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find GLUT (missing: GLUT_glut_LIBRARY) 
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+-- Looking for C++ include stddef.h - found
+-- Check size of uint32_t
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+-- Check size of uint32_t - done
+-- Looking for strtoll
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Could NOT find GIF (missing: GIF_LIBRARY GIF_INCLUDE_DIR) (Required is at least version "5.1")
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Checking for module 'OpenEXR'
+--   Package 'OpenEXR', required by 'virtual:world', not found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+[33mCMake Warning at CMakeLists.txt:421 (message):
+  asciidoc was not found, the man pages will not be installed.
+
+[0m
+-- Building with JPEGXL_VERSION=9f54464 (auto-updated)
+-- Building tools: cjxl;cjxl_ng;djxl;djxl_ng;cjpeg_hdr
+-- Looking for strtoll - found
+[0mCMake Deprecation Warning at third_party/sjpeg/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+[0m
+[33mCMake Warning (dev) at third_party/sjpeg/CMakeLists.txt:12 (set):
+  implicitly converting 'Build type: Release, Debug or RelWithDebInfo' to
+  'STRING' type.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__
+-- Configuring done (119.9s)
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__ - Failed
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__
+-- Generating done (0.2s)
+-- Build files have been written to: /src/node_modules/jxl/build/mt
+emcc -Wall -O3 -o node_modules/jxl/third_party/skcms/skcms.cc.o -Inode_modules/jxl/third_party/skcms -c node_modules/jxl/third_party/skcms/skcms.cc
+emar rc node_modules/jxl/build/mt/third_party/libskcms.a node_modules/jxl/third_party/skcms/skcms.cc.o
+rm node_modules/jxl/third_party/skcms/skcms.cc.o
+make -C node_modules/jxl/build/mt jxl-static
+make[1]: Entering directory '/src/node_modules/jxl/build/mt'
+make[2]: Entering directory '/src/node_modules/jxl/build/mt'
+make[3]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[  0%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/butteraugli/butteraugli.cc.o[0m
+[  1%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/butteraugli_wrapper.cc.o[0m
+-- Performing Test SJPEG_HAVE_FLAG___SSE2__ - Success
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__
+[  1%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/dec_file.cc.o[0m
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__ - Failed
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ac_strategy.cc.o[0m
+-- Performing Test SJPEG_HAVE_FLAG___ARM_NEON__ - Success
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY) (found version "1.2.11")
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find GLUT (missing: GLUT_glut_LIBRARY) 
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_adaptive_quantization.cc.o[0m
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ans.cc.o[0m
+-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ar_control_field.cc.o[0m
+-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_butteraugli_comparator.cc.o[0m
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_butteraugli_pnorm.cc.o[0m
+[  6%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_cache.cc.o[0m
+-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success
+-- Could NOT find GIF (missing: GIF_LIBRARY GIF_INCLUDE_DIR) (Required is at least version "5.1")
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Checking for module 'OpenEXR'
+--   Package 'OpenEXR', required by 'virtual:world', not found
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+[33mCMake Warning at CMakeLists.txt:421 (message):
+  asciidoc was not found, the man pages will not be installed.
+
+[0m
+-- Building with JPEGXL_VERSION=9f54464 (auto-updated)
+-- Building tools: cjxl;cjxl_ng;djxl;djxl_ng;cjpeg_hdr
+-- Configuring done (152.4s)
+-- Generating done (0.2s)
+-- Build files have been written to: /src/node_modules/jxl/build/mt-simd
+emcc -Wall -O3 -o node_modules/jxl/third_party/skcms/skcms.cc.o -Inode_modules/jxl/third_party/skcms -c node_modules/jxl/third_party/skcms/skcms.cc
+emar rc node_modules/jxl/build/mt-simd/third_party/libskcms.a node_modules/jxl/third_party/skcms/skcms.cc.o
+rm node_modules/jxl/third_party/skcms/skcms.cc.o
+[  6%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_chroma_from_luma.cc.o[0m
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[  8%] [32mBuilding CXX object third_party/CMakeFiles/skcms-obj.dir/skcms/skcms.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+[  8%] Built target skcms-obj
+[  8%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_cluster.cc.o[0m
+make -C node_modules/jxl/build/mt jxl_threads-static
+make[1]: Entering directory '/src/node_modules/jxl/build/mt'
+make[2]: Entering directory '/src/node_modules/jxl/build/mt'
+make[3]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/resizable_parallel_runner.cc.o[0m
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/thread_parallel_runner.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_coeff_order.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/thread_parallel_runner_internal.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_color_management.cc.o[0m
+[150%] [32m[1mLinking CXX static library libjxl_threads.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+[150%] Built target jxl_threads-static
+make[3]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[2]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[1]: Leaving directory '/src/node_modules/jxl/build/mt'
+make -C node_modules/jxl/build/mt-simd jxl-static
+make[1]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[2]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[3]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[  0%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/butteraugli/butteraugli.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_comparator.cc.o[0m
+[  1%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/butteraugli_wrapper.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_context_map.cc.o[0m
+[  1%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/dec_file.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_detect_dots.cc.o[0m
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ac_strategy.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_dot_dictionary.cc.o[0m
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_adaptive_quantization.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_entropy_coder.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_external_image.cc.o[0m
+[  3%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ans.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_fast_heuristics.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_file.cc.o[0m
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_ar_control_field.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_frame.cc.o[0m
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_butteraugli_comparator.cc.o[0m
+[  4%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_butteraugli_pnorm.cc.o[0m
+[  6%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_cache.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_group.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_heuristics.cc.o[0m
+[  6%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_chroma_from_luma.cc.o[0m
+[  6%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_cluster.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_huffman.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_icc_codec.cc.o[0m
+[  8%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_coeff_order.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_image_bundle.cc.o[0m
+[  8%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_color_management.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_modular.cc.o[0m
+[  9%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_comparator.cc.o[0m
+[  9%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_context_map.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_noise.cc.o[0m
+[  9%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_detect_dots.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_patch_dictionary.cc.o[0m
+[ 11%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_dot_dictionary.cc.o[0m
+[ 11%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_entropy_coder.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_photon_noise.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_quant_weights.cc.o[0m
+[ 11%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_external_image.cc.o[0m
+[ 12%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_fast_heuristics.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_splines.cc.o[0m
+[ 12%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_file.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_toc.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_transforms.cc.o[0m
+[ 12%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_frame.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_xyb.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/encode.cc.o[0m
+[ 14%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_group.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/gaborish.cc.o[0m
+[ 14%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_heuristics.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/huffman_tree.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_data.cc.o[0m
+[ 16%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_huffman.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_data_reader.cc.o[0m
+[ 16%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_icc_codec.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_huffman_decode.cc.o[0m
+[ 16%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_image_bundle.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/linalg.cc.o[0m
+[ 17%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_modular.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_debug_tree.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_encoding.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_ma.cc.o[0m
+[ 17%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_noise.cc.o[0m
+[ 17%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_patch_dictionary.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_palette.cc.o[0m
+[1m/src/node_modules/jxl/lib/jxl/modular/transform/enc_palette.cc:494:15: [0m[0;1;35mwarning: [0m[1mvariable 'n' set but not used [-Wunused-but-set-variable][0m
+  494 |           [0;34mint[0m n = [0;32m0[0m;[0m
+      | [0;1;32m              ^
+[0m1 warning generated.
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_rct.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_squeeze.cc.o[0m
+[ 19%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_photon_noise.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_transform.cc.o[0m
+[ 19%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_quant_weights.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/optimize.cc.o[0m
+[ 19%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_splines.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/progressive_split.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target jxl_enc-obj
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o[0m
+[ 20%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_toc.cc.o[0m
+[32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o[0m
+[ 20%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_transforms.cc.o[0m
+[32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/targets.cc.o[0m
+[32m[1mLinking CXX static library libhwy.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target hwy
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlicommon-static.dir/c/common/dictionary.c.o[0m
+[ 22%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/enc_xyb.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlicommon-static.dir/c/common/transform.c.o[0m
+[32m[1mLinking C static library libbrotlicommon-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target brotlicommon-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/ac_strategy.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/alpha.cc.o[0m
+[ 22%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/encode.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/ans_common.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/aux_out.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/cache_aligned.cc.o[0m
+[ 22%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/gaborish.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/data_parallel.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/padded_bytes.cc.o[0m
+[ 24%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/huffman_tree.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/random.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/status.cc.o[0m
+[ 24%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_data.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/blending.cc.o[0m
+[ 24%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_data_reader.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/box_content_decoder.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/chroma_from_luma.cc.o[0m
+[ 25%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/jpeg/enc_jpeg_huffman_decode.cc.o[0m
+[ 25%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/linalg.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/coeff_order.cc.o[0m
+[ 27%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_debug_tree.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/color_encoding_internal.cc.o[0m
+[ 27%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_encoding.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/color_management.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/compressed_dc.cc.o[0m
+[ 27%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/encoding/enc_ma.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/convolve.cc.o[0m
+[ 29%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_palette.cc.o[0m
+[1m/src/node_modules/jxl/lib/jxl/modular/transform/enc_palette.cc:494:15: [0m[0;1;35mwarning: [0m[1mvariable 'n' set but not used [-Wunused-but-set-variable][0m
+  494 |           [0;34mint[0m n = [0;32m0[0m;[0m
+      | [0;1;32m              ^
+[0m[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dct_scales.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_ans.cc.o[0m
+1 warning generated.
+[ 29%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_rct.cc.o[0m
+[ 29%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_squeeze.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_cache.cc.o[0m
+[ 30%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/modular/transform/enc_transform.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_context_map.cc.o[0m
+[ 30%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/optimize.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_external_image.cc.o[0m
+[ 30%] [32mBuilding CXX object lib/CMakeFiles/jxl_enc-obj.dir/jxl/progressive_split.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+[ 30%] Built target jxl_enc-obj
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_frame.cc.o[0m
+[ 32%] [32mBuilding CXX object third_party/CMakeFiles/skcms-obj.dir/skcms/skcms.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+[ 32%] Built target skcms-obj
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[ 33%] [32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/aligned_allocator.cc.o[0m
+[ 33%] [32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/nanobenchmark.cc.o[0m
+[ 33%] [32mBuilding CXX object third_party/highway/CMakeFiles/hwy.dir/hwy/targets.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_group.cc.o[0m
+[ 35%] [32m[1mLinking CXX static library libhwy.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+[ 35%] Built target hwy
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[ 35%] [32mBuilding C object third_party/brotli/CMakeFiles/brotlicommon-static.dir/c/common/dictionary.c.o[0m
+[ 37%] [32mBuilding C object third_party/brotli/CMakeFiles/brotlicommon-static.dir/c/common/transform.c.o[0m
+[ 37%] [32m[1mLinking C static library libbrotlicommon-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+[ 37%] Built target brotlicommon-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[ 38%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/ac_strategy.cc.o[0m
+[ 38%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/alpha.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_group_border.cc.o[0m
+[ 40%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/ans_common.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_huffman.cc.o[0m
+[ 40%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/aux_out.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_modular.cc.o[0m
+[ 40%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/cache_aligned.cc.o[0m
+[ 41%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/data_parallel.cc.o[0m
+[ 41%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/padded_bytes.cc.o[0m
+[ 41%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/random.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_noise.cc.o[0m
+[ 43%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/base/status.cc.o[0m
+[ 43%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/blending.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_patch_dictionary.cc.o[0m
+[ 43%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/box_content_decoder.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_reconstruct.cc.o[0m
+[ 45%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/chroma_from_luma.cc.o[0m
+[ 45%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/coeff_order.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_upsample.cc.o[0m
+[ 46%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/color_encoding_internal.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_xyb.cc.o[0m
+[ 46%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/color_management.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/decode.cc.o[0m
+[ 46%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/compressed_dc.cc.o[0m
+[ 48%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/convolve.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/decode_to_jpeg.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/enc_bit_writer.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/entropy_coder.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/epf.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/fast_dct.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/fields.cc.o[0m
+[ 48%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dct_scales.cc.o[0m
+[ 48%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_ans.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/filters.cc.o[0m
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_cache.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/frame_header.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/gauss_blur.cc.o[0m
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_context_map.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/headers.cc.o[0m
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_external_image.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/huffman_table.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/icc_codec.cc.o[0m
+[ 51%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_frame.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/icc_codec_common.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image.cc.o[0m
+[ 51%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_group.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image_bundle.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image_metadata.cc.o[0m
+[ 53%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_group_border.cc.o[0m
+[ 53%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_huffman.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/dec_jpeg_data.cc.o[0m
+[ 53%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_modular.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/dec_jpeg_data_writer.cc.o[0m
+[ 54%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_noise.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/jpeg_data.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/loop_filter.cc.o[0m
+[ 54%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_patch_dictionary.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/luminance.cc.o[0m
+[ 54%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_reconstruct.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/memory_manager_internal.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/encoding/dec_ma.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/encoding/encoding.cc.o[0m
+[ 56%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_upsample.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/modular_image.cc.o[0m
+[ 56%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/dec_xyb.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/rct.cc.o[0m
+[ 56%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/decode.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/squeeze.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/transform.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/opsin_params.cc.o[0m
+[ 58%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/decode_to_jpeg.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/passes_state.cc.o[0m
+[ 58%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/enc_bit_writer.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/quant_weights.cc.o[0m
+[ 59%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/entropy_coder.cc.o[0m
+[ 59%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/epf.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/quantizer.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/low_memory_render_pipeline.cc.o[0m
+[ 59%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/fast_dct.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/render_pipeline.cc.o[0m
+[ 61%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/fields.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/simple_render_pipeline.cc.o[0m
+[ 61%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/filters.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_chroma_upsampling.cc.o[0m
+[ 61%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/frame_header.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_epf.cc.o[0m
+[ 62%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/gauss_blur.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_gaborish.cc.o[0m
+[ 62%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/headers.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_noise.cc.o[0m
+[ 62%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/huffman_table.cc.o[0m
+[ 64%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/icc_codec.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_patches.cc.o[0m
+[ 64%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/icc_codec_common.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_splines.cc.o[0m
+[ 66%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_spot.cc.o[0m
+[ 66%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image_bundle.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_upsampling.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_write.cc.o[0m
+[ 66%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/image_metadata.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_xyb.cc.o[0m
+[ 67%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/dec_jpeg_data.cc.o[0m
+[ 67%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/dec_jpeg_data_writer.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_ycbcr.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/splines.cc.o[0m
+[ 67%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/jpeg/jpeg_data.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/toc.cc.o[0m
+[ 69%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/loop_filter.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target jxl_dec-obj
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/bit_reader.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/decode.c.o[0m
+[ 69%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/luminance.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/huffman.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/state.c.o[0m
+[32m[1mLinking C static library libbrotlidec-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target brotlidec-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/backward_references.c.o[0m
+[ 70%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/memory_manager_internal.cc.o[0m
+[ 70%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/encoding/dec_ma.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/backward_references_hq.c.o[0m
+[ 70%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/encoding/encoding.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/bit_cost.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/block_splitter.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/brotli_bit_stream.c.o[0m
+[ 72%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/modular_image.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/cluster.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/compress_fragment.c.o[0m
+[ 72%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/rct.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/compress_fragment_two_pass.c.o[0m
+[ 72%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/squeeze.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/dictionary_hash.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/encode.c.o[0m
+[ 74%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/modular/transform/transform.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/encoder_dict.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/entropy_encode.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/histogram.c.o[0m
+[ 74%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/opsin_params.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/literal_cost.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/memory.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/metablock.c.o[0m
+[ 74%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/passes_state.cc.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/static_dict.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/utf8_util.c.o[0m
+[32m[1mLinking C static library libbrotlienc-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target brotlienc-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt'
+[32m[1mLinking CXX static library libjxl.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt'
+Built target jxl-static
+make[3]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[2]: Leaving directory '/src/node_modules/jxl/build/mt'
+make[1]: Leaving directory '/src/node_modules/jxl/build/mt'
+make -C node_modules/jxl/build/mt-simd jxl_threads-static
+make[1]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[2]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[3]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[ 50%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/resizable_parallel_runner.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/quant_weights.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/thread_parallel_runner.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_threads-static.dir/threads/thread_parallel_runner_internal.cc.o[0m
+[100%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/quantizer.cc.o[0m
+[150%] [32m[1mLinking CXX static library libjxl_threads.a[0m
+[200%] [32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/low_memory_render_pipeline.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+[200%] Built target jxl_threads-static
+make[3]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[2]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[1]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o dec/jxl_dec.js \
+	dec/jxl_dec.cpp node_modules/jxl/build/mt/lib/libjxl.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt/third_party/libskcms.a \
+	node_modules/jxl/build/mt/third_party/highway/libhwy.a
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/render_pipeline.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/simple_render_pipeline.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_chroma_upsampling.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_epf.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_gaborish.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_noise.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_patches.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_splines.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_spot.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_upsampling.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_write.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_xyb.cc.o[0m
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o enc/jxl_node_enc.js \
+	enc/jxl_enc.cpp node_modules/jxl/build/mt/lib/libjxl.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt/third_party/libskcms.a \
+	node_modules/jxl/build/mt/third_party/highway/libhwy.a
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/render_pipeline/stage_ycbcr.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/splines.cc.o[0m
+[32mBuilding CXX object lib/CMakeFiles/jxl_dec-obj.dir/jxl/toc.cc.o[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+Built target jxl_dec-obj
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/bit_reader.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/decode.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/huffman.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlidec-static.dir/c/dec/state.c.o[0m
+[32m[1mLinking C static library libbrotlidec-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+Built target brotlidec-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/backward_references.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/backward_references_hq.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/bit_cost.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/block_splitter.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/brotli_bit_stream.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/cluster.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/compress_fragment.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/compress_fragment_two_pass.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/dictionary_hash.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/encode.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/encoder_dict.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/entropy_encode.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/histogram.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/literal_cost.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/memory.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/metablock.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/static_dict.c.o[0m
+[32mBuilding C object third_party/brotli/CMakeFiles/brotlienc-static.dir/c/enc/utf8_util.c.o[0m
+[32m[1mLinking C static library libbrotlienc-static.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+Built target brotlienc-static
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[4]: Entering directory '/src/node_modules/jxl/build/mt-simd'
+[32m[1mLinking CXX static library libjxl.a[0m
+make[4]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+Built target jxl-static
+make[3]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[2]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+make[1]: Leaving directory '/src/node_modules/jxl/build/mt-simd'
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o dec/jxl_node_dec.js \
+	dec/jxl_dec.cpp node_modules/jxl/build/mt/lib/libjxl.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt/third_party/libskcms.a \
+	node_modules/jxl/build/mt/third_party/highway/libhwy.a
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/jxl_enc.js \
+	enc/jxl_enc.cpp node_modules/jxl/build/mt/lib/libjxl.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt/third_party/libskcms.a \
+	node_modules/jxl/build/mt/third_party/highway/libhwy.a
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations -pthread \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/jxl_enc_mt.js \
+	enc/jxl_enc.cpp node_modules/jxl/build/mt/lib/libjxl.a node_modules/jxl/build/mt/lib/libjxl_threads.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt/third_party/libskcms.a \
+	node_modules/jxl/build/mt/third_party/highway/libhwy.a
+em++: [35m[1mwarning: [0m[1m-pthread + ALLOW_MEMORY_GROWTH may run non-wasm code slowly, see https://github.com/WebAssembly/design/issues/1271 [-Wpthreads-mem-growth][0m
+/emsdk/upstream/emscripten/em++ \
+	-O3 -flto -std=c++17 -Wno-deprecated-declarations -pthread \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	-I node_modules/jxl \
+	-I node_modules/jxl/lib \
+	-I node_modules/jxl/lib/include \
+	-I node_modules/jxl/build/mt-simd/lib/include \
+	-I node_modules/jxl/third_party/highway \
+	-I node_modules/jxl/third_party/skcms \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/jxl_enc_mt_simd.js \
+	enc/jxl_enc.cpp node_modules/jxl/build/mt-simd/lib/libjxl.a node_modules/jxl/build/mt-simd/lib/libjxl_threads.a \
+	node_modules/jxl/build/mt-simd/third_party/brotli/libbrotlidec-static.a \
+	node_modules/jxl/build/mt-simd/third_party/brotli/libbrotlienc-static.a \
+	node_modules/jxl/build/mt-simd/third_party/brotli/libbrotlicommon-static.a \
+	node_modules/jxl/build/mt-simd/third_party/libskcms.a \
+	node_modules/jxl/build/mt-simd/third_party/highway/libhwy.a
+em++: [35m[1mwarning: [0m[1m-pthread + ALLOW_MEMORY_GROWTH may run non-wasm code slowly, see https://github.com/WebAssembly/design/issues/1271 [-Wpthreads-mem-growth][0m
+rm node_modules/jxl/build/mt/Makefile

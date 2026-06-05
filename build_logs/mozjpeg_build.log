@@ -1,0 +1,413 @@
+
+up to date, audited 1 package in 302ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-cpp.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 702B done
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+#1 WARN: LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#4 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN apt-get update && apt-get install -qqy autoconf libtool pkg-config
+#5 CACHED
+
+#6 [3/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -xc++ /dev/null -o /dev/null
+#6 CACHED
+
+#7 [4/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -pthread -xc++ /dev/null -o /dev/null
+#7 CACHED
+
+#8 [5/5] WORKDIR /src
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:abb50acd55f1a92fb320e252c47c55f529c23849792a2fad4f4ee9ded8d9b96e done
+#9 exporting config sha256:955ce12492f48b26d35ba174fcf41414d25e8175db719a8fcfafc2c586793d6f done
+#9 exporting attestation manifest sha256:ab7a3dbfdc9c64d49f89ac001e83eda978f2fb0ad33b6d2205a8d56d2b362539 0.0s done
+#9 exporting manifest list sha256:a5175a7b6401f93e0c6890a7d9f0a231c24a3d1e623372dbcc0f62236f4a3534 done
+#9 naming to docker.io/library/squoosh-cpp:latest done
+#9 unpacking to docker.io/library/squoosh-cpp:latest 0.0s done
+#9 DONE 0.1s
+
+ [33m3 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+emmake: "make -j2" in "/src"
+mkdir -p node_modules/mozjpeg
+curl -sL https://github.com/mozilla/mozjpeg/archive/v3.3.1.tar.gz | tar xz --strip 1 -C node_modules/mozjpeg
+cd node_modules/mozjpeg && autoreconf -iv
+autoreconf: export WARNINGS=
+autoreconf: Entering directory '.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal 
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+autoreconf: configure.ac: not using Intltool
+autoreconf: configure.ac: not using Gtkdoc
+autoreconf: running: aclocal 
+autoreconf: running: /usr/bin/autoconf
+configure.ac:23: warning: The macro `AC_PROG_LIBTOOL' is obsolete.
+configure.ac:23: You should run autoupdate.
+aclocal.m4:122: AC_PROG_LIBTOOL is expanded from...
+configure.ac:23: the top level
+configure.ac:84: warning: The macro `AC_TRY_COMPILE' is obsolete.
+configure.ac:84: You should run autoupdate.
+./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+configure.ac:84: the top level
+configure.ac:115: warning: The macro `AC_HEADER_STDC' is obsolete.
+configure.ac:115: You should run autoupdate.
+./lib/autoconf/headers.m4:704: AC_HEADER_STDC is expanded from...
+configure.ac:115: the top level
+configure.ac:128: warning: The macro `AC_TRY_RUN' is obsolete.
+configure.ac:128: You should run autoupdate.
+./lib/autoconf/general.m4:2997: AC_TRY_RUN is expanded from...
+configure.ac:128: the top level
+configure.ac:164: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:164: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:164: the top level
+configure.ac:167: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:167: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:167: the top level
+configure.ac:210: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:210: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:210: the top level
+configure.ac:291: warning: The macro `AC_TRY_COMPILE' is obsolete.
+configure.ac:291: You should run autoupdate.
+./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+configure.ac:291: the top level
+configure.ac:289: warning: The macro `AC_TRY_COMPILE' is obsolete.
+configure.ac:289: You should run autoupdate.
+./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+configure.ac:289: the top level
+configure.ac:287: warning: The macro `AC_TRY_COMPILE' is obsolete.
+configure.ac:287: You should run autoupdate.
+./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+configure.ac:287: the top level
+configure.ac:285: warning: The macro `AC_TRY_COMPILE' is obsolete.
+configure.ac:285: You should run autoupdate.
+./lib/autoconf/general.m4:2847: AC_TRY_COMPILE is expanded from...
+configure.ac:285: the top level
+configure.ac:299: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:299: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:299: the top level
+configure.ac:318: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:318: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:318: the top level
+configure.ac:341: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:341: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:341: the top level
+configure.ac:353: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:353: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:353: the top level
+configure.ac:388: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:388: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:388: the top level
+configure.ac:433: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:433: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:433: the top level
+configure.ac:449: warning: The macro `AC_HELP_STRING' is obsolete.
+configure.ac:449: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:449: the top level
+configure.ac:463: warning: The macro `AC_FD_CC' is obsolete.
+configure.ac:463: You should run autoupdate.
+./lib/autoconf/general.m4:399: AC_FD_CC is expanded from...
+acinclude.m4:4: AC_PROG_NASM is expanded from...
+configure.ac:463: the top level
+configure.ac:468: warning: The macro `AC_FD_CC' is obsolete.
+configure.ac:468: You should run autoupdate.
+./lib/autoconf/general.m4:399: AC_FD_CC is expanded from...
+acinclude.m4:4: AC_PROG_NASM is expanded from...
+configure.ac:468: the top level
+autoreconf: running: /usr/bin/autoheader
+autoreconf: running: automake --add-missing --copy --no-force
+configure.ac:18: installing './ar-lib'
+configure.ac:16: installing './compile'
+configure.ac:23: installing './config.guess'
+configure.ac:23: installing './config.sub'
+configure.ac:8: installing './install-sh'
+configure.ac:8: installing './missing'
+Makefile.am: installing './depcomp'
+autoreconf: Leaving directory '.'
+cd node_modules/mozjpeg && emconfigure ./configure --host=wasm32-unknown-emscripten \
+	--disable-shared \
+	--without-turbojpeg \
+	--without-simd \
+	--without-arith-enc \
+	--without-arith-dec \
+	--with-build-date=squoosh
+emconfigure: ./configure --host=wasm32-unknown-emscripten --disable-shared --without-turbojpeg --without-simd --without-arith-enc --without-arith-dec --with-build-date=squoosh in directory /src/node_modules/mozjpeg
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for wasm32-unknown-emscripten-strip... no
+checking for strip... strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for wasm32-unknown-emscripten-gcc... /emsdk/upstream/emscripten/emcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether /emsdk/upstream/emscripten/emcc accepts -g... yes
+checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... none needed
+checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... yes
+checking dependency style of /emsdk/upstream/emscripten/emcc... gcc3
+checking how to run the C preprocessor... /emsdk/upstream/emscripten/emcc -E
+checking for wasm32-unknown-emscripten-gcc... (cached) /emsdk/upstream/emscripten/emcc
+checking whether the compiler supports GNU C... (cached) yes
+checking whether /emsdk/upstream/emscripten/emcc accepts -g... (cached) yes
+checking for /emsdk/upstream/emscripten/emcc option to enable C11 features... (cached) none needed
+checking whether /emsdk/upstream/emscripten/emcc understands -c and -o together... (cached) yes
+checking dependency style of /emsdk/upstream/emscripten/emcc... (cached) gcc3
+checking for wasm32-unknown-emscripten-ar... /emsdk/upstream/emscripten/emar
+checking the archiver (/emsdk/upstream/emscripten/emar) interface... ar
+checking dependency style of /emsdk/upstream/emscripten/emcc... gcc3
+checking for wasm32-unknown-emscripten-ar... (cached) /emsdk/upstream/emscripten/emar
+checking the archiver (/emsdk/upstream/emscripten/emar) interface... (cached) ar
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... wasm32-unknown-emscripten
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by /emsdk/upstream/emscripten/emcc... /emsdk/upstream/emscripten/emcc
+checking if the linker (/emsdk/upstream/emscripten/emcc) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /emsdk/upstream/bin/llvm-nm
+checking the name lister (/emsdk/upstream/bin/llvm-nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to wasm32-unknown-emscripten format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /emsdk/upstream/emscripten/emcc option to reload object files... -r
+checking for wasm32-unknown-emscripten-file... no
+checking for file... file
+configure: WARNING: using cross tools not prefixed with host triplet
+checking for wasm32-unknown-emscripten-objdump... no
+checking for objdump... objdump
+checking how to recognize dependent libraries... unknown
+checking for wasm32-unknown-emscripten-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for wasm32-unknown-emscripten-ar... (cached) /emsdk/upstream/emscripten/emar
+checking for archiver @FILE support... @
+checking for wasm32-unknown-emscripten-strip... strip
+checking for wasm32-unknown-emscripten-ranlib... /emsdk/upstream/emscripten/emranlib
+checking command to parse /emsdk/upstream/bin/llvm-nm output from /emsdk/upstream/emscripten/emcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for wasm32-unknown-emscripten-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if /emsdk/upstream/emscripten/emcc supports -fno-rtti -fno-exceptions... yes
+checking for /emsdk/upstream/emscripten/emcc option to produce PIC... -fPIC -DPIC
+checking if /emsdk/upstream/emscripten/emcc PIC flag -fPIC -DPIC works... yes
+checking if /emsdk/upstream/emscripten/emcc static flag -static works... yes
+checking if /emsdk/upstream/emscripten/emcc supports -c -o file.o... yes
+checking if /emsdk/upstream/emscripten/emcc supports -c -o file.o... (cached) yes
+checking whether the /emsdk/upstream/emscripten/emcc linker (/emsdk/upstream/emscripten/emcc) supports shared libraries... emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.0 (afa15e0c56d1292e073c2c91bafc1d5e0cdf0dd3)
+clang version 23.0.0git (https:/github.com/llvm/llvm-project c6c2ad52586c28e74a724570985a48dc0022d250)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /emsdk/upstream/bin
+yes
+checking dynamic linker characteristics... no
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... no
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking whether ln -s works... yes
+checking for wasm32-unknown-emscripten-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking size of size_t... 4
+checking whether compiler supports pointers to undefined structures... yes
+checking for /emsdk/upstream/emscripten/emcc options needed to detect all undeclared functions... none needed
+checking whether __SUNPRO_C is declared... no
+checking for pow in -lm... yes
+checking for libpng... no
+checking for libpng12... no
+checking for egrep... (cached) /usr/bin/grep -E
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for locale.h... yes
+checking for string.h... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking whether char is unsigned... no
+checking for inline... inline
+checking for size_t... yes
+checking for unsigned char... yes
+checking for unsigned short... yes
+checking if right shift is signed... Assuming that right shift is signed on target machine.
+checking for memset... yes
+checking for memcpy... yes
+checking libjpeg API version... 6.2
+checking whether to include in-memory source/destination managers... yes
+checking libjpeg shared library version... 62.2.0
+checking whether the linker supports version scripts... yes (GNU style)
+checking whether to use version script when building mozjpeg... yes
+checking for inline... inline __attribute__((always_inline))
+checking whether to include arithmetic encoding support... no
+checking whether to include arithmetic decoding support... no
+checking whether to use 12-bit samples... no
+checking whether to build TurboJPEG C wrapper... no
+checking whether to build TurboJPEG Java wrapper... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating pkgscripts/mozjpeg.spec.tmpl
+config.status: creating pkgscripts/makecygwinpkg.tmpl
+config.status: creating pkgscripts/makedpkg.tmpl
+config.status: creating pkgscripts/makemacpkg.tmpl
+config.status: creating pkgscripts/uninstall.tmpl
+config.status: creating pkgscripts/libjpeg.pc
+config.status: creating pkgscripts/libturbojpeg.pc
+config.status: creating libjpeg.map
+config.status: creating Makefile
+config.status: creating simd/Makefile
+config.status: creating java/Makefile
+config.status: creating md5/Makefile
+config.status: creating config.h
+config.status: creating jconfig.h
+config.status: creating jconfigint.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+# ^ If not provided with a dummy value, MozJPEG includes a build date in the
+# binary as part of the version string, making binaries different each time.
+make -C node_modules/mozjpeg libjpeg.la
+make -C node_modules/mozjpeg rdswitch.o
+make[1]: Entering directory '/src/node_modules/mozjpeg'
+make[1]: Entering directory '/src/node_modules/mozjpeg'
+  CC       jcapimin.lo
+  CC       rdswitch.o
+make[1]: Leaving directory '/src/node_modules/mozjpeg'
+  CC       jcapistd.lo
+  CC       jccoefct.lo
+  CC       jccolor.lo
+  CC       jcdctmgr.lo
+  CC       jcext.lo
+  CC       jchuff.lo
+  CC       jcinit.lo
+  CC       jcmainct.lo
+  CC       jcmarker.lo
+  CC       jcmaster.lo
+  CC       jcomapi.lo
+  CC       jcparam.lo
+  CC       jcphuff.lo
+  CC       jcprepct.lo
+  CC       jcsample.lo
+  CC       jctrans.lo
+  CC       jdapimin.lo
+  CC       jdapistd.lo
+  CC       jdatadst.lo
+  CC       jdatasrc.lo
+  CC       jdcoefct.lo
+  CC       jdcolor.lo
+  CC       jddctmgr.lo
+  CC       jdhuff.lo
+  CC       jdinput.lo
+  CC       jdmainct.lo
+  CC       jdmarker.lo
+  CC       jdmaster.lo
+  CC       jdmerge.lo
+  CC       jdphuff.lo
+  CC       jdpostct.lo
+  CC       jdsample.lo
+  CC       jdtrans.lo
+  CC       jerror.lo
+  CC       jfdctflt.lo
+  CC       jfdctfst.lo
+  CC       jfdctint.lo
+  CC       jidctflt.lo
+  CC       jidctfst.lo
+  CC       jidctint.lo
+  CC       jidctred.lo
+  CC       jquant1.lo
+  CC       jquant2.lo
+  CC       jutils.lo
+  CC       jmemmgr.lo
+  CC       jmemnobs.lo
+  CC       jsimd_none.lo
+  CCLD     libjpeg.la
+make[1]: Leaving directory '/src/node_modules/mozjpeg'
+/emsdk/upstream/emscripten/em++ \
+	-I node_modules/mozjpeg \
+	-O3 -flto -std=c++17 \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/mozjpeg_enc.js \
+	node_modules/mozjpeg/.libs/libjpeg.a node_modules/mozjpeg/rdswitch.o enc/mozjpeg_enc.cpp
+/emsdk/upstream/emscripten/em++ \
+	-I node_modules/mozjpeg \
+	-O3 -flto -std=c++17 \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o enc/mozjpeg_node_enc.js \
+	node_modules/mozjpeg/.libs/libjpeg.a node_modules/mozjpeg/rdswitch.o enc/mozjpeg_enc.cpp
+/emsdk/upstream/emscripten/em++ \
+	-I node_modules/mozjpeg \
+	-O3 -flto -std=c++17 \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o dec/mozjpeg_node_dec.js \
+	node_modules/mozjpeg/.libs/libjpeg.a node_modules/mozjpeg/rdswitch.o dec/mozjpeg_dec.cpp

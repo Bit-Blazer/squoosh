@@ -1,0 +1,552 @@
+
+up to date, audited 1 package in 312ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-cpp.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 702B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#4 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.1s done
+#4 DONE 0.1s
+
+#5 [2/5] RUN apt-get update && apt-get install -qqy autoconf libtool pkg-config
+#5 CACHED
+
+#6 [3/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -xc++ /dev/null -o /dev/null
+#6 CACHED
+
+#7 [4/5] RUN emcc -O3 -flto -std=c++17 -O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  --bind -pthread -xc++ /dev/null -o /dev/null
+#7 CACHED
+
+#8 [5/5] WORKDIR /src
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:abb50acd55f1a92fb320e252c47c55f529c23849792a2fad4f4ee9ded8d9b96e
+#9 exporting manifest sha256:abb50acd55f1a92fb320e252c47c55f529c23849792a2fad4f4ee9ded8d9b96e done
+#9 exporting config sha256:955ce12492f48b26d35ba174fcf41414d25e8175db719a8fcfafc2c586793d6f done
+#9 exporting attestation manifest sha256:80a20e2c4db3a095ce11bdeb9ad3b2a67e6172dd901bb357013a1dafaf401997 0.0s done
+#9 exporting manifest list sha256:92ff788f50667c123786c1be3b3120eb171c136a6a3e0e197cc30f52c629b6a9 0.0s done
+#9 naming to docker.io/library/squoosh-cpp:latest done
+#9 unpacking to docker.io/library/squoosh-cpp:latest 0.0s done
+#9 DONE 0.1s
+
+ [33m3 warnings found (use docker --debug to expand):
+[0m - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 5)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 3)
+ - LegacyKeyValueFormat: "ENV key=value" should be used instead of legacy "ENV key value" format (line 4)
+emmake: "make -j2" in "/src"
+mkdir -p node_modules/libwebp
+curl -sL https://github.com/webmproject/libwebp/archive/d2e245ea9e959a5a79e1db0ed2085206947e98f2.tar.gz | tar xz --strip 1 -C node_modules/libwebp
+emcmake cmake \
+	 \
+	-DCMAKE_DISABLE_FIND_PACKAGE_Threads=1 \
+	-DWEBP_BUILD_ANIM_UTILS=0 \
+	-DWEBP_BUILD_CWEBP=0 \
+	-DWEBP_BUILD_DWEBP=0 \
+	-DWEBP_BUILD_GIF2WEBP=0 \
+	-DWEBP_BUILD_IMG2WEBP=0 \
+	-DWEBP_BUILD_VWEBP=0 \
+	-DWEBP_BUILD_WEBPINFO=0 \
+	-DWEBP_BUILD_WEBPMUX=0 \
+	-DWEBP_BUILD_EXTRAS=0 \
+	-B node_modules/libwebp/build/baseline \
+	node_modules/libwebp
+emcmake cmake \
+	-DWEBP_ENABLE_SIMD=1 \
+	-DCMAKE_DISABLE_FIND_PACKAGE_Threads=1 \
+	-DWEBP_BUILD_ANIM_UTILS=0 \
+	-DWEBP_BUILD_CWEBP=0 \
+	-DWEBP_BUILD_DWEBP=0 \
+	-DWEBP_BUILD_GIF2WEBP=0 \
+	-DWEBP_BUILD_IMG2WEBP=0 \
+	-DWEBP_BUILD_VWEBP=0 \
+	-DWEBP_BUILD_WEBPINFO=0 \
+	-DWEBP_BUILD_WEBPMUX=0 \
+	-DWEBP_BUILD_EXTRAS=0 \
+	-B node_modules/libwebp/build/simd \
+	node_modules/libwebp
+emcmake: cmake -DWEBP_ENABLE_SIMD=1 -DCMAKE_DISABLE_FIND_PACKAGE_Threads=1 -DWEBP_BUILD_ANIM_UTILS=0 -DWEBP_BUILD_CWEBP=0 -DWEBP_BUILD_DWEBP=0 -DWEBP_BUILD_GIF2WEBP=0 -DWEBP_BUILD_IMG2WEBP=0 -DWEBP_BUILD_VWEBP=0 -DWEBP_BUILD_WEBPINFO=0 -DWEBP_BUILD_WEBPMUX=0 -DWEBP_BUILD_EXTRAS=0 -B node_modules/libwebp/build/simd node_modules/libwebp -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/emsdk/node/22.16.0_64bit/bin/node in directory /src
+emcmake: cmake -DCMAKE_DISABLE_FIND_PACKAGE_Threads=1 -DWEBP_BUILD_ANIM_UTILS=0 -DWEBP_BUILD_CWEBP=0 -DWEBP_BUILD_DWEBP=0 -DWEBP_BUILD_GIF2WEBP=0 -DWEBP_BUILD_IMG2WEBP=0 -DWEBP_BUILD_VWEBP=0 -DWEBP_BUILD_WEBPINFO=0 -DWEBP_BUILD_WEBPMUX=0 -DWEBP_BUILD_EXTRAS=0 -B node_modules/libwebp/build/baseline node_modules/libwebp -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake -DCMAKE_CROSSCOMPILING_EMULATOR=/emsdk/node/22.16.0_64bit/bin/node in directory /src
+-- Performing Test HAVE_BUILTIN_BSWAP16
+-- Performing Test HAVE_BUILTIN_BSWAP16
+-- Performing Test HAVE_BUILTIN_BSWAP16 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP32
+-- Performing Test HAVE_BUILTIN_BSWAP16 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP32
+-- Performing Test HAVE_BUILTIN_BSWAP32 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP64
+-- Performing Test HAVE_BUILTIN_BSWAP32 - Success
+-- Performing Test HAVE_BUILTIN_BSWAP64
+-- Performing Test HAVE_BUILTIN_BSWAP64 - Success
+-- Performing Test HAVE_MATH_LIBRARY
+-- Performing Test HAVE_BUILTIN_BSWAP64 - Success
+-- Performing Test HAVE_MATH_LIBRARY
+-- Performing Test HAVE_MATH_LIBRARY - Success
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find TIFF (missing: TIFF_LIBRARY TIFF_INCLUDE_DIR) 
+-- Could NOT find GIF (missing: GIF_LIBRARY GIF_INCLUDE_DIR) 
+-- Looking for 4 include files stdlib.h, ..., float.h
+-- Performing Test HAVE_MATH_LIBRARY - Success
+-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR) 
+-- Could NOT find PNG (missing: PNG_LIBRARY PNG_PNG_INCLUDE_DIR) 
+-- Could NOT find JPEG (missing: JPEG_LIBRARY JPEG_INCLUDE_DIR) 
+-- Could NOT find TIFF (missing: TIFF_LIBRARY TIFF_INCLUDE_DIR) 
+-- Could NOT find GIF (missing: GIF_LIBRARY GIF_INCLUDE_DIR) 
+-- Looking for 4 include files stdlib.h, ..., float.h
+-- Looking for 4 include files stdlib.h, ..., float.h - found
+-- Looking for include file dlfcn.h
+-- Looking for 4 include files stdlib.h, ..., float.h - found
+-- Looking for include file dlfcn.h
+-- Looking for include file dlfcn.h - found
+-- Looking for include file GLUT/glut.h
+-- Looking for include file dlfcn.h - found
+-- Looking for include file GLUT/glut.h
+-- Looking for include file GLUT/glut.h - not found
+-- Looking for include file GL/glut.h
+-- Looking for include file GLUT/glut.h - not found
+-- Looking for include file GL/glut.h
+-- Looking for include file GL/glut.h - found
+-- Looking for include file inttypes.h
+-- Looking for include file GL/glut.h - found
+-- Looking for include file inttypes.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file memory.h
+-- Looking for include file inttypes.h - found
+-- Looking for include file memory.h
+-- Looking for include file memory.h - found
+-- Looking for include file OpenGL/glut.h
+-- Looking for include file memory.h - found
+-- Looking for include file OpenGL/glut.h
+-- Looking for include file OpenGL/glut.h - not found
+-- Looking for include file shlwapi.h
+-- Looking for include file OpenGL/glut.h - not found
+-- Looking for include file shlwapi.h
+-- Looking for include file shlwapi.h - not found
+-- Looking for include file stdint.h
+-- Looking for include file shlwapi.h - not found
+-- Looking for include file stdint.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdint.h - found
+-- Looking for include file stdlib.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file stdlib.h - found
+-- Looking for include file strings.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file strings.h - found
+-- Looking for include file string.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/stat.h
+-- Looking for include file string.h - found
+-- Looking for include file sys/stat.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file sys/types.h
+-- Looking for include file sys/stat.h - found
+-- Looking for include file sys/types.h
+-- Looking for include file sys/types.h - found
+-- Looking for include file unistd.h
+-- Looking for include file sys/types.h - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wincodec.h
+-- Looking for include file unistd.h - found
+-- Looking for include file wincodec.h
+-- Looking for include file wincodec.h - not found
+-- Looking for include file windows.h
+-- Looking for include file wincodec.h - not found
+-- Looking for include file windows.h
+-- Looking for include file windows.h - not found
+-- Looking for include file windows.h - not found
+-- Performing Test WEBP_HAVE_FLAG_SSE41
+-- Disabling SSE41 optimization.
+-- Disabling SSE41 optimization.
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test WEBP_HAVE_FLAG_SSE41 - Failed
+-- Performing Test WEBP_HAVE_FLAG_SSE41
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Disabling SSE2 optimization.
+-- Disabling SSE2 optimization.
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Disabling MIPS32 optimization.
+-- Disabling MIPS32 optimization.
+-- Disabling MIPS_DSP_R2 optimization.
+-- Disabling MIPS_DSP_R2 optimization.
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Disabling NEON optimization.
+-- Disabling NEON optimization.
+-- Disabling MSA optimization.
+-- Disabling MSA optimization.
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Configuring done (96.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /src/node_modules/libwebp/build/baseline
+/emsdk/upstream/emscripten/em++ -c \
+	-O3 -flto -std=c++17 \
+	-I node_modules/libwebp \
+	-o dec/webp_dec.o \
+	dec/webp_dec.cpp
+-- Performing Test WEBP_HAVE_FLAG_SSE41 - Success
+-- Performing Test HAS_COMPILE_FLAG
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Performing Test HAS_COMPILE_FLAG
+make -C node_modules/libwebp/build/baseline
+make[1]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[2]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[  1%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/alpha_dec.c.o[0m
+[  2%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/buffer_dec.c.o[0m
+[  3%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/frame_dec.c.o[0m
+-- Performing Test HAS_COMPILE_FLAG - Failed
+-- Configuring done (99.5s)
+-- Generating done (0.1s)
+-- Build files have been written to: /src/node_modules/libwebp/build/simd
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[  4%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/idec_dec.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/cpu.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/io_dec.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/quant_dec.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/tree_dec.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_clip_tables.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/filters.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/vp8_dec.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless.c.o[0m
+[ 18%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/vp8l_dec.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler.c.o[0m
+[ 20%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling.c.o[0m
+[ 22%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/webp_dec.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 22%] Built target webpdecode
+[ 23%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv.c.o[0m
+make -C node_modules/libwebp/build/simd
+make[1]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[2]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[  1%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/alpha_dec.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 23%] Built target webpdspdecode
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 24%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/bit_reader_utils.c.o[0m
+[  2%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/buffer_dec.c.o[0m
+[ 25%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/color_cache_utils.c.o[0m
+[  3%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/frame_dec.c.o[0m
+[ 27%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/filters_utils.c.o[0m
+[ 28%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/huffman_utils.c.o[0m
+[  4%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/idec_dec.c.o[0m
+[ 29%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/quant_levels_dec_utils.c.o[0m
+[  5%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/io_dec.c.o[0m
+[ 30%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/rescaler_utils.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/quant_dec.c.o[0m
+[ 32%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/random_utils.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/tree_dec.c.o[0m
+[ 33%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/thread_utils.c.o[0m
+[ 34%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/utils.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/vp8_dec.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 34%] Built target webputilsdecode
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 35%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/alpha_enc.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/vp8l_dec.c.o[0m
+[ 37%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/analysis_enc.c.o[0m
+[ 38%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/backward_references_cost_enc.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/webpdecode.dir/src/dec/webp_dec.c.o[0m
+[ 39%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/backward_references_enc.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 10%] Built target webpdecode
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 11%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing.c.o[0m
+[ 12%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/cpu.c.o[0m
+[ 40%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/config_enc.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec.c.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/cost_enc.c.o[0m
+[ 13%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_clip_tables.c.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/filter_enc.c.o[0m
+[ 14%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/filters.c.o[0m
+[ 44%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/frame_enc.c.o[0m
+[ 15%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/histogram_enc.c.o[0m
+[ 16%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler.c.o[0m
+[ 17%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling.c.o[0m
+[ 46%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/iterator_enc.c.o[0m
+[ 48%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/near_lossless_enc.c.o[0m
+[ 18%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv.c.o[0m
+[ 49%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_enc.c.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_csp_enc.c.o[0m
+[ 19%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse41.c.o[0m
+[ 20%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse41.c.o[0m
+[ 51%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_psnr_enc.c.o[0m
+[ 21%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse41.c.o[0m
+[ 53%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_rescale_enc.c.o[0m
+[ 54%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_tools_enc.c.o[0m
+[ 22%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse41.c.o[0m
+[ 55%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/predictor_enc.c.o[0m
+[ 23%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse2.c.o[0m
+[ 56%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/quant_enc.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse2.c.o[0m
+[ 58%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/syntax_enc.c.o[0m
+[ 24%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/filters_sse2.c.o[0m
+[ 59%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/token_enc.c.o[0m
+[ 25%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/lossless_sse2.c.o[0m
+[ 60%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/tree_enc.c.o[0m
+[ 61%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/vp8l_enc.c.o[0m
+[ 26%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_sse2.c.o[0m
+[ 27%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse2.c.o[0m
+[ 62%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/webp_enc.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 62%] Built target webpencode
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 64%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing.c.o[0m
+[ 28%] [32mBuilding C object CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse2.c.o[0m
+[ 65%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/cpu.c.o[0m
+[ 66%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 28%] Built target webpdspdecode
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 29%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/bit_reader_utils.c.o[0m
+[ 30%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/color_cache_utils.c.o[0m
+[ 67%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec_clip_tables.c.o[0m
+[ 31%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/filters_utils.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/filters.c.o[0m
+[ 32%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/huffman_utils.c.o[0m
+[ 70%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless.c.o[0m
+[ 33%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/quant_levels_dec_utils.c.o[0m
+[ 71%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/rescaler.c.o[0m
+[ 34%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/rescaler_utils.c.o[0m
+[ 72%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/upsampling.c.o[0m
+[ 35%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/random_utils.c.o[0m
+[ 36%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/thread_utils.c.o[0m
+[ 37%] [32mBuilding C object CMakeFiles/webputilsdecode.dir/src/utils/utils.c.o[0m
+[ 74%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/yuv.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 37%] Built target webputilsdecode
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 38%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/alpha_enc.c.o[0m
+[ 75%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/cost.c.o[0m
+[ 39%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/analysis_enc.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/enc.c.o[0m
+[ 40%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/backward_references_cost_enc.c.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/backward_references_enc.c.o[0m
+[ 77%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc.c.o[0m
+[ 42%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/config_enc.c.o[0m
+[ 79%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/ssim.c.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/cost_enc.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 79%] Built target webpdsp
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 80%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/bit_reader_utils.c.o[0m
+[ 44%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/filter_enc.c.o[0m
+[ 81%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/color_cache_utils.c.o[0m
+[ 44%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/frame_enc.c.o[0m
+[ 82%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/filters_utils.c.o[0m
+[ 83%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/huffman_utils.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/histogram_enc.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/quant_levels_dec_utils.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/rescaler_utils.c.o[0m
+[ 46%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/iterator_enc.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/random_utils.c.o[0m
+[ 47%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/near_lossless_enc.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/thread_utils.c.o[0m
+[ 48%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_enc.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/utils.c.o[0m
+[ 49%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_csp_enc.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/bit_writer_utils.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/huffman_encode_utils.c.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_psnr_enc.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/quant_levels_utils.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 51%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_rescale_enc.c.o[0m
+[ 93%] Built target webputils
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 95%] [32m[1mLinking C static library libwebpdecoder.a[0m
+[ 52%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/picture_tools_enc.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 95%] Built target webpdecoder
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 96%] [32m[1mLinking C static library libwebp.a[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 96%] Built target webp
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[3]: Entering directory '/src/node_modules/libwebp/build/baseline'
+[ 97%] [32mBuilding C object CMakeFiles/webpdemux.dir/src/demux/anim_decode.c.o[0m
+[ 53%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/predictor_enc.c.o[0m
+[ 98%] [32mBuilding C object CMakeFiles/webpdemux.dir/src/demux/demux.c.o[0m
+[1m/src/node_modules/libwebp/src/demux/demux.c:611:9: [0m[0;1;35mwarning: [0m[1mvariable 'frame_count' set but not used [-Wunused-but-set-variable][0m
+  611 |     [0;34mint[0m frame_count = [0;32m0[0m;[0m
+      | [0;1;32m        ^
+[0m[ 54%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/quant_enc.c.o[0m
+1 warning generated.
+[100%] [32m[1mLinking C static library libwebpdemux.a[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[100%] Built target webpdemux
+make[2]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+make[1]: Leaving directory '/src/node_modules/libwebp/build/baseline'
+[ 55%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/syntax_enc.c.o[0m
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 56%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing.c.o[0m
+[ 56%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/token_enc.c.o[0m
+[ 57%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/cpu.c.o[0m
+[ 58%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/tree_enc.c.o[0m
+[ 59%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec.c.o[0m
+[ 60%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/vp8l_enc.c.o[0m
+[ 61%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec_clip_tables.c.o[0m
+[ 62%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/filters.c.o[0m
+[ 63%] [32mBuilding C object CMakeFiles/webpencode.dir/src/enc/webp_enc.c.o[0m
+[ 64%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 64%] Built target webpencode
+[ 65%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/rescaler.c.o[0m
+/emsdk/upstream/emscripten/emcc \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/webp_enc.js \
+	enc/webp_enc.o node_modules/libwebp/build/baseline/libwebp.a
+[ 66%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/upsampling.c.o[0m
+[ 67%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/yuv.c.o[0m
+[ 67%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse41.c.o[0m
+[ 68%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec_sse41.c.o[0m
+[ 69%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse41.c.o[0m
+[ 70%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/yuv_sse41.c.o[0m
+[ 71%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse2.c.o[0m
+[ 72%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/dec_sse2.c.o[0m
+[ 73%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/filters_sse2.c.o[0m
+[ 74%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless_sse2.c.o[0m
+[ 75%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/rescaler_sse2.c.o[0m
+[ 76%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse2.c.o[0m
+[ 77%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/yuv_sse2.c.o[0m
+[ 78%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/cost.c.o[0m
+[ 78%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/enc.c.o[0m
+[ 79%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc.c.o[0m
+[ 80%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/ssim.c.o[0m
+[ 81%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/cost_sse2.c.o[0m
+[ 82%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/enc_sse2.c.o[0m
+[ 83%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse2.c.o[0m
+[ 84%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/ssim_sse2.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/enc_sse41.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse41.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 86%] Built target webpdsp
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 87%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/bit_reader_utils.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/color_cache_utils.c.o[0m
+[ 89%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/filters_utils.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/huffman_utils.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/quant_levels_dec_utils.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/rescaler_utils.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/random_utils.c.o[0m
+/emsdk/upstream/emscripten/emcc \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o dec/webp_dec.js \
+	dec/webp_dec.o node_modules/libwebp/build/baseline/libwebp.a
+[ 94%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/thread_utils.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/utils.c.o[0m
+[ 95%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/bit_writer_utils.c.o[0m
+[ 96%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/huffman_encode_utils.c.o[0m
+[ 97%] [32mBuilding C object CMakeFiles/webputils.dir/src/utils/quant_levels_utils.c.o[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 97%] Built target webputils
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 98%] [32m[1mLinking C static library libwebpdecoder.a[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 98%] Built target webpdecoder
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 98%] [32m[1mLinking C static library libwebp.a[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[ 98%] Built target webp
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[3]: Entering directory '/src/node_modules/libwebp/build/simd'
+[ 98%] [32mBuilding C object CMakeFiles/webpdemux.dir/src/demux/anim_decode.c.o[0m
+[ 99%] [32mBuilding C object CMakeFiles/webpdemux.dir/src/demux/demux.c.o[0m
+[1m/src/node_modules/libwebp/src/demux/demux.c:611:9: [0m[0;1;35mwarning: [0m[1mvariable 'frame_count' set but not used [-Wunused-but-set-variable][0m
+  611 |     [0;34mint[0m frame_count = [0;32m0[0m;[0m
+      | [0;1;32m        ^
+[0m1 warning generated.
+[100%] [32m[1mLinking C static library libwebpdemux.a[0m
+make[3]: Leaving directory '/src/node_modules/libwebp/build/simd'
+[100%] Built target webpdemux
+make[2]: Leaving directory '/src/node_modules/libwebp/build/simd'
+make[1]: Leaving directory '/src/node_modules/libwebp/build/simd'
+/emsdk/upstream/emscripten/emcc \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o enc/webp_node_enc.js \
+	enc/webp_enc.o node_modules/libwebp/build/baseline/libwebp.a
+/emsdk/upstream/emscripten/emcc \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=node \
+	-s EXPORT_ES6=1 \
+	-o dec/webp_node_dec.js \
+	dec/webp_dec.o node_modules/libwebp/build/baseline/libwebp.a
+/emsdk/upstream/emscripten/emcc \
+	-O3 -flto -s FILESYSTEM=0 -s PTHREAD_POOL_SIZE=navigator.hardwareConcurrency -s ALLOW_MEMORY_GROWTH=1 -s TEXTDECODER=2 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0  \
+	--bind \
+	-s ENVIRONMENT=worker \
+	-s EXPORT_ES6=1 \
+	-o enc/webp_enc_simd.js \
+	enc/webp_enc.o node_modules/libwebp/build/simd/libwebp.a
+rm node_modules/libwebp/build/baseline/Makefile
