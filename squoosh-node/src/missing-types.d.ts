@@ -1,4 +1,4 @@
-/// <reference path="../../missing-types.d.ts" />
+/// <reference path="../../squoosh-app/missing-types.d.ts" />
 
 declare module 'asset-url:*' {
   const value: string;

@@ -14,11 +14,12 @@
     "outDir": ".tmp/ts",
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "static-build/*": ["src/static-build/*"],
-      "client/*": ["src/client/*"],
-      "shared/*": ["src/shared/*"],
-      "features/*": ["src/features/*"],
-      "worker-shared/*": ["src/worker-shared/*"]
+      "codecs/*": ["codecs/*"],
+      "static-build/*": ["squoosh-app/src/static-build/*"],
+      "client/*": ["squoosh-app/src/client/*"],
+      "shared/*": ["squoosh-app/src/shared/*"],
+      "features/*": ["squoosh-app/src/features/*"],
+      "worker-shared/*": ["squoosh-app/src/worker-shared/*"]
     }
   }
 }
