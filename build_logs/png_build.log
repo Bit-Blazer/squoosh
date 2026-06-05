@@ -1,0 +1,157 @@
+
+up to date, audited 1 package in 661ms
+
+found 0 vulnerabilities
+
+> build
+> ../build-rust.sh
+
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 DONE 0.0s
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 902B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/emscripten/emsdk:latest
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/rust:1.47
+#3 ...
+
+#4 [auth] library/rust:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/rust:1.47
+#3 DONE 1.2s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [wasm-tools 1/3] FROM docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8
+#6 resolve docker.io/emscripten/emsdk:latest@sha256:9eed2e47b4206928b22f99d2917013ad5462d777bb24cb546a652729896badd8 0.0s done
+#6 DONE 0.0s
+
+#7 [rust 1/8] FROM docker.io/library/rust:1.47@sha256:48f4b36c3f3492b82a5e14b2fc991d3163c1d2ce18ac1f0561e9657103192713
+#7 resolve docker.io/library/rust:1.47@sha256:48f4b36c3f3492b82a5e14b2fc991d3163c1d2ce18ac1f0561e9657103192713 0.0s done
+#7 DONE 0.0s
+
+#8 [rust 7/8] COPY --from=wasm-tools /opt/wasm-tools/wasm-pack /usr/local/cargo/bin/
+#8 CACHED
+
+#9 [wasm-tools 2/3] WORKDIR /opt/wasm-tools
+#9 CACHED
+
+#10 [rust 5/8] COPY --from=wasm-tools /emsdk/upstream/lib/ /usr/local/lib/
+#10 CACHED
+
+#11 [rust 3/8] RUN case rust:1.47 in rustlang/rust@*) rustup component add rust-src; esac
+#11 CACHED
+
+#12 [rust 4/8] COPY --from=wasm-tools /emsdk/upstream/bin/wasm-opt /emsdk/upstream/bin/clang /usr/local/bin/
+#12 CACHED
+
+#13 [rust 2/8] RUN rustup target add wasm32-unknown-unknown
+#13 CACHED
+
+#14 [wasm-tools 3/3] RUN wget -qO- https://github.com/rustwasm/wasm-pack/releases/download/v0.12.1/wasm-pack-v0.12.1-x86_64-unknown-linux-musl.tar.gz | tar -xzf - --strip 1
+#14 CACHED
+
+#15 [rust 6/8] COPY --from=wasm-tools /emsdk/upstream/emscripten/cache/sysroot/include/ /wasm32/include/
+#15 CACHED
+
+#16 [rust 8/8] WORKDIR /src
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:ce76b4f31dc75f8f645e8571f6401c79df6af902610a9fc058d4223b71aea595 done
+#17 exporting config sha256:8ab01017c1b50f922773a8dddbee2a75adde6d85ae43c037f78bcc99727ed621 done
+#17 exporting attestation manifest sha256:a9c143748ef456d142d1654a6b805d495bc0ac8fbc0b1555acc8b7385c71b634 0.0s done
+#17 exporting manifest list sha256:1e0bc65af7fa87497f054c0aef1fb5ca8d66bc20db7a29dc6f224e1be566d3d6
+#17 exporting manifest list sha256:1e0bc65af7fa87497f054c0aef1fb5ca8d66bc20db7a29dc6f224e1be566d3d6 0.0s done
+#17 naming to docker.io/library/squoosh-rust:latest done
+#17 unpacking to docker.io/library/squoosh-rust:latest 0.0s done
+#17 DONE 0.1s
+[1m[2m[INFO][0m: Checking for the Wasm target...
+[1m[2m[INFO][0m: Compiling to Wasm...
+[0m[0m[1m[32m   Compiling[0m proc-macro2 v1.0.27
+[0m[0m[1m[32m   Compiling[0m unicode-xid v0.2.1
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.27/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"' -C metadata=7edc40a0012e4cdb -C extra-filename=-7edc40a0012e4cdb --out-dir /src/target/release/build/proc-macro2-7edc40a0012e4cdb -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name unicode_xid /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/unicode-xid-0.2.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' -C metadata=a06dfae64cf4d8b5 -C extra-filename=-a06dfae64cf4d8b5 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m log v0.4.8
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.8/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off -C metadata=49ff11d66c796a90 -C extra-filename=-49ff11d66c796a90 --out-dir /src/target/release/build/log-49ff11d66c796a90 -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m syn v1.0.72
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/syn-1.0.72/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="clone-impls"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="full"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --cfg 'feature="quote"' --cfg 'feature="visit"' -C metadata=6915c02f5a2eb5bd -C extra-filename=-6915c02f5a2eb5bd --out-dir /src/target/release/build/syn-6915c02f5a2eb5bd -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m wasm-bindgen-shared v0.2.74
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-shared-0.2.74/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off -C metadata=44885e99c879b334 -C extra-filename=-44885e99c879b334 --out-dir /src/target/release/build/wasm-bindgen-shared-44885e99c879b334 -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m cfg-if v0.1.10
+[0m[0m[1m[32m     Running[0m `rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/cfg-if-0.1.10/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off -C metadata=4e06896827c844b3 -C extra-filename=-4e06896827c844b3 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m lazy_static v1.4.0
+[0m[0m[1m[32m     Running[0m `rustc --crate-name lazy_static /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/lazy_static-1.4.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off -C metadata=0058f2cee378e150 -C extra-filename=-0058f2cee378e150 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m bumpalo v3.4.0
+[0m[0m[1m[32m     Running[0m `rustc --crate-name bumpalo --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/bumpalo-3.4.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' -C metadata=57dca41fc94ece67 -C extra-filename=-57dca41fc94ece67 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m byteorder v1.3.4
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/byteorder-1.3.4/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="std"' -C metadata=9ab414232343b133 -C extra-filename=-9ab414232343b133 --out-dir /src/target/release/build/byteorder-9ab414232343b133 -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m wasm-bindgen v0.2.74
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-0.2.74/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="spans"' --cfg 'feature="std"' -C metadata=723c17630de5c8dd -C extra-filename=-723c17630de5c8dd --out-dir /src/target/release/build/wasm-bindgen-723c17630de5c8dd -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m cfg-if v1.0.0
+[0m[0m[1m[32m     Running[0m `rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/cfg-if-1.0.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=8cb1d859b0bf2cea -C extra-filename=-8cb1d859b0bf2cea --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m adler32 v1.1.0
+[0m[0m[1m[32m     Running[0m `rustc --crate-name adler32 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/adler32-1.1.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' --cfg 'feature="std"' -C metadata=c83de44d3d8caffb -C extra-filename=-c83de44d3d8caffb --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m crc32fast v1.2.0
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/crc32fast-1.2.0/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="std"' -C metadata=202019a9fe861293 -C extra-filename=-202019a9fe861293 --out-dir /src/target/release/build/crc32fast-202019a9fe861293 -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m bitflags v1.2.1
+[0m[0m[1m[32m     Running[0m `rustc --crate-name build_script_build /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/bitflags-1.2.1/build.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type bin --emit=dep-info,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' -C metadata=b9c8f52b47a8207b -C extra-filename=-b9c8f52b47a8207b --out-dir /src/target/release/build/bitflags-b9c8f52b47a8207b -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name cfg_if --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/cfg-if-0.1.10/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=fd129f540495c383 -C extra-filename=-fd129f540495c383 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m bytemuck v1.5.1
+[0m[0m[1m[32m     Running[0m `rustc --crate-name bytemuck --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/bytemuck-1.5.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=8931ff10a026cd55 -C extra-filename=-8931ff10a026cd55 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/proc-macro2-7edc40a0012e4cdb/build-script-build`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/log-49ff11d66c796a90/build-script-build`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/wasm-bindgen-shared-44885e99c879b334/build-script-build`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/syn-6915c02f5a2eb5bd/build-script-build`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/wasm-bindgen-723c17630de5c8dd/build-script-build`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/byteorder-9ab414232343b133/build-script-build`
+[0m[0m[1m[32m   Compiling[0m miniz_oxide v0.3.7
+[0m[0m[1m[32m     Running[0m `rustc --crate-name miniz_oxide --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/miniz_oxide-0.3.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=ca403176e04681ba -C extra-filename=-ca403176e04681ba --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern adler32=/src/target/wasm32-unknown-unknown/release/deps/libadler32-c83de44d3d8caffb.rmeta --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/crc32fast-202019a9fe861293/build-script-build`
+[0m[0m[1m[32m   Compiling[0m rgb v0.8.25
+[0m[0m[1m[32m     Running[0m `rustc --crate-name rgb --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/rgb-0.8.25/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="as-bytes"' --cfg 'feature="bytemuck"' --cfg 'feature="default"' -C metadata=381afb607d6d7d6d -C extra-filename=-381afb607d6d7d6d --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern bytemuck=/src/target/wasm32-unknown-unknown/release/deps/libbytemuck-8931ff10a026cd55.rmeta --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name proc_macro2 --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/proc-macro2-1.0.27/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"' -C metadata=274c82ae6c13108b -C extra-filename=-274c82ae6c13108b --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern unicode_xid=/src/target/release/deps/libunicode_xid-a06dfae64cf4d8b5.rmeta --cap-lints allow --cfg lexerror_display --cfg hygiene --cfg use_proc_macro --cfg wrap_proc_macro`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name log /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/log-0.4.8/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off -C metadata=e1f025ba90483025 -C extra-filename=-e1f025ba90483025 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern cfg_if=/src/target/release/deps/libcfg_if-4e06896827c844b3.rmeta --cap-lints allow --cfg atomic_cas`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name wasm_bindgen_shared --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-shared-0.2.74/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off -C metadata=13550b8dfb3b29cc -C extra-filename=-13550b8dfb3b29cc --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `/src/target/release/build/bitflags-b9c8f52b47a8207b/build-script-build`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name byteorder /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/byteorder-1.3.4/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' --cfg 'feature="std"' -C metadata=7da52a2aef46dccf -C extra-filename=-7da52a2aef46dccf --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow --cfg byteorder_i128`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name crc32fast /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/crc32fast-1.2.0/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' --cfg 'feature="std"' -C metadata=9eeab920ddf08faa -C extra-filename=-9eeab920ddf08faa --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern cfg_if=/src/target/wasm32-unknown-unknown/release/deps/libcfg_if-fd129f540495c383.rmeta --cap-lints allow --cfg crc32fast_stdarchx86`
+[0m[0m[1m[32m   Compiling[0m quote v1.0.7
+[0m[0m[1m[32m     Running[0m `rustc --crate-name quote --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/quote-1.0.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="default"' --cfg 'feature="proc-macro"' -C metadata=f1070eefee933a34 -C extra-filename=-f1070eefee933a34 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern proc_macro2=/src/target/release/deps/libproc_macro2-274c82ae6c13108b.rmeta --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name bitflags /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/bitflags-1.2.1/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' -C metadata=26c42f91f0656033 -C extra-filename=-26c42f91f0656033 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --cap-lints allow --cfg bitflags_const_fn`
+[0m[0m[1m[32m   Compiling[0m deflate v0.8.6
+[0m[0m[1m[32m     Running[0m `rustc --crate-name deflate --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/deflate-0.8.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=c9252420fbaf8326 -C extra-filename=-c9252420fbaf8326 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern adler32=/src/target/wasm32-unknown-unknown/release/deps/libadler32-c83de44d3d8caffb.rmeta --extern byteorder=/src/target/wasm32-unknown-unknown/release/deps/libbyteorder-7da52a2aef46dccf.rmeta --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name syn --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/syn-1.0.72/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="clone-impls"' --cfg 'feature="default"' --cfg 'feature="derive"' --cfg 'feature="full"' --cfg 'feature="parsing"' --cfg 'feature="printing"' --cfg 'feature="proc-macro"' --cfg 'feature="quote"' --cfg 'feature="visit"' -C metadata=b0ccae7586d2dbd4 -C extra-filename=-b0ccae7586d2dbd4 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern proc_macro2=/src/target/release/deps/libproc_macro2-274c82ae6c13108b.rmeta --extern quote=/src/target/release/deps/libquote-f1070eefee933a34.rmeta --extern unicode_xid=/src/target/release/deps/libunicode_xid-a06dfae64cf4d8b5.rmeta --cap-lints allow --cfg syn_disable_nightly_tests`
+[0m[0m[1m[32m   Compiling[0m png v0.16.7
+[0m[0m[1m[32m     Running[0m `rustc --crate-name png --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/png-0.16.7/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' --cfg 'feature="deflate"' --cfg 'feature="png-encoding"' -C metadata=b26ff8fe639d9d44 -C extra-filename=-b26ff8fe639d9d44 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern bitflags=/src/target/wasm32-unknown-unknown/release/deps/libbitflags-26c42f91f0656033.rmeta --extern crc32fast=/src/target/wasm32-unknown-unknown/release/deps/libcrc32fast-9eeab920ddf08faa.rmeta --extern deflate=/src/target/wasm32-unknown-unknown/release/deps/libdeflate-c9252420fbaf8326.rmeta --extern miniz_oxide=/src/target/wasm32-unknown-unknown/release/deps/libminiz_oxide-ca403176e04681ba.rmeta --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m wasm-bindgen-backend v0.2.74
+[0m[0m[1m[32m     Running[0m `rustc --crate-name wasm_bindgen_backend --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-backend-0.2.74/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="spans"' -C metadata=72810085c1b31676 -C extra-filename=-72810085c1b31676 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern bumpalo=/src/target/release/deps/libbumpalo-57dca41fc94ece67.rmeta --extern lazy_static=/src/target/release/deps/liblazy_static-0058f2cee378e150.rmeta --extern log=/src/target/release/deps/liblog-e1f025ba90483025.rmeta --extern proc_macro2=/src/target/release/deps/libproc_macro2-274c82ae6c13108b.rmeta --extern quote=/src/target/release/deps/libquote-f1070eefee933a34.rmeta --extern syn=/src/target/release/deps/libsyn-b0ccae7586d2dbd4.rmeta --extern wasm_bindgen_shared=/src/target/release/deps/libwasm_bindgen_shared-13550b8dfb3b29cc.rmeta --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m wasm-bindgen-macro-support v0.2.74
+[0m[0m[1m[32m     Running[0m `rustc --crate-name wasm_bindgen_macro_support --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-macro-support-0.2.74/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="spans"' -C metadata=d47d387952fa500a -C extra-filename=-d47d387952fa500a --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern proc_macro2=/src/target/release/deps/libproc_macro2-274c82ae6c13108b.rmeta --extern quote=/src/target/release/deps/libquote-f1070eefee933a34.rmeta --extern syn=/src/target/release/deps/libsyn-b0ccae7586d2dbd4.rmeta --extern wasm_bindgen_backend=/src/target/release/deps/libwasm_bindgen_backend-72810085c1b31676.rmeta --extern wasm_bindgen_shared=/src/target/release/deps/libwasm_bindgen_shared-13550b8dfb3b29cc.rmeta --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m wasm-bindgen-macro v0.2.74
+[0m[0m[1m[32m     Running[0m `rustc --crate-name wasm_bindgen_macro --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-macro-0.2.74/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type proc-macro --emit=dep-info,link -C prefer-dynamic -C embed-bitcode=no -C debug-assertions=off --cfg 'feature="spans"' -C metadata=d32a1e9222668671 -C extra-filename=-d32a1e9222668671 --out-dir /src/target/release/deps -L dependency=/src/target/release/deps --extern quote=/src/target/release/deps/libquote-f1070eefee933a34.rlib --extern wasm_bindgen_macro_support=/src/target/release/deps/libwasm_bindgen_macro_support-d47d387952fa500a.rlib --extern proc_macro --cap-lints allow`
+[0m[0m[1m[32m     Running[0m `rustc --crate-name wasm_bindgen --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/wasm-bindgen-0.2.74/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="default"' --cfg 'feature="spans"' --cfg 'feature="std"' -C metadata=2a05daf539976bc0 -C extra-filename=-2a05daf539976bc0 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern cfg_if=/src/target/wasm32-unknown-unknown/release/deps/libcfg_if-8cb1d859b0bf2cea.rmeta --extern wasm_bindgen_macro=/src/target/release/deps/libwasm_bindgen_macro-d32a1e9222668671.so --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m js-sys v0.3.45
+[0m[0m[1m[32m     Running[0m `rustc --crate-name js_sys --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/js-sys-0.3.45/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto -C metadata=e115204cfb902732 -C extra-filename=-e115204cfb902732 --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern wasm_bindgen=/src/target/wasm32-unknown-unknown/release/deps/libwasm_bindgen-2a05daf539976bc0.rmeta --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m web-sys v0.3.45
+[0m[0m[1m[32m     Running[0m `rustc --crate-name web_sys --edition=2018 /usr/local/cargo/registry/src/github.com-1ecc6299db9ec823/web-sys-0.3.45/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type lib --emit=dep-info,metadata,link -C opt-level=s -C linker-plugin-lto --cfg 'feature="ImageData"' -C metadata=b76c80252035a52e -C extra-filename=-b76c80252035a52e --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern js_sys=/src/target/wasm32-unknown-unknown/release/deps/libjs_sys-e115204cfb902732.rmeta --extern wasm_bindgen=/src/target/wasm32-unknown-unknown/release/deps/libwasm_bindgen-2a05daf539976bc0.rmeta --cap-lints allow`
+[0m[0m[1m[32m   Compiling[0m squoosh-png v0.1.0 (/src)
+[0m[0m[1m[32m     Running[0m `rustc --crate-name squoosh_png --edition=2018 src/lib.rs --error-format=json --json=diagnostic-rendered-ansi --crate-type cdylib --emit=dep-info,link -C opt-level=s -C lto -C metadata=a709d98dd4b3f02c --out-dir /src/target/wasm32-unknown-unknown/release/deps --target wasm32-unknown-unknown -L dependency=/src/target/wasm32-unknown-unknown/release/deps -L dependency=/src/target/release/deps --extern png=/src/target/wasm32-unknown-unknown/release/deps/libpng-b26ff8fe639d9d44.rlib --extern rgb=/src/target/wasm32-unknown-unknown/release/deps/librgb-381afb607d6d7d6d.rlib --extern wasm_bindgen=/src/target/wasm32-unknown-unknown/release/deps/libwasm_bindgen-2a05daf539976bc0.rlib --extern web_sys=/src/target/wasm32-unknown-unknown/release/deps/libweb_sys-b76c80252035a52e.rlib`
+[0m[0m[1m[32m    Finished[0m release [optimized] target(s) in 33.99s
+[1m[2m[INFO][0m: Installing wasm-bindgen...
+[1m[2m[INFO][0m: found wasm-opt at "/usr/local/bin/wasm-opt"
+[1m[2m[INFO][0m: Optimizing wasm binaries with `wasm-opt`...
+[1m[2m[INFO][0m: Optional fields missing from Cargo.toml: 'description', 'repository', and 'license'. These are not necessary, but recommended
+[1m[2m[INFO][0m: :-) Done in 35.66s
+[1m[2m[INFO][0m: :-) Your wasm pkg is ready to publish at /src/pkg.
+[1m[2m[WARN][0m: :-) There's a newer version of wasm-pack available, the new version is: 0.15.0, you are using: 0.12.1. To update, navigate to: https://rustwasm.github.io/wasm-pack/installer/

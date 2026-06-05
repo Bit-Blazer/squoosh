@@ -37,7 +37,7 @@ $(CODEC_DIR)/rdswitch.o: $(CODEC_DIR)/Makefile
 	$(MAKE) -C $(CODEC_DIR) rdswitch.o
 
 $(CODEC_DIR)/Makefile: $(CODEC_DIR)/configure
-	cd $(CODEC_DIR) && ./configure \
+	cd $(CODEC_DIR) && emconfigure ./configure --host=wasm32-unknown-emscripten \
 		--disable-shared \
 		--without-turbojpeg \
 		--without-simd \
