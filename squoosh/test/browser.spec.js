@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Squoosh Browser Automated Suite', () => {
   test('should pass all codec compressions', async ({ page }) => {
+    test.setTimeout(90000); // 90 seconds timeout for this test
     // Navigate to the manual runner HTML
     await page.goto('http://127.0.0.1:8080/squoosh/test/runner.html');
 

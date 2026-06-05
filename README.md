@@ -10,13 +10,6 @@ Squoosh has [an API](https://github.com/Bit-Blazer/squoosh/tree/dev/squoosh-node
 
 Squoosh does not send your image to a server. All image compression processes locally.
 
-However, Squoosh utilizes Google Analytics to collect the following:
-
-- [Basic visitor data](https://support.google.com/analytics/answer/6004245?ref_topic=2919631).
-- The before and after image size value.
-- If Squoosh PWA, the type of Squoosh installation.
-- If Squoosh PWA, the installation time and date.
-
 # Developing
 
 To develop for Squoosh:
@@ -49,6 +42,6 @@ This will automatically bump package versions, synchronize lockfiles, and tag th
 
 # Contributing
 
-Squoosh is an open-source project that appreciates all community involvement. To contribute to the project, follow the [contribute guide](/CONTRIBUTING.md).
+Squoosh is an open-source project that appreciates all community involvement. To contribute to the project, feel free to open an issue or submit a pull request.
 
 [squoosh]: https://bit-blazer.github.io/squoosh

@@ -54,9 +54,4 @@ declare module 'service-worker:*' {
   export default url;
 }
 
-declare var ga: {
-  (...args: any[]): void;
-  q: any[];
-};
-
 declare const __PRODUCTION__: boolean;

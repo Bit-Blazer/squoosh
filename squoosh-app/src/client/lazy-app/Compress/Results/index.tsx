@@ -44,20 +44,6 @@ export default class Results extends Component<Props, State> {
     }
   }
 
-  private onDownload = () => {
-    // GA can’t do floats. So we round to ints. We're deliberately rounding to nearest kilobyte to
-    // avoid cases where exact image sizes leak something interesting about the user.
-    const before = Math.round(this.props.source!.file.size / 1024);
-    const after = Math.round(this.props.imageFile!.size / 1024);
-    const change = Math.round((after / before) * 1000);
-
-    ga('send', 'event', 'compression', 'download', {
-      metric1: before,
-      metric2: after,
-      metric3: change,
-    });
-  };
-
   render(
     { source, imageFile, downloadUrl, flipSide, typeLabel }: Props,
     { showLoadingState }: State,
@@ -124,7 +110,6 @@ export default class Results extends Component<Props, State> {
           href={downloadUrl}
           download={imageFile ? imageFile.name : ''}
           title="Download"
-          onClick={this.onDownload}
         >
           <svg class={style.downloadBlobs} viewBox="0 0 89.6 86.9">
             <title>Download</title>
