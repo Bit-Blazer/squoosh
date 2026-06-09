@@ -16,16 +16,18 @@ import {
 import WorkerPool from './worker_pool.js';
 import { autoOptimize } from './auto-optimizer.js';
 import type ImageData from './image_data';
+import JSON5 from 'json5';
+import { EncodeSchemas, PreprocessSchemas } from './schemas.js';
 
 export { ImagePool, encoders, preprocessors };
 type EncoderKey = keyof typeof encoders;
 type PreprocessorKey = keyof typeof preprocessors;
 
 type PreprocessOptions = {
-  resize?: Partial<Omit<ResizeOptions, 'width' | 'height'>> &
-    (Pick<ResizeOptions, 'width'> | Pick<ResizeOptions, 'height'>);
-  quant?: Partial<QuantOptions>;
-  rotate?: Partial<RotateOptions>;
+  resize?: (Partial<Omit<ResizeOptions, 'width' | 'height'>> &
+    (Pick<ResizeOptions, 'width'> | Pick<ResizeOptions, 'height'>)) | string;
+  quant?: Partial<QuantOptions> | string;
+  rotate?: Partial<RotateOptions> | string;
 };
 type EncodeResult = {
   optionsUsed: object;
@@ -34,12 +36,12 @@ type EncodeResult = {
   size: number;
 };
 type EncoderOptions = {
-  mozjpeg?: Partial<MozJPEGEncodeOptions>;
-  webp?: Partial<WebPEncodeOptions>;
-  avif?: Partial<AvifEncodeOptions>;
-  jxl?: Partial<JxlEncodeOptions>;
-  wp2?: Partial<WP2EncodeOptions>;
-  oxipng?: Partial<OxiPngEncodeOptions>;
+  mozjpeg?: Partial<MozJPEGEncodeOptions> | string | 'auto';
+  webp?: Partial<WebPEncodeOptions> | string | 'auto';
+  avif?: Partial<AvifEncodeOptions> | string | 'auto';
+  jxl?: Partial<JxlEncodeOptions> | string | 'auto';
+  wp2?: Partial<WP2EncodeOptions> | string | 'auto';
+  oxipng?: Partial<OxiPngEncodeOptions> | string | 'auto';
 };
 
 async function decodeFile({
@@ -107,7 +109,7 @@ async function encodeImage({
     const decoder = await encoders[encName].dec();
     const encode = (bitmapIn: ImageData, quality: number) =>
       encoder.encode(
-        bitmapIn.data,
+        bitmapIn.data.buffer as ArrayBuffer,
         bitmapIn.width,
         bitmapIn.height,
         Object.assign({}, encoders[encName].defaultEncoderOptions as any, {
@@ -140,7 +142,7 @@ async function encodeImage({
     };
   } else {
     const result = encoder.encode(
-      bitmapIn.data.buffer,
+      bitmapIn.data.buffer as ArrayBuffer,
       bitmapIn.width,
       bitmapIn.height,
       encConfig,
@@ -210,11 +212,23 @@ class Image {
         throw Error(`Invalid preprocessor "${name}"`);
       }
       const preprocessorName = name as PreprocessorKey;
-      const preprocessorOptions = Object.assign(
-        {},
-        preprocessors[preprocessorName].defaultOptions,
-        options,
-      );
+
+      let preprocessorOptions;
+      if (typeof options === 'string') {
+        preprocessorOptions = {
+          ...preprocessors[preprocessorName].defaultOptions,
+          ...JSON5.parse(options),
+        }
+      }
+      else {
+        preprocessorOptions = {
+          ...preprocessors[preprocessorName].defaultOptions,
+          ...(options as object),
+        };
+      }
+
+      preprocessorOptions = PreprocessSchemas[preprocessorName].parse(preprocessorOptions);
+
       this.decoded = this.workerPool.dispatchJob({
         operation: 'preprocess',
         preprocessorName,
@@ -237,7 +251,7 @@ class Image {
     } & T,
   ): Promise<{ [key in keyof T]: EncodeResult }> {
     const { bitmap } = await this.decoded;
-    const setEncodedWithPromises = [];
+    const setEncodedWithPromises: Promise<void>[] = [];
     for (const [name, options] of Object.entries(encodeOptions)) {
       if (!Object.keys(encoders).includes(name)) {
         continue;
@@ -245,27 +259,29 @@ class Image {
       const encName = name as EncoderKey;
       const encRef = encoders[encName];
       const encConfig =
-        typeof options === 'string'
-          ? options
-          : Object.assign({}, encRef.defaultEncoderOptions, options);
+        options === 'auto'
+          ? { ...encRef.defaultEncoderOptions }
+          : typeof options === 'string'
+          ? { ...encRef.defaultEncoderOptions, ...JSON5.parse(options) }
+          : { ...encRef.defaultEncoderOptions, ...(options as any) };
+      
+      const validatedConfig = EncodeSchemas[encName].parse(encConfig);
+
       setEncodedWithPromises.push(
-        this.workerPool
-          .dispatchJob({
-            operation: 'encode',
-            bitmap,
-            encName,
-            encConfig,
-            optimizerButteraugliTarget: Number(
-              encodeOptions.optimizerButteraugliTarget ?? 1.4,
-            ),
-            maxOptimizerRounds: Number(encodeOptions.maxOptimizerRounds ?? 6),
-          })
-          .then((encodeResult) => {
-            this.encodedWith[encName] = encodeResult;
-          }),
+        this.workerPool.dispatchJob({
+          operation: 'encode',
+          bitmap,
+          encName,
+          encConfig: validatedConfig,
+          optimizerButteraugliTarget: Number(
+            encodeOptions.optimizerButteraugliTarget ?? 1.4,
+          ),
+          maxOptimizerRounds: Number(encodeOptions.maxOptimizerRounds ?? 6),
+        }).then((encodeResult) => {
+          this.encodedWith[encName] = encodeResult;
+        })
       );
     }
-
     await Promise.all(setEncodedWithPromises);
     return this.encodedWith as { [key in keyof T]: EncodeResult };
   }

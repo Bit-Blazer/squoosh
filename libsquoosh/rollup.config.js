@@ -14,6 +14,7 @@ export default {
   output: {
     dir: 'build',
     format: 'cjs',
+    exports: 'auto',
     assetFileNames: '[name]-[hash][extname]',
   },
   plugins: [

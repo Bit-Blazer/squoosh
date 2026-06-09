@@ -37,5 +37,5 @@ export default async function encode(
 
   if (!result) throw new Error('Encoding error');
 
-  return result.buffer;
+  return result.buffer as ArrayBuffer;
 }

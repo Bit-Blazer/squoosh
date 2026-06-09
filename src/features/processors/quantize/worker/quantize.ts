@@ -36,5 +36,13 @@ export default async function process(
         opts.dither,
       );
 
-  return new ImageData(result, data.width, data.height);
+  return new ImageData(
+    new Uint8ClampedArray(
+      result.buffer as ArrayBuffer,
+      result.byteOffset,
+      result.byteLength,
+    ),
+    data.width,
+    data.height,
+  );
 }

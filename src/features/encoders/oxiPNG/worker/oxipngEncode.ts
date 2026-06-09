@@ -51,5 +51,5 @@ export default async function encode(
     data.height,
     options.level,
     options.interlace,
-  ).buffer;
+  ).buffer as ArrayBuffer;
 }

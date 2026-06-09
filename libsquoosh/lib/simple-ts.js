@@ -62,9 +62,16 @@ export default function simpleTS(mainPath, { noBuild, watch } = {}) {
     }
     tsBuildDone = Promise.resolve().then(async () => {
       await new Promise((resolve) => {
-        const proc = spawn(tscPath, args, {
-          stdio: 'inherit',
-        });
+        const proc =
+          process.platform === 'win32'
+            ? spawn(`"${tscPath}" ${args.join(' ')}`, {
+                stdio: 'inherit',
+                shell: true,
+              })
+            : spawn(tscPath, args, {
+                stdio: 'inherit',
+                shell: false,
+              });
 
         proc.on('exit', (code) => {
           if (code !== 0) {
@@ -78,9 +85,15 @@ export default function simpleTS(mainPath, { noBuild, watch } = {}) {
 
       if (watch) {
         tsBuildDone.then(() => {
-          spawn(tscPath, [...args, '--watch', '--preserveWatchOutput'], {
-            stdio: 'inherit',
-          });
+          process.platform === 'win32'
+            ? spawn(
+                `"${tscPath}" ${[...args, '--watch', '--preserveWatchOutput'].join(' ')}`,
+                { stdio: 'inherit', shell: true },
+              )
+            : spawn(tscPath, [...args, '--watch', '--preserveWatchOutput'], {
+                stdio: 'inherit',
+                shell: false,
+              });
         });
       }
     });

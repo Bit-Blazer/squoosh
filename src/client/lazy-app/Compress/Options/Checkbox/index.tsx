@@ -3,7 +3,7 @@ import * as style from './style.css';
 import 'add-css:./style.css';
 import { UncheckedIcon, CheckedIcon } from '../../../icons';
 
-interface Props extends preact.JSX.HTMLAttributes {}
+interface Props extends preact.JSX.HTMLAttributes<HTMLInputElement> {}
 interface State {}
 
 export default class Checkbox extends Component<Props, State> {
@@ -19,7 +19,6 @@ export default class Checkbox extends Component<Props, State> {
         ) : (
           <UncheckedIcon class={style.icon} />
         )}
-        {/* @ts-ignore - TS bug https://github.com/microsoft/TypeScript/issues/16019 */}
         <input class={style.realCheckbox} type="checkbox" {...props} />
       </div>
     );

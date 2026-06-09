@@ -28,6 +28,7 @@ Options:
   -V, --version                                          output the version number
   -d, --output-dir <dir>                                 Output directory (default: ".")
   -s, --suffix <suffix>                                  Append suffix to output files (default: "")
+  -c, --max-concurrent-files <count>                     Amount of files to process at once (defaults to your CPU core count)
   --max-optimizer-rounds <rounds>                        Maximum number of compressions to use for auto optimizations (default: "6")
   --optimizer-butteraugli-target <butteraugli distance>  Target Butteraugli distance for auto optimizer (default: "1.4")
   --resize [config]                                      Resize the image before compressing

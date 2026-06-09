@@ -4,10 +4,19 @@ import { threads } from 'wasm-feature-detect';
 import { cpus } from 'os';
 
 // We use `navigator.hardwareConcurrency` for Emscripten’s pthread pool size.
-// This is the only workaround I can get working without crying.
-(globalThis as any).navigator = {
-  hardwareConcurrency: cpus().length,
-};
+// At this point exists more for backwards compatibility, modern Node disallows
+// setting this.
+const currentGlobal = (globalThis as any);
+if (typeof currentGlobal?.navigator?.hardwareConcurrency === 'undefined') {
+  try {
+    currentGlobal.navigator = {
+      hardwareConcurrency: cpus().length,
+    };
+  }
+  catch (error) {
+    console.warn('Warning: Failed to set navigator.hardwareConcurrency.');
+  }
+}
 
 interface DecodeModule extends EmscriptenWasm.Module {
   decode: (data: Uint8Array) => ImageData;
@@ -25,26 +34,22 @@ interface RotateModuleInstance {
 interface ResizeWithAspectParams {
   input_width: number;
   input_height: number;
-  target_width: number;
-  target_height: number;
+  target_width?: number;
+  target_height?: number;
 }
 
-export interface ResizeOptions {
-  width: number;
-  height: number;
-  method: 'triangle' | 'catrom' | 'mitchell' | 'lanczos3';
-  premultiply: boolean;
-  linearRGB: boolean;
-}
+import {
+  ResizeOptions,
+  QuantOptions,
+  RotateOptions,
+  MozJPEGEncodeOptions,
+  WebPEncodeOptions,
+  AvifEncodeOptions,
+  JxlEncodeOptions,
+  WP2EncodeOptions,
+  OxiPngEncodeOptions,
+} from './schemas.js';
 
-export interface QuantOptions {
-  numColors: number;
-  dither: number;
-}
-
-export interface RotateOptions {
-  numRotations: number;
-}
 
 declare global {
   // Needed for being able to use ImageData as type in codec types
@@ -61,7 +66,6 @@ import mozEnc from '../../codecs/mozjpeg/enc/mozjpeg_node_enc.js';
 import mozEncWasm from 'asset-url:../../codecs/mozjpeg/enc/mozjpeg_node_enc.wasm';
 import mozDec from '../../codecs/mozjpeg/dec/mozjpeg_node_dec.js';
 import mozDecWasm from 'asset-url:../../codecs/mozjpeg/dec/mozjpeg_node_dec.wasm';
-import type { EncodeOptions as MozJPEGEncodeOptions } from '../../codecs/mozjpeg/enc/mozjpeg_enc';
 
 // WebP
 import type { WebPModule as WebPEncodeModule } from '../../codecs/webp/enc/webp_enc';
@@ -69,7 +73,6 @@ import webpEnc from '../../codecs/webp/enc/webp_node_enc.js';
 import webpEncWasm from 'asset-url:../../codecs/webp/enc/webp_node_enc.wasm';
 import webpDec from '../../codecs/webp/dec/webp_node_dec.js';
 import webpDecWasm from 'asset-url:../../codecs/webp/dec/webp_node_dec.wasm';
-import type { EncodeOptions as WebPEncodeOptions } from '../../codecs/webp/enc/webp_enc.js';
 
 // AVIF
 import type { AVIFModule as AVIFEncodeModule } from '../../codecs/avif/enc/avif_enc';
@@ -80,7 +83,6 @@ import avifEncMtWorker from 'chunk-url:../../codecs/avif/enc/avif_node_enc_mt.wo
 import avifEncMtWasm from 'asset-url:../../codecs/avif/enc/avif_node_enc_mt.wasm';
 import avifDec from '../../codecs/avif/dec/avif_node_dec.js';
 import avifDecWasm from 'asset-url:../../codecs/avif/dec/avif_node_dec.wasm';
-import type { EncodeOptions as AvifEncodeOptions } from '../../codecs/avif/enc/avif_enc.js';
 
 // JXL
 import type { JXLModule as JXLEncodeModule } from '../../codecs/jxl/enc/jxl_enc';
@@ -88,7 +90,6 @@ import jxlEnc from '../../codecs/jxl/enc/jxl_node_enc.js';
 import jxlEncWasm from 'asset-url:../../codecs/jxl/enc/jxl_node_enc.wasm';
 import jxlDec from '../../codecs/jxl/dec/jxl_node_dec.js';
 import jxlDecWasm from 'asset-url:../../codecs/jxl/dec/jxl_node_dec.wasm';
-import type { EncodeOptions as JxlEncodeOptions } from '../../codecs/jxl/enc/jxl_enc.js';
 
 // WP2
 import type { WP2Module as WP2EncodeModule } from '../../codecs/wp2/enc/wp2_enc';
@@ -96,7 +97,6 @@ import wp2Enc from '../../codecs/wp2/enc/wp2_node_enc.js';
 import wp2EncWasm from 'asset-url:../../codecs/wp2/enc/wp2_node_enc.wasm';
 import wp2Dec from '../../codecs/wp2/dec/wp2_node_dec.js';
 import wp2DecWasm from 'asset-url:../../codecs/wp2/dec/wp2_node_dec.wasm';
-import type { EncodeOptions as WP2EncodeOptions } from '../../codecs/wp2/enc/wp2_enc.js';
 
 // PNG
 import * as pngEncDec from '../../codecs/png/pkg/squoosh_png.js';
@@ -109,9 +109,6 @@ const pngEncDecPromise = pngEncDec.default(
 import * as oxipng from '../../codecs/oxipng/pkg/squoosh_oxipng.js';
 import oxipngWasm from 'asset-url:../../codecs/oxipng/pkg/squoosh_oxipng_bg.wasm';
 const oxipngPromise = oxipng.default(fsp.readFile(pathify(oxipngWasm)));
-interface OxiPngEncodeOptions {
-  level: number;
-}
 
 // Resize
 import * as resize from '../../codecs/resize/pkg/squoosh_resize.js';
@@ -157,25 +154,22 @@ function resizeWithAspect({
   target_width,
   target_height,
 }: ResizeWithAspectParams): { width: number; height: number } {
-  if (!target_width && !target_height) {
-    throw Error('Need to specify at least width or height when resizing');
-  }
-
   if (target_width && target_height) {
     return { width: target_width, height: target_height };
   }
-
-  if (!target_width) {
+  if (target_height) {
     return {
       width: Math.round((input_width / input_height) * target_height),
       height: target_height,
     };
   }
-
-  return {
-    width: target_width,
-    height: Math.round((input_height / input_width) * target_width),
-  };
+  if (target_width) {
+    return {
+      width: target_width,
+      height: Math.round((input_height / input_width) * target_width),
+    };
+  }
+  throw Error('Need to specify at least width or height when resizing');
 }
 
 export const preprocessors = {
@@ -383,8 +377,8 @@ export const codecs = {
       );
     },
     defaultEncoderOptions: {
-      cqLevel: 33,
-      cqAlphaLevel: -1,
+      quality: 33,
+      qualityAlpha: -1,
       denoiseLevel: 0,
       tileColsLog2: 0,
       tileRowsLog2: 0,
@@ -392,10 +386,11 @@ export const codecs = {
       subsample: 1,
       chromaDeltaQ: false,
       sharpness: 0,
+      enableSharpYUV: false,
       tune: 0 /* AVIFTune.auto */,
     },
     autoOptimize: {
-      option: 'cqLevel',
+      option: 'quality',
       min: 62,
       max: 0,
     },
@@ -468,22 +463,24 @@ export const codecs = {
       await oxipngPromise;
       return {
         encode: (
-          buffer: Uint8ClampedArray | ArrayBuffer,
+          buffer: ArrayBuffer,
           width: number,
           height: number,
-          opts: { level: number },
+          opts: { level: number; interlace: boolean },
         ) => {
-          const simplePng = pngEncDec.encode(
-            new Uint8Array(buffer),
+          return oxipng.optimise(
+            new Uint8ClampedArray(buffer),
             width,
             height,
+            opts.level,
+            opts.interlace,
           );
-          return oxipng.optimise(simplePng, opts.level, false);
         },
       };
     },
     defaultEncoderOptions: {
       level: 2,
+      interlace: false,
     },
     autoOptimize: {
       option: 'level',
@@ -494,6 +491,9 @@ export const codecs = {
 } as const;
 
 export {
+  ResizeOptions,
+  QuantOptions,
+  RotateOptions,
   MozJPEGEncodeOptions,
   WebPEncodeOptions,
   AvifEncodeOptions,

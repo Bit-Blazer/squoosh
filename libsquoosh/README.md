@@ -20,7 +20,7 @@ import { cpus } from 'os';
 const imagePool = new ImagePool(cpus().length);
 ```
 
-This will create an image pool with an underlying processing pipeline that you can use to ingest and encode images. The ImagePool constructor takes one argument that defines how many parallel operations it is allowed to run at any given time.
+This will create an image pool with an underlying processing pipeline that you can use to ingest and encode images. The ImagePool constructor takes one argument that defines how many parallel operations it is allowed to run at any given time. By default, this number is set to the amount of CPU cores available in the system it is running on.
 
 :warning: Important! Make sure to only create 1 `ImagePool` when performing parallel image processing. If you create multiple pools, the `ImagePool` can run out of memory and crash. By reusing a single `ImagePool`, you can ensure that the backing worker queue and processing pipeline releases memory prior to processing the next image.
 
@@ -31,7 +31,7 @@ You can ingest a new image like so:
 ```js
 import fs from 'fs/promises';
 const file = await fs.readFile('./path/to/image.png');
-const image = imagePool.ingestImage(file);
+const image = imagePool.ingestImage(imagePath);
 ```
 
 The `ingestImage` function can accept any [`ArrayBuffer`][arraybuffer] whether that is from `readFile()` or `fetch()`.
@@ -43,15 +43,19 @@ The returned `image` object is a representation of the original image, that you 
 When an image has been ingested, you can start preprocessing it and encoding it to other formats. This example will resize the image and then encode it to a `.jpg` and `.jxl` image:
 
 ```js
+await image.decoded; //Wait until the image is decoded before running preprocessors.
+
 const preprocessOptions = {
   //When both width and height are specified, the image resized to specified size.
   resize: {
+    enabled: true,
     width: 100,
     height: 50,
   },
   /*
   //When either width or height is specified, the image resized to specified size keeping aspect ratio.
   resize: {
+    enabled: true,
     width: 100,
   }
   */
@@ -88,7 +92,7 @@ When you have encoded an image, you normally want to write it to a file.
 This example takes an image that has been encoded as a `jpg` and writes it to a file:
 
 ```js
-const rawEncodedImage = image.encodedWith.mozjpeg.binary;
+const rawEncodedImage = (await image.encodedWith.mozjpeg).binary;
 
 fs.writeFile('/path/to/new/image.jpg', rawEncodedImage);
 ```
@@ -99,7 +103,10 @@ This example iterates through all encoded versions of the image and writes them 
 const newImagePath = '/path/to/image.'; //extension is added automatically
 
 for (const encodedImage of Object.values(image.encodedWith)) {
-  fs.writeFile(newImagePath + encodedImage.extension, encodedImage.binary);
+  fs.writeFile(
+    newImagePath + (await encodedImage).extension,
+    (await encodedImage).binary,
+  );
 }
 ```
 
@@ -128,7 +135,7 @@ console.log(await image.decoded);
 Information about an encoded image can be found at `Image.encodedWith[encoderName]`. It looks something like this:
 
 ```js
-console.log(image.encodedWith.jxl);
+console.log(await image.encodedWith.jxl);
 // Returns:
 {
   optionsUsed: {

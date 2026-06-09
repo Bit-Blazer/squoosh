@@ -64,16 +64,30 @@ interface DrawableToImageDataOptions {
 }
 
 export function drawableToImageData(
-  drawable: ImageBitmap | HTMLImageElement,
+  drawable: CanvasImageSource | VideoFrame,
   opts: DrawableToImageDataOptions = {},
 ): ImageData {
+  let dWidth = 0;
+  let dHeight = 0;
+
+  if ('displayWidth' in drawable) {
+    dWidth = drawable.displayWidth;
+    dHeight = drawable.displayHeight;
+  } else if ('videoWidth' in drawable) {
+    dWidth = drawable.videoWidth;
+    dHeight = drawable.videoHeight;
+  } else if ('width' in drawable && typeof drawable.width === 'number') {
+    dWidth = drawable.width;
+    dHeight = drawable.height as number;
+  }
+
   const {
-    width = drawable.width,
-    height = drawable.height,
+    width = dWidth,
+    height = dHeight,
     sx = 0,
     sy = 0,
-    sw = drawable.width,
-    sh = drawable.height,
+    sw = dWidth,
+    sh = dHeight,
   } = opts;
 
   // Make canvas same size as image
