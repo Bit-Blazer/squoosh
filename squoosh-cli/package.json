@@ -1,13 +1,13 @@
 {
   "name": "@bit-blazer/squoosh-cli",
-  "version": "0.7.2",
+  "version": "1.2.0",
   "description": "A CLI for Squoosh",
   "public": true,
   "type": "module",
   "homepage": "https://github.com/Bit-Blazer/squoosh",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bit-Blazer/squoosh.git"
+    "url": "git+https://github.com/Bit-Blazer/squoosh.git"
   },
   "bin": {
     "squoosh-cli": "src/prod.js",
@@ -37,6 +37,6 @@
     "kleur": "^4.1.5",
     "ora": "^9.4.0",
     "zod": "^4.4.3",
-    "@bit-blazer/squoosh-node": "*"
+    "@bit-blazer/squoosh-node": "^1.2.0"
   }
 }

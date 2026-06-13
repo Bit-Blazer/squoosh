@@ -1,5 +1,6 @@
 {
   "name": "squoosh-monorepo",
+  "version": "1.2.0",
   "workspaces": [
     "squoosh-app",
     "squoosh-node",

@@ -1,6 +1,6 @@
 {
   "name": "@bit-blazer/squoosh-node",
-  "version": "0.5.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "A Node library for Squoosh",
   "public": true,
