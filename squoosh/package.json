@@ -1,0 +1,65 @@
+{
+  "name": "@bit-blazer/squoosh",
+  "version": "1.1.4",
+  "description": "Run Squoosh codecs in the browser via Web Workers — identical performance to squoosh.app",
+  "license": "Apache-2.0",
+  "author": "Bit Blazer",
+  "homepage": "https://github.com/Bit-Blazer/squoosh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bit-Blazer/squoosh.git",
+    "directory": "squoosh"
+  },
+  "type": "module",
+  "main": "./dist/squoosh.cjs",
+  "module": "./dist/squoosh.esm.js",
+  "types": "./dist/squoosh.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/squoosh.esm.js",
+      "require": "./dist/squoosh.cjs",
+      "types": "./dist/squoosh.d.ts"
+    }
+  },
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "playwright test",
+    "postbuild": "node scripts/copy-codecs.js",
+    "clean": "rimraf dist node_modules"
+  },
+  "keywords": [
+    "image",
+    "compression",
+    "squoosh",
+    "wasm",
+    "webp",
+    "avif",
+    "mozjpeg",
+    "browser"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "http-server": "^14.1.1",
+    "rollup": "^4.62.0",
+    "rollup-plugin-dts": "^6.4.1",
+    "tslib": "^2.8.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "comlink": "^4.4.2",
+    "wasm-feature-detect": "^1.8.0"
+  }
+}

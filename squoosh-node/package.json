@@ -1,0 +1,46 @@
+{
+  "name": "@bit-blazer/squoosh-node",
+  "version": "0.5.0",
+  "type": "module",
+  "description": "A Node library for Squoosh",
+  "public": true,
+  "main": "./build/index.cjs",
+  "types": "./build/index.d.ts",
+  "files": [
+    "/build/*"
+  ],
+  "scripts": {
+    "build": "rollup -c && node lib/move-d-ts.js",
+    "clean": "rimraf build .tmp node_modules",
+    "test": "node --test test/index.test.mjs"
+  },
+  "keywords": [],
+  "author": "Google Chrome Developers <chromium-dev@google.com>",
+  "homepage": "https://github.com/Bit-Blazer/squoosh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bit-Blazer/squoosh.git"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "json5": "^2.2.3",
+    "wasm-feature-detect": "^1.2.11",
+    "web-streams-polyfill": "^4.3.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@rollup/plugin-babel": "^7.1.0",
+    "@rollup/plugin-commonjs": "^29.0.3",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^1.0.0",
+    "@types/node": "^25.9.3",
+    "rollup": "^4.62.0",
+    "typescript": "^6.0.3",
+    "which": "^7.0.0"
+  }
+}

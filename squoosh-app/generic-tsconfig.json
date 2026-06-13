@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "esnext",
+    "jsx": "react",
+    "jsxFactory": "h",
+    "strict": true,
+    "moduleResolution": "bundler",
+    "resolvePackageJsonExports": false,
+    "composite": true,
+    "declarationMap": true,
+    "rootDir": "./",
+    "outDir": ".tmp/ts",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "static-build/*": ["./src/static-build/*"],
+      "client/*": ["./src/client/*"],
+      "shared/*": ["./src/shared/*"],
+      "features/*": ["./src/features/*"],
+      "worker-shared/*": ["./src/worker-shared/*"],
+      "codecs/*": ["../codecs/*"]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "bundler",
+    "resolvePackageJsonExports": false,
+    "composite": true,
+    "declarationMap": true,
+    "outDir": ".tmp/ts",
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext"],
+    "types": ["node"],
+    "rootDir": "..",
+    "allowJs": true,
+    "declaration": true
+  },
+  "include": ["src/**/*", "../codecs/**/*"]
+}

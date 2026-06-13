@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squoosh Browser Test</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 1px dashed #999;
+      margin-top: 1rem;
+    }
+
+    #log {
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Test `@bit-blazer/squoosh` Browser Package</h1>
+  <p>Select an image to test the decoding, resizing, and encoding capabilities of the browser package. You can choose to test against your local build or the published CDN release.</p>
+
+  <div style="margin-bottom: 1rem; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
+    <strong>Library Source:</strong>
+    <label style="margin-left: 1rem; cursor: pointer;">
+      <input type="radio" name="source" value="local" checked> Local Build (`../dist/`)
+    </label>
+    <label style="margin-left: 1rem; cursor: pointer;">
+      <input type="radio" name="source" value="cdn"> CDN Build (jsDelivr)
+    </label>
+  </div>
+
+  <input type="file" id="fileInput" accept="image/*" />
+
+  <div class="grid">
+    <div class="card">
+      <h3>Original</h3>
+      <div id="originalSize"></div>
+      <img id="originalImg" />
+    </div>
+    <div class="card">
+      <h3>Compressed (MozJPEG)</h3>
+      <div id="compressedSize"></div>
+      <img id="compressedImg" />
+    </div>
+  </div>
+
+  <div id="log">Logs will appear here...</div>
+
+  <script type="module">
+    const logEl = document.getElementById('log');
+    const log = (msg) => {
+      console.log(msg);
+      logEl.textContent += `\n> ${msg}`;
+    };
+
+    document.getElementById('fileInput').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      logEl.textContent = 'Logs:';
+      log(`Selected: ${file.name} (${(file.size / 1024).toFixed(2)} KB)`);
+
+      // Determine which version to load dynamically
+      const source = document.querySelector('input[name="source"]:checked').value;
+      let Squoosh, squoosh;
+
+      try {
+        log(`Loading Squoosh from ${source}...`);
+        if (source === 'local') {
+          const mod = await import('../dist/squoosh.esm.js');
+          Squoosh = mod.Squoosh;
+          // Initialize Squoosh with an absolute path for cdnBase.
+          // This is required because Blob workers resolve relative paths weirdly.
+          squoosh = new Squoosh({ cdnBase: '../dist/' });
+        } else {
+          const mod = await import('https://cdn.jsdelivr.net/npm/@bit-blazer/squoosh@1.1.2/dist/squoosh.esm.js');
+          Squoosh = mod.Squoosh;
+          // Initialize Squoosh with ZERO config (relies on hardcoded CDN base for WebAssembly)
+          squoosh = new Squoosh();
+        }
+      } catch (err) {
+        log(`❌ Failed to load library from ${source}: ${err.message}`);
+        return;
+      }
+
+      // Display original
+      const origUrl = URL.createObjectURL(file);
+      document.getElementById('originalImg').src = origUrl;
+      document.getElementById('originalSize').textContent = `${(file.size / 1024).toFixed(2)} KB`;
+
+      try {
+        log('Decoding image...');
+        const t1 = performance.now();
+        const imageData = await squoosh.decode(file);
+        log(`Decoded in ${Math.round(performance.now() - t1)}ms (${imageData.width}x${imageData.height})`);
+
+        log('Resizing to width 800px...');
+        const t2 = performance.now();
+        const resized = await squoosh.resize(imageData, { width: 800 });
+        log(`Resized in ${Math.round(performance.now() - t2)}ms (${resized.width}x${resized.height})`);
+
+        log('Encoding to MozJPEG with default options...');
+        const t3 = performance.now();
+        const resultBlob = await squoosh.encodeToBlob(resized, {
+          codec: 'mozjpeg',
+          options: {}
+        });
+        log(`Encoded in ${Math.round(performance.now() - t3)}ms`);
+
+        // Display compressed
+        const compUrl = URL.createObjectURL(resultBlob);
+        document.getElementById('compressedImg').src = compUrl;
+        document.getElementById('compressedSize').textContent = `${(resultBlob.size / 1024).toFixed(2)} KB`;
+
+        log(`🎉 Success! Compressed from ${(file.size / 1024).toFixed(2)} KB to ${(resultBlob.size / 1024).toFixed(2)} KB.`);
+      } catch (err) {
+        log(`❌ Error: ${err.message}`);
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+
+</html>

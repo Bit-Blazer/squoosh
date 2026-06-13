@@ -1,0 +1,42 @@
+{
+  "name": "@bit-blazer/squoosh-cli",
+  "version": "0.7.2",
+  "description": "A CLI for Squoosh",
+  "public": true,
+  "type": "module",
+  "homepage": "https://github.com/Bit-Blazer/squoosh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bit-Blazer/squoosh.git"
+  },
+  "bin": {
+    "squoosh-cli": "src/prod.js",
+    "squoosh-cli-debug": "src/debug.js"
+  },
+  "scripts": {
+    "test": "node --test test/index.test.mjs"
+  },
+  "files": [
+    "/src/index.js",
+    "/src/prod.js"
+  ],
+  "keywords": [
+    "image",
+    "optimisation",
+    "optimization",
+    "squoosh"
+  ],
+  "author": "Google Chrome Developers <chromium-dev@google.com>",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "json5": "^2.2.3",
+    "kleur": "^4.1.5",
+    "ora": "^9.4.0",
+    "zod": "^4.4.3",
+    "@bit-blazer/squoosh-node": "*"
+  }
+}
