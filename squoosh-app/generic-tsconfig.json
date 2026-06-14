@@ -10,7 +10,7 @@
     "composite": true,
     "declarationMap": true,
     "rootDir": "./",
-    "outDir": ".tmp/ts",
+    "outDir": "build/ts",
     "allowSyntheticDefaultImports": true,
     "paths": {
       "static-build/*": ["./src/static-build/*"],

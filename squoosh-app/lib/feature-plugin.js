@@ -58,6 +58,7 @@ export default function () {
       .flat(Infinity)
       .join('\n');
 
+    await fsp.mkdir(workerBasePath, { recursive: true });
     await fsp.writeFile(path.join(workerBasePath, 'index.ts'), workerFile);
   }
 
@@ -105,6 +106,7 @@ export default function () {
       .flat(Infinity)
       .join('\n');
 
+    await fsp.mkdir(workerBridgeBasePath, { recursive: true });
     await fsp.writeFile(path.join(workerBridgeBasePath, 'meta.ts'), bridgeMeta);
   }
 
@@ -253,6 +255,7 @@ export default function () {
       .flat(Infinity)
       .join('\n');
 
+    await fsp.mkdir(featureMetaBasePath, { recursive: true });
     await fsp.writeFile(
       path.join(featureMetaBasePath, 'index.ts'),
       featureMeta,

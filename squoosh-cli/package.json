@@ -1,42 +1,44 @@
 {
   "name": "@bit-blazer/squoosh-cli",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "A CLI for Squoosh",
-  "public": true,
-  "type": "module",
-  "homepage": "https://github.com/Bit-Blazer/squoosh",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bit-Blazer/squoosh.git"
-  },
-  "bin": {
-    "squoosh-cli": "src/prod.js",
-    "squoosh-cli-debug": "src/debug.js"
-  },
-  "scripts": {
-    "test": "node --test test/index.test.mjs"
-  },
-  "files": [
-    "/src/index.js",
-    "/src/prod.js"
-  ],
   "keywords": [
     "image",
     "optimisation",
     "optimization",
     "squoosh"
   ],
-  "author": "Google Chrome Developers <chromium-dev@google.com>",
+  "homepage": "https://github.com/Bit-Blazer/squoosh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bit-Blazer/squoosh.git"
+  },
   "license": "Apache-2.0",
-  "engines": {
-    "node": ">=16.0.0"
+  "author": "Google Chrome Developers <chromium-dev@google.com>",
+  "type": "module",
+  "bin": {
+    "squoosh-cli": "src/prod.js",
+    "squoosh-cli-debug": "src/debug.js"
+  },
+  "files": [
+    "/src/index.js",
+    "/src/prod.js",
+    "/src/debug.js"
+  ],
+  "scripts": {
+    "test": "node --test test/index.test.mjs"
   },
   "dependencies": {
+    "@bit-blazer/squoosh-node": "^1.3.0",
     "commander": "^15.0.0",
     "json5": "^2.2.3",
     "kleur": "^4.1.5",
-    "ora": "^9.4.0",
-    "zod": "^4.4.3",
-    "@bit-blazer/squoosh-node": "^1.2.0"
+    "ora": "^9.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

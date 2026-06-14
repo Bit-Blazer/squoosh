@@ -53,7 +53,7 @@ function resolveImportMetaUrlInStaticBuild(property, { moduleId }) {
   `);
 }
 
-const dir = '.tmp/build';
+const dir = 'build';
 const staticPath = 'static/c/[name]-[hash][extname]';
 const jsPath = staticPath.replace('[extname]', '.js');
 
@@ -72,7 +72,7 @@ export default async function ({ watch }) {
     'utf-8',
   );
 
-  await del('.tmp/build');
+  await del('build');
 
   const isProduction = !watch;
 
@@ -130,7 +130,9 @@ export default async function ({ watch }) {
               output: 'static/serviceworker.js',
             }),
             ...commonPlugins(),
-            resolve(),
+            resolve({
+              exportConditions: ['browser', 'import', 'default', 'module'],
+            }),
             commonjs({
               exclude: [/node_modules\/preact/, /workerHelpers\.js/],
             }),

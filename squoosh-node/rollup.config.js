@@ -12,7 +12,7 @@ import { builtinModules } from 'module';
 export default {
   input: 'src/index.ts',
   output: {
-    dir: 'build',
+    dir: 'dist',
     format: 'cjs',
     exports: 'auto',
     entryFileNames: '[name].cjs',

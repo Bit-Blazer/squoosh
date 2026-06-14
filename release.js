@@ -36,7 +36,6 @@ try {
 
   // 3.5 Sync the lockfile
   child_process.execSync('npm install --package-lock-only', {
-    cwd: 'squoosh-cli',
     stdio: 'inherit',
   });
 

@@ -118,7 +118,9 @@ export default function simpleTS(mainPath, { noBuild, watch } = {}) {
         !tsResolve.resolvedModule ||
         // Or if it's linking to a definition file, it's something in node_modules,
         // or something local like css.d.ts
-        tsResolve.resolvedModule.extension === '.d.ts'
+        tsResolve.resolvedModule.extension === '.d.ts' ||
+        tsResolve.resolvedModule.extension === '.d.mts' ||
+        tsResolve.resolvedModule.extension === '.d.cts'
       ) {
         return null;
       }

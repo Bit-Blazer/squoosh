@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       publish_npm:
-        description: 'Publish squoosh-node and CLI to npm'
+        description: 'Publish to npm'
         required: true
         type: boolean
         default: false
@@ -33,13 +33,12 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Web App
-        run: npm run build
+        run: npm run build --workspace=squoosh-app
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -63,24 +62,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
 
-      - name: Publish (squoosh-node)
-        run: npm publish --provenance --access public --workspace=squoosh-node
-        continue-on-error: true
-
-      - name: Wait for NPM registry propagation
-        run: sleep 45
-
-      - name: Publish (CLI)
-        run: npm publish --provenance --access public --workspace=squoosh-cli
-        continue-on-error: true
-
-      - name: Publish (squoosh browser)
-        run: npm publish --provenance --access public --workspace=squoosh
-        continue-on-error: true
+      - name: Publish All Packages
+        run: npm publish --workspaces
